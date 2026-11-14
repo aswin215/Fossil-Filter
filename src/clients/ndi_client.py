@@ -81,15 +81,29 @@ class NDIClient:
         grant = g.json()
         up = httpx.post(grant["upload_url"], headers={"X-Upload-Token": grant["token"]}, timeout=90.0,
                         files={"file": (name, content, content_type)},
-                        data={"metadata": json.dumps({"path": path, "on_conflict": "replace"})})
+                        data={"metadata": json.dumps({"path": path, "on_conflict": "new_version"})})
         if up.status_code >= 300:
             raise self._err(up)
         info = up.json()
-        file_id = info.get("file_id") or info.get("id") or (info.get("file") or {}).get("id") \
-            or (info.get("file") or {}).get("file_id")
+        # Verified live (2026-11-14): the upload answers with a `file_upload` JOB; the file is at
+        # result.file.file_id. Poll the job if it has not finished yet.
+        deadline = time.time() + 60
+        while info.get("job_id") and info.get("status") not in ("succeeded", "failed", "cancelled"):
+            if time.time() > deadline:
+                raise TimeoutError(f"NDI upload job {info['job_id']} still {info.get('status')}")
+            time.sleep(1.0)
+            j = self._http.get(f"/v1/documents/jobs/{info['job_id']}")
+            if j.status_code != 200:
+                raise self._err(j)
+            info = j.json()
+        if info.get("status") in ("failed", "cancelled"):
+            raise RuntimeError(f"NDI upload job {info.get('status')}: {info.get('result_error') or info.get('error')}")
+        f = ((info.get("result") or {}).get("file") or info.get("file") or {})
+        file_id = f.get("file_id") or info.get("file_id") or f.get("id")
         if not file_id:
             raise RuntimeError(f"NDI upload: could not find file id in response keys {list(info)}")
-        return {"type": "workspace_file", "workspace_id": info.get("workspace_id") or grant["workspace_id"],
+        return {"type": "workspace_file",
+                "workspace_id": f.get("workspace_id") or info.get("workspace_id") or grant["workspace_id"],
                 "file_id": file_id}
 
     def _run(self, tool: str, body: dict) -> dict:
@@ -130,10 +144,16 @@ class NDIClient:
                 if f and f.get("citations"):
                     c = f["citations"][0]
                     grounding[fld] = {"location": c.get("location"), "source_text": c.get("source_text")}
-            conf = (by_path.get(f"/jobs/{i}") or {}).get("confidence")
-            jobs.append(NDIJob({k: item.get(k) for k in JOB_FIELDS}, grounding, conf))
-        pages = float((job.get("usage_final") or {}).get("pages", 1) or 1)
-        return NDIResult(jobs, pages, time.perf_counter() - t0, job.get("job_id"))
+            whole = by_path.get(f"/jobs/{i}") or {}
+            if not grounding and whole.get("citations"):  # live API cites the whole job record (verified)
+                c = whole["citations"][0]
+                grounding["job"] = {"location": c.get("location"), "source_text": c.get("source_text")}
+            jobs.append(NDIJob({k: item.get(k) for k in JOB_FIELDS}, grounding, whole.get("confidence")))
+        # Verified live: usage.lines[*] {unit: "page", quantity}, and cost.total_usd is the billed amount.
+        lines = (job.get("usage") or {}).get("lines") or []
+        pages = float(max([ln.get("quantity", 0) for ln in lines if ln.get("unit") == "page"] or [1]))
+        cost = float(((job.get("cost") or {}).get("total_usd")) or 0.0)
+        return NDIResult(jobs, pages, time.perf_counter() - t0, job.get("job_id"), cost_usd=cost)
 
     def parse_file(self, path: str | Path) -> str:
         """Parse an attachment (PDF job description, resume) into markdown."""

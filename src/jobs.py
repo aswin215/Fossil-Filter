@@ -42,7 +42,8 @@ def extract_jobs(email: dict, ndi) -> tuple[list[dict], dict]:
         d = dict(j.fields)
         d.update({"email_id": email["id"], "grounding": j.grounding, "extract_confidence": j.confidence})
         jobs.append(d)
-    return jobs, {"pages": r.pages, "latency_s": r.latency_s, "n_jobs": len(jobs)}
+    return jobs, {"pages": r.pages, "latency_s": r.latency_s, "n_jobs": len(jobs),
+                  "cost_usd": getattr(r, "cost_usd", 0.0)}
 
 
 def score_job_drex(profile_text: str, job: dict, drex) -> dict:

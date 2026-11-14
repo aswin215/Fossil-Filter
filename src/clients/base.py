@@ -89,6 +89,7 @@ class NDIResult:
     pages: float
     latency_s: float
     raw_job_id: str | None = None
+    cost_usd: float = 0.0  # NDI-reported cost.total_usd
 
 
 def estimate_tokens(text: str) -> int:

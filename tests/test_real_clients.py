@@ -99,7 +99,9 @@ def test_ndi_extract_flow():
                                              "token": "tok", "expires_at": "x", "max_bytes": 10**8})
         if req.url.host == "up.example":
             assert req.headers["x-upload-token"] == "tok"
-            return httpx.Response(200, json={"file_id": "file_9", "workspace_id": "ws_1"})
+            return httpx.Response(200, json={"job_id": "up_1", "kind": "file_upload", "status": "succeeded",
+                                             "result": {"result_type": "file_upload", "file": {
+                                                 "file_id": "file_9", "workspace_id": "ws_1"}}})
         if req.url.path == "/v1/documents/extract":
             body = json.loads(req.content)
             assert body["source"] == {"type": "workspace_file", "workspace_id": "ws_1", "file_id": "file_9"}

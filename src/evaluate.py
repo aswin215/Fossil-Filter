@@ -204,7 +204,8 @@ def run_jobs_eval(emails, profile_name, clients, workers) -> dict:
     claude = cached(f"jobs_claude_{profile_name}_{_tag(clients, 'claude')}", jobs, jkey,
                     lambda j: score_job_claude(prof, j, clients.claude), workers)
     pages = sum(v["meta"]["pages"] for v in ex.values())
-    return {"jobs": jobs, "drex": drex, "claude": claude, "jkey": jkey, "ndi_pages": pages,
+    reported = sum(v["meta"].get("cost_usd", 0.0) for v in ex.values())
+    return {"jobs": jobs, "drex": drex, "claude": claude, "jkey": jkey, "ndi_pages": pages, "ndi_cost": reported,
             "ndi_latency": [v["meta"]["latency_s"] for v in ex.values()], "n_alerts": len(alerts)}
 
 
@@ -235,7 +236,7 @@ def jobs_metrics(J: dict, gold: dict, threshold: float, claude_model: str | None
                                                                for x in c])) if c else 0}
     out["ndi"] = {"alerts": J["n_alerts"], "jobs_extracted": len(J["jobs"]),
                   "p50_s": float(np.median(J["ndi_latency"])) if J["ndi_latency"] else 0,
-                  "cost_usd": J["ndi_pages"] * config.NDI_EXTRACT_PER_1K_PAGES / 1000}
+                  "cost_usd": J.get("ndi_cost") or J["ndi_pages"] * config.NDI_EXTRACT_PER_1K_PAGES / 1000}
     return out
 
 
