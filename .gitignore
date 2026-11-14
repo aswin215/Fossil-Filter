@@ -1,0 +1,18 @@
+# secrets
+.env
+credentials.json
+token.json
+
+# private mail data
+data/raw/
+*.mbox
+data/emails.jsonl
+data/att/
+
+# local caches / env
+.venv/
+__pycache__/
+*.pyc
+results/cache/
+.streamlit/secrets.toml
+.DS_Store
