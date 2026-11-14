@@ -204,6 +204,47 @@ def test_intern_subprocess_event_parsing(tmp_path):
     assert abs(s["total_cost_usd"] - 0.0021) < 1e-9 and s["reason"] == "completed"
 
 
+def test_level_c_mcp_server_through_interns_client(tmp_path):
+    """Our MCP server, reached through Intern's own stdio MCP client; the generated config validates."""
+    import asyncio
+    import sys
+    import tomllib
+
+    import src.agent as ag
+    from intern.capability_settings import McpConfig
+    from intern.mcp_client import StdioConfig, stdio_connection
+
+    ws = tmp_path / "ws"
+    ws.mkdir()
+    (ws / "profile.txt").write_text("Student looking for ML internships.")
+    (ws / "emails.jsonl").write_text(json.dumps({"id": "e1", "from": "Recruiter <r@x.example>", "subject":
+                                                 "Interview tomorrow - please confirm", "date": "", "body":
+                                                 "Please confirm your interview slot by tonight."}) + "\n")
+    entry = tomllib.loads(ag.intern_home_with_mcp(ws, real=False).joinpath("config.toml").read_text())
+    cfg = McpConfig.model_validate(entry["capabilities"]["mcp"][0])
+    effects = {k: frozenset(v) for k, v in cfg.remote_tools.items()}
+
+    async def go():
+        sc = StdioConfig(command=sys.executable, args=["-m", "src.mcp_server", "--workspace", str(ws)],
+                         cwd=config.ROOT)
+        async with stdio_connection(sc, "inbox") as conn:
+            tools = await conn.tools(effects)
+            names = sorted(t.name for t in tools)
+            scored = await conn.session.call_tool("score_email", arguments={"id": "e1"})
+            saved = await conn.session.call_tool("save_label", arguments={"id": "e1", "category": "urgent_action_needed",
+                                                                         "relevance": "high", "action": "reply_today"})
+            bad = await conn.session.call_tool("save_label", arguments={"id": "e1", "category": "nope",
+                                                                       "relevance": "high", "action": "reply_today"})
+            return names, scored.content[0].text, saved.content[0].text, bad.content[0].text
+    names, scored, saved, bad = asyncio.run(go())
+    assert names == ["mcp__inbox__get_email", "mcp__inbox__list_emails", "mcp__inbox__save_label",
+                     "mcp__inbox__score_email"]
+    sc = json.loads(scored)
+    assert abs(sum(sc["category_probs"].values()) - 1) < 0.01
+    assert json.loads(saved)["ok"] and not json.loads(bad)["ok"]
+    assert json.loads((ws / "agent_triage.json").read_text())[0]["action"] == "reply_today"
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

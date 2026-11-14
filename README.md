@@ -29,6 +29,7 @@ flowchart LR
   H --> D
   G -- LinkedIn alerts --> N[NDI extract<br/>split + fields + grounding] --> J[jobs.py<br/>Drex fit / target / dealbreaker] --> D
   G -- safe --> W[agent workspace] --> I[Intern session<br/>System 2: DeepInfra Qwen<br/>System 1: Drex] --> D
+  W --> M[mcp_server.py, Level C<br/>list / get / score_email / save_label] <--> I
   subgraph Intern harness
     DC[intern.decisions.DecisionClient<br/>cache, retries, failover, events]
   end
@@ -45,7 +46,7 @@ flowchart LR
 git clone https://github.com/nace-ai/intern ../intern     # Nace's harness, next to this repo (not modified)
 cd inbox-predator
 python3.12 -m venv .venv && source .venv/bin/activate      # Intern requires Python 3.12+
-pip install -e ../intern -r requirements.txt               # or: uv add "intern-agent @ git+https://github.com/nace-ai/intern"
+pip install -e "../intern[mcp]" -r requirements.txt       # or: uv add "intern-agent[mcp] @ git+https://github.com/nace-ai/intern"
 cp .env.example .env                                       # USE_MOCKS=true runs everything with no keys
 python scripts/run_all.py                                  # load -> eval (5 systems) -> results/summary.md
 streamlit run app.py                                       # dashboard
@@ -63,7 +64,8 @@ The `intern` CLI is installed into the venv by `pip install -e ../intern`. To in
    - Optionally `DREX_PRICE_PER_MTOK_INPUT`. Drex costs come from the API's `usage.cost` when it is returned.
 2. Set `USE_MOCKS=false`, or pass `--real`. A missing key fails fast, and the message names it.
 3. `python scripts/run_all.py --real`. Predictions are cached in `results/cache/`. The Intern agent session is
-   the slow, paid step; add `--skip agent` to leave it out, or run it alone with `python scripts/run_agent.py --real --limit 30`.
+   the slow, paid step; add `--skip agent` to leave it out, or run it alone with `python scripts/run_agent.py --real --limit 30`
+   (add `--mcp` for Level C).
 4. `intern models` lists the decision models your key can use. Set `DREX_MODEL=drex-max-v1.1` to pin one, or
    `DREX_MODEL=decisions:nace-ai/drex-max` with `OPENROUTER_API_KEY` to use OpenRouter instead.
 
@@ -127,7 +129,11 @@ Mail access is read-only: nothing sends, deletes or modifies mail. `load_emails(
 - **Event privacy:** the saved event log keeps only types, names, turns, timings, tokens, costs and System 1's
   probabilities. Text deltas, tool arguments, tool outputs and the final reply are dropped, and a test checks this.
   `--no-session --no-memory` stops Intern from journaling mail content in `~/.intern`.
-- **Level C** (an MCP server exposing `list_emails`, `get_email`, `score_email`) is a stretch goal and is not built.
+- **Level C ([src/mcp_server.py](src/mcp_server.py))** is a stdio MCP server with `list_emails`, `get_email`,
+  `score_email` (Drex probabilities through the Level A path) and `save_label`. With `--mcp` / `INTERN_USE_MCP=true`,
+  `src/agent.py` writes a project-local `INTERN_HOME/config.toml` that lists it under `[[capabilities.mcp]]`, with
+  declared effects. The agent then works through these tools instead of raw files, and `~/.intern` is never touched.
+  A test reaches the server through Intern's own `stdio_connection` and validates the config against `McpConfig`.
 - Intern is used as a dependency, unmodified. The Claude baseline is independent of Intern.
 
 ## Sensitive-data guardrail
@@ -179,11 +185,13 @@ src/guardrail.py       3-layer fail-closed guardrail, redaction, audit log
 src/clients/           drex_client.py (adapter over intern.decisions + mock backend), ndi_client.py,
                        claude_client.py, deepinfra_client.py, mock_engine.py
 src/agent.py           Level B: Intern agent session, sanitized event capture, simulated mode
+src/mcp_server.py      Level C: MCP server (list_emails, get_email, score_email, save_label) for the agent
 src/triage.py, jobs.py, hybrid.py, baseline.py, profile.py, pipeline.py
 src/evaluate.py        metrics, latency, cost, sweep, personas, guardrail bench, Intern stats, charts, summary.md
 app.py                 Streamlit dashboard (Check now, Jobs, Everything else, Safety, Results, Intern agent)
 scripts/               run_all.py, run_agent.py, label_emails.py, make_sample_data.py
-tests/                 offline contract tests (Drex via Intern, NDI, DeepInfra, intern subprocess, event privacy)
+tests/                 offline contract tests (Drex via Intern, NDI, DeepInfra, intern subprocess, event privacy,
+                       MCP server via Intern's MCP client)
 docs/DEMO.md           5-minute demo script
 LICENSE                Apache-2.0 (matches Intern)
 ```

@@ -69,6 +69,22 @@ the file always holds a JSON list of objects {{"id", "category", "relevance", "a
 agent_triage.json, check that it parses as JSON and has {n} entries, then reply DONE.
 Never send, delete or modify email, never use the network, and write no file other than agent_triage.json."""
 
+MCP_TASK = """You are triaging email for one user. Read profile.txt in the current folder for who they are.
+
+Use the inbox MCP tools (Level C):
+- list_emails(offset, limit): ids, senders and subjects ({n} emails in total), and which are already labeled
+- get_email(id): one email
+- score_email(id): Drex's calibrated probabilities for category, relevance and action for THIS user
+- save_label(id, category, relevance, action): record your decision
+
+For every email, call score_email, read the email with get_email when Drex is unsure (top probability below 0.7)
+or the subject looks important, decide, and call save_label. Labels:
+- category: {categories}
+- relevance: {relevance}
+- action: {actions}
+Page through list_emails until every email is labeled, then reply DONE with the count.
+Never send, delete or modify email and never use the network."""
+
 
 def _schema_md() -> str:
     return ("# Labels\n\n## category\n" + "\n".join(f"- `{k}`: {v}" for k, v in CATEGORY_DESC.items()) +
@@ -143,14 +159,34 @@ def summarize_events(events: list[dict], wall_s: float, n_emails: int, simulated
     }
 
 
-def _run_intern(ws: Path, n: int, on_event=None, timeout_s: int = 1800) -> tuple[list[dict], float]:
+def intern_home_with_mcp(ws: Path, real: bool) -> Path:
+    """A project-local INTERN_HOME whose config.toml lists our stdio MCP server (Level C). ~/.intern is untouched."""
+    home = config.DATA_DIR / "agent_intern_home"
+    home.mkdir(parents=True, exist_ok=True)
+    args = ["-m", "src.mcp_server", "--workspace", str(ws)] + (["--real"] if real else [])
+    toml = ("[[capabilities.mcp]]\n"
+            'namespace = "inbox"\n'
+            'transport = "stdio"\n'
+            f"command = {json.dumps(sys.executable)}\n"
+            f"args = {json.dumps(args)}\n"
+            f"cwd = {json.dumps(str(config.ROOT))}\n"
+            'env_refs = { NACE_API_KEY = "NACE_API_KEY" }\n'
+            'remote_tools = { list_emails = ["read"], get_email = ["read"], score_email = ["read", "network"], '
+            'save_label = ["write"] }\n')
+    (home / "config.toml").write_text(toml)
+    return home
+
+
+def _run_intern(ws: Path, n: int, on_event=None, timeout_s: int = 1800, use_mcp: bool = False) -> tuple[list[dict], float]:
     config.require_real_keys("NACE_API_KEY", "DEEPINFRA_API_KEY")
     exe = shutil.which(config.INTERN_BIN) or str(Path(sys.executable).parent / "intern")
-    task = TASK.format(n=n, categories=", ".join(CATEGORIES), relevance=", ".join(RELEVANCE),
-                       actions=", ".join(ACTIONS))
+    task = (MCP_TASK if use_mcp else TASK).format(n=n, categories=", ".join(CATEGORIES),
+                                                  relevance=", ".join(RELEVANCE), actions=", ".join(ACTIONS))
     cmd = [exe, "-p", "--json", "--system2", config.INTERN_SYSTEM2, "--system1", config.DREX_MODEL,
            "--max-turns", str(config.INTERN_MAX_TURNS), "--cwd", str(ws), "--no-session", "--no-memory", "--", task]
     env = {**os.environ, "NACE_API_KEY": config.NACE_API_KEY, "DEEPINFRA_API_KEY": config.DEEPINFRA_API_KEY}
+    if use_mcp:
+        env["INTERN_HOME"] = str(intern_home_with_mcp(ws, real=True))
     events: list[dict] = []
     t0 = time.perf_counter()
     errf = tempfile.TemporaryFile("w+")  # a file, not a pipe: a chatty stderr cannot block the event stream
@@ -223,7 +259,7 @@ def _simulate(ws: Path, kept: list[dict], profile_text: str, deepinfra, on_event
 
 
 def run_agent(profile_name: str, clients, emails: list[dict] | None = None, limit: int | None = None,
-              on_event=None) -> dict:
+              on_event=None, use_mcp: bool = False) -> dict:
     from src.loader import load_emails
 
     emails = emails if emails is not None else load_emails()
@@ -232,7 +268,7 @@ def run_agent(profile_name: str, clients, emails: list[dict] | None = None, limi
     if simulated:
         events, wall = _simulate(ws, kept, load_profile(profile_name)["profile_text"], clients.deepinfra, on_event)
     else:
-        events, wall = _run_intern(ws, len(kept), on_event)
+        events, wall = _run_intern(ws, len(kept), on_event, use_mcp=use_mcp)
     out_file = ws / "agent_triage.json"
     try:
         raw = json.loads(out_file.read_text()) if out_file.exists() else []
@@ -240,7 +276,7 @@ def run_agent(profile_name: str, clients, emails: list[dict] | None = None, limi
         raw = []
     rows = _normalize(raw, {e["id"] for e in kept})
     summ = summarize_events(events, wall, len(kept), simulated)
-    summ.update({"profile": profile_name, "guard": guard, "labeled_by_agent": len(rows),
+    summ.update({"profile": profile_name, "guard": guard, "labeled_by_agent": len(rows), "mcp": use_mcp and not simulated,
                  "coverage": len(rows) / len(kept) if kept else 0.0})
     n = max(1, len(kept))
     for r in rows.values():  # per-email share of the session, for the eval table

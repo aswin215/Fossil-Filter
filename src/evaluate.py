@@ -498,7 +498,7 @@ def run(clients, profile="student_jobhunter", workers: int | None = None, do_job
         from src.agent import run_agent
 
         try:
-            agent = run_agent(profile, clients, emails)
+            agent = run_agent(profile, clients, emails, use_mcp=config.INTERN_USE_MCP)
             systems_rows.append(("intern_agent", {i: r for i, r in agent["rows"].items() if i in labels}))
         except Exception as ex:  # keep the rest of the eval; report the failure
             print(f"  [eval] Intern agent run failed: {type(ex).__name__}: {str(ex)[:300]}")

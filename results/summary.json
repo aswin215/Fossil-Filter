@@ -237,6 +237,7 @@
       "drex_input_tokens": 16332
     },
     "labeled_by_agent": 94,
+    "mcp": false,
     "coverage": 1.0
   },
   "jobs": {
@@ -394,12 +395,12 @@
   },
   "intern_level_a": {
     "backend": "mock:mock-drex",
-    "asks": 473,
+    "asks": 65,
     "failed": 0,
-    "input_tokens": 227840,
+    "input_tokens": 16332,
     "cost_usd": 0.0,
-    "events": 541,
-    "cached": 68,
+    "events": 95,
+    "cached": 30,
     "errors": 0,
     "p50_ms": 0
   },

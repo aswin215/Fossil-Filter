@@ -12,6 +12,7 @@ data/att/
 data/labels.csv
 data/job_gold.csv
 data/agent_workspace/
+data/agent_intern_home/
 profiles/me.json
 
 # local caches / env / run outputs that may reference private mail

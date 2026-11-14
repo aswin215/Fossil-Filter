@@ -41,9 +41,10 @@
     "layer1_rules": 5,
     "layer2_drex": 1
    },
-   "drex_input_tokens": 16332
+   "drex_input_tokens": 0
   },
   "labeled_by_agent": 94,
+  "mcp": false,
   "coverage": 1.0
  },
  "rows": [

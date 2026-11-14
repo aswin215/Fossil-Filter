@@ -27,7 +27,7 @@ Intern agent latency and cost are the whole session (wall clock, System 2 + Syst
 
 ## Intern inside the product
 
-**Level A: Drex through `intern.decisions.DecisionClient`.** 473 asks answered (68 from Intern's cache, 0 failed attempts), backend `mock:mock-drex`.
+**Level A: Drex through `intern.decisions.DecisionClient`.** 65 asks answered (30 from Intern's cache, 0 failed attempts), backend `mock:mock-drex`.
 
 **Level B: Intern agent session** (SIMULATED in mock mode): System 2 `mock-qwen (simulated)`, System 1 `mock-drex (simulated)`. 94/94 emails labeled (100% coverage), 15 turns, 14 tool calls, stop reason `completed`.
 

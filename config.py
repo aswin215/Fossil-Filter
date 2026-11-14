@@ -73,6 +73,7 @@ DEEPINFRA_MODEL = _env("DEEPINFRA_MODEL") or "Qwen/Qwen3.8-27B"
 INTERN_BIN = _env("INTERN_BIN") or "intern"
 INTERN_SYSTEM2 = _env("INTERN_SYSTEM2") or f"deepinfra/{DEEPINFRA_MODEL}"
 INTERN_MAX_TURNS = int(_env("INTERN_MAX_TURNS") or 60)
+INTERN_USE_MCP: bool = _bool("INTERN_USE_MCP", False)  # Level C: the agent uses our MCP tools instead of raw files
 
 SENSITIVE_THRESHOLD = float(_env("SENSITIVE_THRESHOLD") or 0.20)
 ESCALATE_THRESHOLD = float(_env("ESCALATE_THRESHOLD") or 0.70)

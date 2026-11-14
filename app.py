@@ -242,6 +242,8 @@ with tabs[5]:
 
     st.divider()
     lim = st.number_input("Emails for the agent (0 = all guardrail-passed)", 0, 500, 0, 10)
+    use_mcp = st.checkbox("Level C: give the agent our MCP tools (list_emails, get_email, score_email = Drex, "
+                          "save_label) instead of raw files", value=config.INTERN_USE_MCP)
     if st.button("Run Intern agent session", type="primary"):
         box = st.empty()
         log: list[dict] = []
@@ -252,7 +254,7 @@ with tabs[5]:
                 box.caption(f"{len(log)} events · last: {ev['type']} {ev.get('purpose') or ev.get('name') or ''}")
         with st.spinner("Intern session running..." if not use_mocks else "Simulating an Intern session (mock)..."):
             try:
-                run_agent(profile, C, limit=lim or None, on_event=on_event)
+                run_agent(profile, C, limit=lim or None, on_event=on_event, use_mcp=use_mcp)
             except Exception as ex:
                 st.error(f"{type(ex).__name__}: {ex}")
     A = load_agent_result()
@@ -264,7 +266,7 @@ with tabs[5]:
             st.warning("SIMULATED session (mock mode): Intern needs a reachable System 1 to start, so these events are "
                        "synthetic. Turn mocks off with NACE_API_KEY and DEEPINFRA_API_KEY set to run the real harness.")
         st.caption(f"System 2 `{s6['system2']}` · System 1 `{s6['system1']}` · profile `{s6['profile']}` · "
-                   f"stop reason `{s6['reason']}`")
+                   f"stop reason `{s6['reason']}` · tools: {'our MCP server (Level C)' if s6.get('mcp') else 'files'}")
         b1, b2, b3, b4, b5, b6 = st.columns(6)
         b1.metric("Emails labeled", f"{s6['labeled_by_agent']}/{s6['n_emails']}")
         b2.metric("Turns", s6["turns"])

@@ -3,6 +3,7 @@
   python scripts/run_agent.py                 # USE_MOCKS from .env (mock = simulated session)
   python scripts/run_agent.py --real          # launches `intern -p --json ...` for real
   python scripts/run_agent.py --limit 30      # first 30 guardrail-passed emails only
+  python scripts/run_agent.py --real --mcp    # Level C: agent uses our MCP server (list/get/score_email, save_label)
 
 Writes results/agent_triage.json (our schema + a run summary) and results/agent_events.jsonl (sanitized
 Intern events: System 1 decisions, nudges, guard blocks, tool calls, usage - no email content).
@@ -21,8 +22,10 @@ def main() -> None:
     ap.add_argument("--real", action="store_true")
     ap.add_argument("--profile", default="student_jobhunter")
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--mcp", action="store_true", help="Level C: give the agent our MCP tools (score_email = Drex)")
     a = ap.parse_args()
 
+    import config
     from src.agent import run_agent
     from src.clients import get_clients
     from src.evaluate import read_labels, triage_metrics
@@ -40,7 +43,7 @@ def main() -> None:
         elif t == "run_end":
             print(f"  [run_end] {ev.get('reason')} after {ev.get('turns')} turns")
 
-    out = run_agent(a.profile, clients, limit=a.limit, on_event=show)
+    out = run_agent(a.profile, clients, limit=a.limit, on_event=show, use_mcp=a.mcp or config.INTERN_USE_MCP)
     s = out["summary"]
     m = triage_metrics(out["rows"], read_labels())
     print(f"[agent] {'SIMULATED (mock) ' if s['simulated'] else ''}{s['labeled_by_agent']}/{s['n_emails']} labeled, "
