@@ -181,7 +181,10 @@ with tabs[4]:
         c, d = tri["claude"], tri["drex"]
         m1, m2, m3 = st.columns(3)
         m1.metric("Drex speedup (p50)", f"{c['p50_s'] / d['p50_s']:.1f}x")
-        m2.metric("Drex cost multiple", f"{c['cost_per_1k'] / d['cost_per_1k']:.1f}x cheaper")
+        ratio = c["cost_per_1k"] / d["cost_per_1k"] if d["cost_per_1k"] else 0.0
+        m2.metric("Drex cost vs Claude", f"{ratio:.1f}x cheaper" if ratio >= 1 else f"{1 / ratio:.1f}x pricier"
+                  if ratio else "n/a", help="Drex price is a placeholder until DREX_PRICE_PER_MTOK_INPUT is set"
+                  if config.DREX_PRICE_IS_PLACEHOLDER else None)
         m3.metric("Accuracy delta (Drex - Claude)", f"{d.get('category_acc', 0) - c.get('category_acc', 0):+.3f}")
         for ch in S.get("charts", []):
             st.image(str(config.RESULTS_DIR / ch), width="stretch")
