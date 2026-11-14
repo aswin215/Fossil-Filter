@@ -16,3 +16,4 @@ __pycache__/
 results/cache/
 .streamlit/secrets.toml
 .DS_Store
+results/audit_log.jsonl
