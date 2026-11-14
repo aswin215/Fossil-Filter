@@ -185,7 +185,7 @@ def run_jobs_eval(emails, profile_name, clients, workers) -> dict:
             "ndi_latency": [v["meta"]["latency_s"] for v in ex.values()], "n_alerts": len(alerts)}
 
 
-def jobs_metrics(J: dict, gold: dict, threshold: float) -> dict:
+def jobs_metrics(J: dict, gold: dict, threshold: float, claude_model: str | None = None) -> dict:
     out = {}
     for sys in SYSTEMS:
         scored = []
@@ -207,7 +207,7 @@ def jobs_metrics(J: dict, gold: dict, threshold: float) -> dict:
     out["hybrid"]["escalated_frac"] = float(np.mean([x["confidence"] < threshold for x in d])) if d else 0
     out["cost_per_1k_jobs"] = {"drex": 1000 * float(np.mean([drex_cost(x["input_tokens"]) for x in d])) if d else 0,
                                "claude": 1000 * float(np.mean([claude_cost(x["input_tokens"], x["output_tokens"],
-                                                                           None if J.get("mock") else None)
+                                                                           claude_model)
                                                                for x in c])) if c else 0}
     out["ndi"] = {"alerts": J["n_alerts"], "jobs_extracted": len(J["jobs"]),
                   "p50_s": float(np.median(J["ndi_latency"])) if J["ndi_latency"] else 0,
@@ -356,7 +356,7 @@ def write_report(S: dict, out_dir: Path) -> Path:
     tri = S["triage"]
     L = []
     mode = "MOCK CLIENTS (numbers are placeholders, not evidence)" if S["mock"] else "REAL APIs"
-    L += [f"# Inbox Predator - evaluation summary", "",
+    L += ["# Inbox Predator - evaluation summary", "",
           f"Mode: **{mode}** · Drex model: `{S['drex_model']}` · Claude model: `{S['claude_model']}` · "
           f"profile: `{S['profile']}` · labeled emails: {tri['claude'].get('n', 0)} · "
           f"escalation threshold: {S['threshold']}", ""]
@@ -451,11 +451,7 @@ def run(clients, profile="student_jobhunter", workers: int | None = None, do_job
     print("[eval] triage done")
     if do_jobs:
         J = run_jobs_eval(emails, profile, clients, workers)
-        S["jobs"] = jobs_metrics(J, read_job_gold(), th)
-        if not clients.mock:
-            m = clients.claude.model
-            S["jobs"]["cost_per_1k_jobs"]["claude"] = 1000 * float(np.mean(
-                [claude_cost(x["input_tokens"], x["output_tokens"], m) for x in J["claude"].values()]))
+        S["jobs"] = jobs_metrics(J, read_job_gold(), th, getattr(clients.claude, "model", None))
         print("[eval] jobs done")
     if do_guard:
         S["guardrail"] = guardrail_bench(clients, workers)

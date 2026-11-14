@@ -204,7 +204,7 @@
     "ndi": {
       "alerts": 9,
       "jobs_extracted": 41,
-      "p50_s": 0.9000479170121253,
+      "p50_s": 0.9000432500382886,
       "cost_usd": 0.108
     }
   },
@@ -249,6 +249,77 @@
       "drex": 0.04820833333333334,
       "claude": 2.0641666666666665
     }
+  },
+  "personalization": {
+    "n_emails": 95,
+    "per_profile": {
+      "student_jobhunter": {
+        "agreement_with_labels": 0.8191489361702128,
+        "top10": [
+          "130d51b10d30",
+          "d96ff942a168",
+          "4d1a72fa9c2f",
+          "88d9d9a13a35",
+          "da0e2250f23e",
+          "27dea635ed7e",
+          "155cc7112bd2",
+          "e6d4e9885a22",
+          "f104d110e9e7",
+          "dafe29d90fa6"
+        ],
+        "top10_job_alerts": 0,
+        "share_urgent_or_important": 0.42105263157894735
+      },
+      "founder": {
+        "agreement_with_labels": 0.8404255319148937,
+        "top10": [
+          "d96ff942a168",
+          "da0e2250f23e",
+          "b8d4dd0258cf",
+          "dafe29d90fa6",
+          "4d1a72fa9c2f",
+          "27dea635ed7e",
+          "88d9d9a13a35",
+          "155cc7112bd2",
+          "70d19678df98",
+          "e6d4e9885a22"
+        ],
+        "top10_job_alerts": 0,
+        "share_urgent_or_important": 0.4105263157894737
+      },
+      "parent": {
+        "agreement_with_labels": 0.8297872340425532,
+        "top10": [
+          "4d1a72fa9c2f",
+          "155cc7112bd2",
+          "e6d4e9885a22",
+          "88d9d9a13a35",
+          "d96ff942a168",
+          "7ef788da0e8d",
+          "5b02f222493f",
+          "27dea635ed7e",
+          "da0e2250f23e",
+          "19ab1cc90a1d"
+        ],
+        "top10_job_alerts": 0,
+        "share_urgent_or_important": 0.4
+      }
+    },
+    "pairs": {
+      "student_jobhunter vs founder": {
+        "spearman_priority": 0.8733762597984323,
+        "top10_overlap": 8
+      },
+      "student_jobhunter vs parent": {
+        "spearman_priority": 0.9055711086226204,
+        "top10_overlap": 7
+      },
+      "founder vs parent": {
+        "spearman_priority": 0.8602183650615901,
+        "top10_overlap": 7
+      }
+    },
+    "note": "labels.csv reflects the student_jobhunter persona; lower agreement for other personas is expected"
   },
   "charts": [
     "threshold_sweep.png",

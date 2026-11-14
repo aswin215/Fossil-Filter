@@ -66,6 +66,22 @@ Cost per 1k jobs scored: Drex $0.0875, Claude $2.7342. Hybrid escalated 66%.
 
 Semantic check latency p50/p95: Drex 0.20/0.26s vs Claude 2.64/3.30s. Cost per 1k checks: Drex $0.0482 vs Claude $2.0642.
 
+## Personalization test (same emails, 3 profiles, Drex)
+
+95 emails. labels.csv reflects the student_jobhunter persona; lower agreement for other personas is expected.
+
+| Profile | Category agreement with labels | Share urgent/important | Job alerts in top 10 |
+|---|---|---|---|
+| student_jobhunter | 0.819 | 0.42 | 0 |
+| founder | 0.840 | 0.41 | 0 |
+| parent | 0.830 | 0.40 | 0 |
+
+| Pair | Spearman of priority ranks | Top-10 overlap |
+|---|---|---|
+| student_jobhunter vs founder | 0.873 | 8/10 |
+| student_jobhunter vs parent | 0.906 | 7/10 |
+| founder vs parent | 0.860 | 7/10 |
+
 ## Notes
 
 - Latency is per-call wall clock including network; throughput is single-stream (1 / mean latency).
