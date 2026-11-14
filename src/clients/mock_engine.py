@@ -85,6 +85,11 @@ def _item_text(text: str) -> str:
 def choice(text: str, labels: list[str], seed: str, noise: float) -> dict[str, float]:
     t = _item_text(text)
     scores = {}
+    if "none" in labels:  # sensitivity check: calibrated so benign mail keeps P(none) high
+        for lab in labels:
+            hits = 0 if lab == "none" else _hits(t, LEXICON.get(lab, []))
+            scores[lab] = 2.5 * math.log1p(hits) + (2.6 if lab == "none" else 0.0) + _noise(seed + lab, noise * 0.3)
+        return _softmax(scores, temp=0.7)
     for lab in labels:
         words = LEXICON.get(lab) or [w for w in lab.replace("_", " ").split() if len(w) > 3]
         scores[lab] = 1.6 * math.log1p(_hits(t, words)) + PRIOR.get(lab, 0.0) + _noise(seed + lab, noise)

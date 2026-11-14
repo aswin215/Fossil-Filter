@@ -204,8 +204,50 @@
     "ndi": {
       "alerts": 9,
       "jobs_extracted": 41,
-      "p50_s": 0.9000459580332972,
+      "p50_s": 0.9000479170121253,
       "cost_usd": 0.108
+    }
+  },
+  "guardrail": {
+    "n_sensitive": 60,
+    "n_benign": 60,
+    "layer1_only": {
+      "recall": 0.7,
+      "false_block_rate": 0.1,
+      "missed_by_class": {
+        "medical": 12,
+        "tax_or_government_id": 6
+      }
+    },
+    "drex_only": {
+      "recall": 1.0,
+      "false_block_rate": 0.1,
+      "missed_by_class": {}
+    },
+    "claude_only": {
+      "recall": 1.0,
+      "false_block_rate": 0.1,
+      "missed_by_class": {}
+    },
+    "layer1+drex": {
+      "recall": 1.0,
+      "false_block_rate": 0.1,
+      "missed_by_class": {}
+    },
+    "layer1+claude": {
+      "recall": 1.0,
+      "false_block_rate": 0.1,
+      "missed_by_class": {}
+    },
+    "check_latency": {
+      "drex_p50_s": 0.1985995269703212,
+      "drex_p95_s": 0.2579662775616083,
+      "claude_p50_s": 2.6365835049973296,
+      "claude_p95_s": 3.3029571984435795
+    },
+    "check_cost_per_1k": {
+      "drex": 0.04820833333333334,
+      "claude": 2.0641666666666665
     }
   },
   "charts": [

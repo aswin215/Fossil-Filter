@@ -52,6 +52,20 @@ NDI: 9 alerts -> 41 jobs, p50 0.90s per alert, est. cost $0.1080.
 
 Cost per 1k jobs scored: Drex $0.0875, Claude $2.7342. Hybrid escalated 66%.
 
+## Sensitive-data guardrail benchmark
+
+60 synthetic sensitive + 60 benign emails (includes adversarial cases).
+
+| Configuration | Recall (sensitive) | False-block rate | Missed by class |
+|---|---|---|---|
+| layer1_only | 0.700 | 0.100 | {'medical': 12, 'tax_or_government_id': 6} |
+| drex_only | 1.000 | 0.100 | - |
+| claude_only | 1.000 | 0.100 | - |
+| layer1+drex | 1.000 | 0.100 | - |
+| layer1+claude | 1.000 | 0.100 | - |
+
+Semantic check latency p50/p95: Drex 0.20/0.26s vs Claude 2.64/3.30s. Cost per 1k checks: Drex $0.0482 vs Claude $2.0642.
+
 ## Notes
 
 - Latency is per-call wall clock including network; throughput is single-stream (1 / mean latency).

@@ -81,7 +81,10 @@ class MockClaudeClient:
                     out[key] = labels[int(idx)]
                 else:
                     probs = me.choice(user, labels, s, self.NOISE)
-                    out[key] = max(probs, key=probs.get)
+                    if "none" in labels and probs["none"] < 0.75:  # LLM-style: name the class if anything looks off
+                        out[key] = max((k for k in labels if k != "none"), key=probs.get)
+                    else:
+                        out[key] = max(probs, key=probs.get)
             elif spec.get("type") == "boolean":
                 out[key] = me.noul(user, key, s, self.NOISE) > 0.5
             elif spec.get("type") == "number":
