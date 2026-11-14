@@ -75,12 +75,19 @@ STOP = {"the", "and", "for", "you", "your", "with", "this", "that", "are", "from
         "body", "subject", "date", "profile", "email", "job", "job:", "from:", "subject:"}
 
 
+def _item_text(text: str) -> str:
+    """Drop the PROFILE block so profile keywords don't leak into every email's score; weight the subject."""
+    t = text.split("\n\nEMAIL:\n", 1)[-1].split("\n\nJOB:\n", 1)[-1].lower()
+    subj = re.search(r"subject: (.*)", t)
+    return t + ("\n" + subj.group(1)) * 2 if subj else t
+
+
 def choice(text: str, labels: list[str], seed: str, noise: float) -> dict[str, float]:
-    t = text.lower()
+    t = _item_text(text)
     scores = {}
     for lab in labels:
         words = LEXICON.get(lab) or [w for w in lab.replace("_", " ").split() if len(w) > 3]
-        scores[lab] = 1.1 * math.log1p(_hits(t, words)) + PRIOR.get(lab, 0.0) + _noise(seed + lab, noise)
+        scores[lab] = 1.6 * math.log1p(_hits(t, words)) + PRIOR.get(lab, 0.0) + _noise(seed + lab, noise)
     return _softmax(scores, temp=0.7)
 
 
@@ -97,7 +104,7 @@ def relevance(state: str, n_levels: int, seed: str, noise: float) -> dict[str, f
 
 
 def noul(text: str, qid: str, seed: str, noise: float) -> float:
-    t = text.lower()
+    t = _item_text(text)
     hits = _hits(t, LEXICON.get(qid, []))
     logit = -1.4 + 1.6 * hits + _noise(seed, noise * 2)
     return 1 / (1 + math.exp(-logit))
