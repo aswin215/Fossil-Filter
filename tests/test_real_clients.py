@@ -169,6 +169,41 @@ def test_agent_events_never_keep_content():
                                           "final_text": "DONE: email from bank", "duration_ms": 1})
 
 
+def test_intern_subprocess_event_parsing(tmp_path):
+    """The real Level B path, with a stand-in `intern` that prints Intern-shaped JSON events."""
+    import stat
+
+    import src.agent as ag
+
+    fake = tmp_path / "intern"
+    events = [
+        {"type": "run_start", "session_id": "s1", "model": "deepinfra/Qwen/Qwen3.8-27B", "tools": ["read"], "cwd": "x"},
+        {"type": "turn_start", "turn": 1},
+        {"type": "tool_call_start", "turn": 1, "name": "read", "call_id": "c1", "arguments": {"path": "emails.jsonl"}},
+        {"type": "tool_call_end", "turn": 1, "name": "read", "call_id": "c1", "status": "ok", "content": "SECRET",
+         "duration_ms": 3},
+        {"type": "decision", "purpose": "supervise", "backend": "decisions-api:drex-latest", "questions": 2, "ok": True,
+         "cached": False, "cost_usd": 0.0001, "input_tokens": 900, "duration_ms": 410, "turn": 1,
+         "answers": {"stuck": {"noul": 0.1}}},
+        {"type": "nudge", "turn": 1, "reason": "stuck", "text": "You re-read the same file"},
+        {"type": "tool_guard", "turn": 1, "name": "bash", "call_id": "c2", "layer": "system1", "rule": "network",
+         "reason": "curl to an unknown host", "risk": 0.91, "asked": 0.05},
+        {"type": "text_delta", "turn": 1, "text": "SECRET"},
+        {"type": "run_end", "run_id": "r", "reason": "completed", "turns": 1, "final_text": "DONE SECRET",
+         "usage": {"input_tokens": 5000, "output_tokens": 300, "cost_usd": 0.002},
+         "system1": {"asks": 1, "cost_usd": 0.0001}, "duration_ms": 1200},
+    ]
+    lines = "\n".join(json.dumps(e) for e in events)
+    fake.write_text(f"#!/bin/sh\ncat <<'EOF'\n{lines}\nEOF\n")
+    fake.chmod(fake.stat().st_mode | stat.S_IEXEC)
+    config.INTERN_BIN, config.DEEPINFRA_API_KEY = str(fake), "di_test"
+    got, wall = ag._run_intern(tmp_path, 3)
+    assert "SECRET" not in json.dumps(got) and len(got) == 8
+    s = ag.summarize_events(got, wall, 3, simulated=False)
+    assert s["nudges"] == 1 and s["guard_blocks"] == 1 and s["system1_asks"] == 1
+    assert abs(s["total_cost_usd"] - 0.0021) < 1e-9 and s["reason"] == "completed"
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

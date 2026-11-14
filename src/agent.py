@@ -21,6 +21,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from collections import Counter
 from pathlib import Path
@@ -152,7 +153,8 @@ def _run_intern(ws: Path, n: int, on_event=None, timeout_s: int = 1800) -> tuple
     env = {**os.environ, "NACE_API_KEY": config.NACE_API_KEY, "DEEPINFRA_API_KEY": config.DEEPINFRA_API_KEY}
     events: list[dict] = []
     t0 = time.perf_counter()
-    proc = subprocess.Popen(cmd, cwd=ws, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    errf = tempfile.TemporaryFile("w+")  # a file, not a pipe: a chatty stderr cannot block the event stream
+    proc = subprocess.Popen(cmd, cwd=ws, env=env, stdout=subprocess.PIPE, stderr=errf, text=True)
     try:
         for line in proc.stdout:
             try:
@@ -171,7 +173,8 @@ def _run_intern(ws: Path, n: int, on_event=None, timeout_s: int = 1800) -> tuple
         if proc.poll() is None:
             proc.kill()
     if proc.returncode not in (0, None) and not any(e["type"] == "run_end" for e in events):
-        err = (proc.stderr.read() or "")[-400:]
+        errf.seek(0)
+        err = errf.read()[-400:]
         raise RuntimeError(f"intern exited {proc.returncode}: {err}")
     return events, time.perf_counter() - t0
 

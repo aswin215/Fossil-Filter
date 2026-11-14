@@ -10,6 +10,7 @@ import streamlit as st
 
 import config
 from src import guardrail
+from src.agent import EVENTS_OUT, load_agent_result, run_agent
 from src.baseline import triage_email_claude
 from src.clients import get_clients
 from src.pipeline import inbox_cache_path, run_inbox
@@ -86,7 +87,9 @@ with st.sidebar.expander("New profile (onboarding)"):
 
 mode = "MOCK" if use_mocks else "REAL"
 st.markdown(f"### Inbox Predator <span class='muted'>· {profile} · {mode} clients</span>", unsafe_allow_html=True)
-tabs = st.tabs(["Check now", "Jobs", "Everything else", "Safety", "Results"])
+st.caption("Built with Claude Code · **Intern runs inside the product**: Drex via `intern.decisions` (Level A) and "
+           "an Intern agent session, System 2 DeepInfra Qwen + System 1 Drex (Level B).")
+tabs = st.tabs(["Check now", "Jobs", "Everything else", "Safety", "Results", "Intern agent"])
 
 if R is None:
     for t in tabs[:4]:
@@ -167,11 +170,13 @@ with tabs[4]:
         st.caption(f"From `results/summary.json` · {'MOCK clients - placeholder numbers' if S['mock'] else 'real APIs'}"
                    f" · Drex `{S['drex_model']}` vs Claude `{S['claude_model']}`")
         tri = S["triage"]
-        df = pd.DataFrame([{"system": {"claude": "Claude-only", "drex": "Drex", "hybrid": "Hybrid"}[s],
+        names = {"claude": "Claude-only", "deepinfra": "DeepInfra Qwen", "drex": "Drex (Level A, via Intern)",
+                 "hybrid": "Hybrid", "intern_agent": "Intern agent (Level B)"}
+        df = pd.DataFrame([{"system": names[s],
                             "category acc": tri[s].get("category_acc"), "macro-F1": tri[s].get("category_macro_f1"),
                             "urgent recall": tri[s].get("urgent_recall"), "action acc": tri[s].get("action_acc"),
                             "p50 s": tri[s]["p50_s"], "p95 s": tri[s]["p95_s"], "$ / 1k emails": tri[s]["cost_per_1k"]}
-                           for s in ("claude", "drex", "hybrid")])
+                           for s in names if s in tri])
         st.dataframe(df.style.format(precision=3), hide_index=True, width="stretch")
         c, d = tri["claude"], tri["drex"]
         m1, m2, m3 = st.columns(3)
@@ -218,3 +223,76 @@ with tabs[4]:
                 colB.error(f"Claude: {type(ex).__name__}: {ex}")
             if use_mocks:
                 st.caption("Mock mode: latencies are simulated.")
+
+# ---------------------------------------------------------------- tab 6: Intern
+with tabs[5]:
+    st.subheader("Intern, Nace's agent harness, running inside Inbox Predator")
+    st.markdown(
+        "**Level A.** Every Drex call in the pipeline (triage, job fit, guardrail) goes through Intern's "
+        "`DecisionClient`, which supplies retries, 429 handling, failover, the answer cache and concurrency.  \n"
+        "**Level B.** An Intern agent session: System 2 (DeepInfra Qwen) does the triage with Intern's file tools, and "
+        "System 1 (Drex) judges every turn: stuck detection, the tool-call guard and compaction. It only sees "
+        "emails that passed the guardrail.")
+    u = C.drex.usage()
+    a1, a2, a3, a4 = st.columns(4)
+    a1.metric("Level A: Drex asks (this app)", u["asks"])
+    a2.metric("Answered from Intern cache", u["cached"])
+    a3.metric("Failed attempts", u["errors"])
+    a4.metric("Backend", u["backend"].split(":", 1)[-1])
+
+    st.divider()
+    lim = st.number_input("Emails for the agent (0 = all guardrail-passed)", 0, 500, 0, 10)
+    if st.button("Run Intern agent session", type="primary"):
+        box = st.empty()
+        log: list[dict] = []
+
+        def on_event(ev):
+            log.append(ev)
+            if ev["type"] in ("decision", "nudge", "tool_guard", "tool_call_start", "run_end"):
+                box.caption(f"{len(log)} events · last: {ev['type']} {ev.get('purpose') or ev.get('name') or ''}")
+        with st.spinner("Intern session running..." if not use_mocks else "Simulating an Intern session (mock)..."):
+            try:
+                run_agent(profile, C, limit=lim or None, on_event=on_event)
+            except Exception as ex:
+                st.error(f"{type(ex).__name__}: {ex}")
+    A = load_agent_result()
+    if A is None:
+        st.info("No agent run yet. Press the button, or run `python scripts/run_agent.py`.")
+    else:
+        s6 = A["summary"]
+        if s6["simulated"]:
+            st.warning("SIMULATED session (mock mode): Intern needs a reachable System 1 to start, so these events are "
+                       "synthetic. Turn mocks off with NACE_API_KEY and DEEPINFRA_API_KEY set to run the real harness.")
+        st.caption(f"System 2 `{s6['system2']}` · System 1 `{s6['system1']}` · profile `{s6['profile']}` · "
+                   f"stop reason `{s6['reason']}`")
+        b1, b2, b3, b4, b5, b6 = st.columns(6)
+        b1.metric("Emails labeled", f"{s6['labeled_by_agent']}/{s6['n_emails']}")
+        b2.metric("Turns", s6["turns"])
+        b3.metric("System 1 decisions", s6["system1_asks"])
+        b4.metric("Stuck nudges", s6["nudges"])
+        b5.metric("Guard blocks", s6["guard_blocks"])
+        b6.metric("Session cost", f"${s6['total_cost_usd']:.4f}")
+        st.caption(f"Wall {s6['wall_s']:.1f}s · System 1 p50 {s6['system1_p50_ms']} ms · by purpose "
+                   f"{s6['system1_by_purpose']} · System 2 tokens {s6['system2_input_tokens']} in / "
+                   f"{s6['system2_output_tokens']} out")
+        from src.evaluate import read_labels, triage_metrics
+
+        m = triage_metrics(A["rows"], read_labels())
+        if m:
+            st.metric("Agent category accuracy vs labels", f"{m['category_acc']:.3f}",
+                      help=f"action acc {m['action_acc']:.3f} on {m['n']} labeled emails")
+        if EVENTS_OUT.exists():
+            evs = [json.loads(x) for x in EVENTS_OUT.read_text().splitlines()]
+            rows = []
+            for ev in evs:
+                if ev["type"] in ("decision", "nudge", "tool_guard", "tool_call_start", "tool_call_end",
+                                  "compaction", "run_end"):
+                    detail = ev.get("purpose") or ev.get("name") or ev.get("reason") or ""
+                    if ev["type"] == "decision" and ev.get("answers"):
+                        detail += " " + json.dumps(ev["answers"])[:120]
+                    if ev["type"] == "tool_guard":
+                        detail = f"{ev.get('name')}: {ev.get('rule')} (risk {ev.get('risk')})"
+                    rows.append({"turn": ev.get("turn"), "event": ev["type"], "detail": detail,
+                                 "ms": ev.get("duration_ms")})
+            st.markdown("**Intern event stream** (sanitized: no email text, tool arguments or outputs)")
+            st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch", height=360)
