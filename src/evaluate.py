@@ -490,6 +490,11 @@ def run(clients, profile="student_jobhunter", workers: int | None = None, do_job
     emails = load_emails()
     labels = read_labels()
     print(f"[eval] {len(emails)} emails, {len(labels)} labels, mock={clients.mock}")
+    labeled = sum(e["id"] in labels for e in emails)
+    if labeled < 10:
+        raise SystemExit(f"[eval] only {labeled} of {len(emails)} emails have labels in "
+                         f"{config.LABELS_PATH.relative_to(config.ROOT)}. Label your inbox first: "
+                         "python scripts/label_emails.py   (aim for ~100; progress is saved as you go)")
     R = run_triage_systems(emails, labels, profile, clients, workers)
     th = config.ESCALATE_THRESHOLD
     hyb = combine_offline(R["drex"], R["claude"], th)
