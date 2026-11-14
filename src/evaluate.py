@@ -484,7 +484,7 @@ def write_report(S: dict, out_dir: Path) -> Path:
 
 
 def run(clients, profile="student_jobhunter", workers: int | None = None, do_jobs=True, do_guard=True,
-        do_personas=True, do_agent=True) -> dict:
+        do_personas=True, do_agent=True, agent_limit: int | None = None) -> dict:
     workers = workers or (8 if clients.mock else 4)
     t0 = time.time()
     emails = load_emails()
@@ -504,10 +504,20 @@ def run(clients, profile="student_jobhunter", workers: int | None = None, do_job
         from src.agent import run_agent
 
         try:
-            agent = run_agent(profile, clients, emails, use_mcp=config.INTERN_USE_MCP)
+            # labeled emails first, so the agent's accuracy is measured on as many as its budget allows
+            pool = [e for e in emails if e["id"] in labels] + [e for e in emails if e["id"] not in labels]
+            agent = run_agent(profile, clients, pool, limit=agent_limit, use_mcp=config.INTERN_USE_MCP)
             systems_rows.append(("intern_agent", {i: r for i, r in agent["rows"].items() if i in labels}))
         except Exception as ex:  # keep the rest of the eval; report the failure
             print(f"  [eval] Intern agent run failed: {type(ex).__name__}: {str(ex)[:300]}")
+    else:  # --skip agent: reuse the last saved session (same mode) instead of paying for a new one
+        from src.agent import load_agent_result
+
+        prev = load_agent_result()
+        if prev and prev["summary"].get("simulated") == clients.mock:
+            agent = prev
+            systems_rows.append(("intern_agent", {i: r for i, r in prev["rows"].items() if i in labels}))
+            print("  [eval] reusing the saved Intern agent session (results/agent_triage.json)")
     tri = {}
     for s, rows in systems_rows:
         if rows:

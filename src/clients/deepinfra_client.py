@@ -37,6 +37,8 @@ def _validate(d: dict, schema: dict) -> dict:
         if k not in d:
             raise ValueError(f"missing key {k!r}")
         v = d[k]
+        if isinstance(v, list) and len(v) == 1:  # Qwen sometimes answers ["label"]
+            v = v[0]
         if "enum" in spec:
             v = str(v).strip().lower()
             if v not in spec["enum"]:
@@ -74,13 +76,26 @@ class DeepInfraClient:
         data = r.json()
         return data["choices"][0]["message"].get("content") or "", data.get("usage") or {}, lat
 
-    def judge(self, system: str, user: str, schema: dict, max_tokens: int = 2048) -> LLMResult:
-        sys = (system + "\nReply with one JSON object with exactly these keys: " +
-               json.dumps({k: v.get("enum", v.get("type")) for k, v in schema["properties"].items()}))
-        text, usage, lat = self._chat(sys, user, max_tokens, json_mode=True)
-        r = LLMResult(_validate(_parse_json(text), schema), int(usage.get("prompt_tokens", 0)),
-                      int(usage.get("completion_tokens", 0)), lat, self.model)
-        r.cost_usd = float(usage.get("estimated_cost") or 0.0)
+    def judge(self, system: str, user: str, schema: dict, max_tokens: int = 4096) -> LLMResult:
+        keys = "; ".join(f'"{k}": one string from {" | ".join(v["enum"])}' if "enum" in v else f'"{k}": {v.get("type")}'
+                         for k, v in schema["properties"].items())
+        sys = (system + "\nReply with ONE flat JSON object, each value a single string (not a list): {" + keys + "}")
+        tot_in = tot_out = 0
+        lat_sum, cost = 0.0, 0.0
+        for attempt in range(2):  # one retry on an empty or invalid reply
+            text, usage, lat = self._chat(sys, user, max_tokens, json_mode=True)
+            tot_in += int(usage.get("prompt_tokens", 0))
+            tot_out += int(usage.get("completion_tokens", 0))
+            cost += float(usage.get("estimated_cost") or 0.0)
+            lat_sum += lat
+            try:
+                data = _validate(_parse_json(text), schema)
+                break
+            except (ValueError, json.JSONDecodeError):
+                if attempt == 1:
+                    raise
+        r = LLMResult(data, tot_in, tot_out, lat_sum, self.model)
+        r.cost_usd = cost
         return r
 
     def write(self, system: str, user: str, max_tokens: int = 512) -> LLMResult:

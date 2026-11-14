@@ -21,6 +21,7 @@ def main() -> None:
     ap.add_argument("--real", action="store_true")
     ap.add_argument("--sample", action="store_true")
     ap.add_argument("--profile", default="student_jobhunter")
+    ap.add_argument("--agent-limit", type=int, default=None, help="cap emails given to the Intern agent session")
     ap.add_argument("--skip", nargs="*", default=[], choices=["jobs", "guard", "personas", "inbox", "agent"])
     a = ap.parse_args()
     t0 = time.time()
@@ -40,7 +41,8 @@ def main() -> None:
 
     clients = get_clients(False if a.real else None)
     run(clients, a.profile, do_jobs="jobs" not in a.skip, do_guard="guard" not in a.skip,
-        do_personas="personas" not in a.skip, do_agent="agent" not in a.skip)
+        do_personas="personas" not in a.skip, do_agent="agent" not in a.skip,
+        agent_limit=a.agent_limit)
     if "inbox" not in a.skip:
         for p in list_profiles():
             out = run_inbox(p, clients)

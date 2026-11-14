@@ -1,992 +1,649 @@
 {
  "summary": {
-  "simulated": true,
+  "simulated": false,
   "reason": "completed",
-  "turns": 15,
-  "wall_s": 101.15999999999998,
-  "n_emails": 94,
-  "system1_asks": 21,
+  "turns": 8,
+  "wall_s": 349.4988720830297,
+  "n_emails": 60,
+  "system1_asks": 15,
   "system1_by_purpose": {
-   "supervise": 14,
-   "guard": 7
+   "supervise": 7,
+   "wrap_up": 7,
+   "guard": 1
   },
-  "system1_p50_ms": 556,
+  "system1_p50_ms": 504,
   "system1_cost_usd": 0.0,
-  "nudges": 1,
+  "nudges": 0,
   "guard_blocks": 0,
-  "tool_calls": 14,
+  "tool_calls": 10,
   "compactions": 0,
-  "system2_input_tokens": 48606,
-  "system2_output_tokens": 3760,
-  "system2_cost_usd": 0.006364600000000001,
-  "total_cost_usd": 0.006364600000000001,
-  "system2": "mock-qwen (simulated)",
-  "system1": "mock-drex (simulated)",
+  "system2_input_tokens": 267140,
+  "system2_output_tokens": 11318,
+  "system2_cost_usd": 0.0312412,
+  "total_cost_usd": 0.0312412,
+  "system2": "deepinfra/Qwen/Qwen3.8-27B",
+  "system1": "drex-latest",
   "profile": "student_jobhunter",
   "guard": {
-   "scanned": 100,
-   "withheld": 6,
+   "scanned": 259,
+   "withheld": 5,
    "rule_counts": {
-    "sender_domain": 2,
-    "subject": 3,
-    "attachment_name": 2,
-    "otp_code": 1,
-    "password_in_body": 1,
-    "reset_link": 1,
-    "ssn": 1,
+    "subject": 1,
+    "drex:credentials_or_reset_link": 1,
     "tax_form": 1,
-    "drex:medical": 1
+    "drex:otp_or_code": 1,
+    "card_luhn": 1
    },
    "layer_counts": {
-    "layer1_rules": 5,
-    "layer2_drex": 1
+    "layer1_rules": 3,
+    "layer2_drex": 2
    },
-   "drex_input_tokens": 0
+   "drex_input_tokens": 192715
   },
-  "labeled_by_agent": 94,
+  "labeled_by_agent": 60,
   "mcp": false,
   "coverage": 1.0
  },
  "rows": [
   {
-   "id": "a62e8a3e0a07",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "archive",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "ea3e1ca56d04",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "read_later",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "d115974b73f5",
+   "id": "c5bf028e1893",
    "system": "intern_agent",
    "category": "job_alert",
    "action": "ignore",
-   "relevance": 3.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "4d1a72fa9c2f",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
-   "action": "track_as_application",
-   "relevance": 1.0,
-   "priority": 0.6667,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "3203c032cf7f",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "7c898cb892ea",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "archive",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "d96ff942a168",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
-   "action": "reply_today",
-   "relevance": 2.0,
-   "priority": 0.8333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "b9c3a6141e15",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "track_as_application",
    "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "cdfefd425522",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "archive",
-   "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "a2d8ac531482",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "e5b25516a601",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "b8d4dd0258cf",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
-   "action": "track_as_application",
-   "relevance": 0.0,
-   "priority": 0.5,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "415ae362ab46",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "ignore",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "b2418ef56366",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "read_later",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "9a39a82d335d",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "06966fb4a9ca",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "archive",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "28834e3956fe",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "archive",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "4897bc327229",
+   "id": "1a9dd3d8e586",
    "system": "intern_agent",
    "category": "job_alert",
-   "action": "ignore",
-   "relevance": 3.0,
+   "action": "read_later",
+   "relevance": 2.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "6d7b46d31e05",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "acb90a992467",
+   "id": "af8c64d02706",
    "system": "intern_agent",
    "category": "informational",
    "action": "read_later",
-   "relevance": 0.0,
+   "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "f104d110e9e7",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "read_later",
-   "relevance": 2.0,
-   "priority": 0.4167,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "0b2acff69fc0",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "track_as_application",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "2c0270bcea62",
+   "id": "4e0aeeea5cfb",
    "system": "intern_agent",
    "category": "important",
    "action": "add_to_calendar",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "relevance": 3.0,
+   "priority": 0.5,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "b9acc9f39b40",
+   "id": "b4920dbc0046",
    "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "7857fa98f7bc",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "read_later",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "410b1506bfb7",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
+   "category": "job_alert",
    "action": "read_later",
    "relevance": 2.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "0e33a8435e1a",
+   "id": "f347a50ef828",
    "system": "intern_agent",
    "category": "informational",
-   "action": "reply_today",
+   "action": "ignore",
    "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "c41e23bfe92a",
+   "id": "523ffa110ea0",
    "system": "intern_agent",
-   "category": "job_alert",
+   "category": "promotion_or_spam",
    "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "696f5fd8e78e",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "add_to_calendar",
    "relevance": 3.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "573c30001a9d",
+   "id": "62dbe45e4219",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "393b8e0510c2",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "ignore",
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "1d13a7f6d883",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "e2d8a433a20a",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "1c07d5333a95",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "19225530556c",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "8e1af692a7ec",
+   "system": "intern_agent",
+   "category": "job_alert",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "9f003dd1df03",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "read_later",
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "7bcfe80f89c0",
+   "system": "intern_agent",
+   "category": "important",
+   "action": "read_later",
+   "relevance": 3.0,
+   "priority": 0.5,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "0d9a05154b82",
+   "system": "intern_agent",
+   "category": "important",
+   "action": "add_to_calendar",
+   "relevance": 3.0,
+   "priority": 0.5,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "79b64ddab87a",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "ignore",
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "c186f527f7ea",
    "system": "intern_agent",
    "category": "important",
    "action": "track_as_application",
    "relevance": 3.0,
    "priority": 0.5,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "e6d4e9885a22",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "add_to_calendar",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "9d0da401545c",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "read_later",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "ec96495184b8",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "archive",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "fa3993ebbb6f",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "read_later",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "ea0a0bfdf13f",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "7834b27af214",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "archive",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "e32c8812af3f",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "track_as_application",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "36aca0f985a6",
+   "id": "204467d7d1ae",
    "system": "intern_agent",
    "category": "job_alert",
    "action": "ignore",
-   "relevance": 3.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "19ab1cc90a1d",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
-   "action": "read_later",
-   "relevance": 3.0,
-   "priority": 1.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "9d81bcdd9a1f",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "archive",
    "relevance": 0.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "11fbc051a3dd",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "add_to_calendar",
-   "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "8a80efdee44a",
+   "id": "69f1a3b3b2fc",
    "system": "intern_agent",
    "category": "informational",
    "action": "read_later",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "a002d0886238",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "track_as_application",
    "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "553483426306",
+   "id": "dddd9c39f73e",
    "system": "intern_agent",
-   "category": "important",
-   "action": "add_to_calendar",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "70d19678df98",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
+   "category": "informational",
    "action": "ignore",
    "relevance": 0.0,
-   "priority": 0.5,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "5733dfa11667",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "read_later",
-   "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "87ed5c8df7b0",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "track_as_application",
-   "relevance": 2.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "27dea635ed7e",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
-   "action": "track_as_application",
-   "relevance": 1.0,
-   "priority": 0.6667,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "294cffbded66",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "track_as_application",
-   "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "708919f026b9",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "read_later",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "155cc7112bd2",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
-   "action": "track_as_application",
-   "relevance": 2.0,
-   "priority": 0.8333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "bceaa989c8b8",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "read_later",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "c7390260e49d",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "add_to_calendar",
-   "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "71394f6cae06",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "read_later",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "cc2d890cddae",
-   "system": "intern_agent",
-   "category": "informational",
-   "action": "archive",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "50f0244b00a1",
+   "id": "e62ec1612204",
    "system": "intern_agent",
    "category": "promotion_or_spam",
    "action": "ignore",
    "relevance": 0.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "20a0bb5ee406",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "track_as_application",
-   "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "5a6a6caa5a1d",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "read_later",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "d09c4fffea4b",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "track_as_application",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "80fb6d8e3717",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "reply_today",
-   "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "31ebef076680",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "reply_today",
-   "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "05ebe9c7330a",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "3154d8dbce60",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "read_later",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "6135963ad8b7",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "track_as_application",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "934757d46cd2",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "add_to_calendar",
-   "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "71203e6d528c",
+   "id": "6dca7daca7ad",
    "system": "intern_agent",
    "category": "informational",
-   "action": "archive",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "91a63cdf143b",
-   "system": "intern_agent",
-   "category": "job_alert",
    "action": "ignore",
-   "relevance": 3.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "64853f0f7d4b",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "add_to_calendar",
    "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "da0e2250f23e",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
-   "action": "track_as_application",
-   "relevance": 2.0,
-   "priority": 0.8333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "6dbe3fa786e5",
+   "id": "403c715df093",
    "system": "intern_agent",
    "category": "informational",
    "action": "read_later",
-   "relevance": 0.0,
+   "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "786e14bb918b",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "ignore",
-   "relevance": 3.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "db75153f1304",
+   "id": "c6263c37a77b",
    "system": "intern_agent",
    "category": "informational",
-   "action": "read_later",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "62d447099ca6",
-   "system": "intern_agent",
-   "category": "job_alert",
    "action": "ignore",
-   "relevance": 3.0,
+   "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "fe5e669a0fd3",
+   "id": "eb17fe339cf9",
    "system": "intern_agent",
    "category": "important",
    "action": "track_as_application",
    "relevance": 3.0,
    "priority": 0.5,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "fb29278b6a9d",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "5b02f222493f",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "0d49f3648de3",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "aeb3ff1c10e7",
+   "id": "ce08912a01cf",
    "system": "intern_agent",
    "category": "job_alert",
-   "action": "track_as_application",
+   "action": "read_later",
    "relevance": 2.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "4dfc6acd580b",
+   "id": "7c2e7e87ce2f",
    "system": "intern_agent",
-   "category": "important",
-   "action": "track_as_application",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "category": "informational",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "1c9b39bc8189",
+   "id": "003f6855aab7",
    "system": "intern_agent",
-   "category": "important",
-   "action": "reply_today",
+   "category": "informational",
+   "action": "ignore",
    "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "c985578c0a67",
+   "id": "5053046c8cc3",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "4bb8cf87f1ff",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "ignore",
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "2899732410f5",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "09c9eaa401cc",
    "system": "intern_agent",
    "category": "job_alert",
    "action": "ignore",
-   "relevance": 3.0,
+   "relevance": 0.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "88d9d9a13a35",
+   "id": "5855a43f9807",
    "system": "intern_agent",
-   "category": "urgent_action_needed",
+   "category": "important",
    "action": "track_as_application",
    "relevance": 3.0,
-   "priority": 1.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "priority": 0.5,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "4ccb2d85ae2e",
+   "id": "02598363347d",
+   "system": "intern_agent",
+   "category": "job_alert",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "f12422fc80db",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "e41e73f0b1ec",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "5ca3764669f4",
+   "system": "intern_agent",
+   "category": "important",
+   "action": "track_as_application",
+   "relevance": 3.0,
+   "priority": 0.5,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "2cb71f9a5395",
+   "system": "intern_agent",
+   "category": "important",
+   "action": "add_to_calendar",
+   "relevance": 3.0,
+   "priority": 0.5,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "430f597bea3a",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "b2469015398c",
+   "system": "intern_agent",
+   "category": "important",
+   "action": "track_as_application",
+   "relevance": 3.0,
+   "priority": 0.5,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "2f50bee06bd1",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "ignore",
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "a6a40e73a4a1",
+   "system": "intern_agent",
+   "category": "job_alert",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "5699c449883e",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "ignore",
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "02f569fbc9be",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "346648d46916",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "5a187bf8f201",
+   "system": "intern_agent",
+   "category": "job_alert",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "84b2e640532c",
+   "system": "intern_agent",
+   "category": "job_alert",
+   "action": "read_later",
+   "relevance": 2.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "137899f5d46b",
    "system": "intern_agent",
    "category": "informational",
    "action": "read_later",
    "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "181058f19676",
+   "id": "349c0204015e",
    "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
+   "category": "informational",
+   "action": "read_later",
    "relevance": 1.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "130d51b10d30",
+   "id": "e05da0226a69",
    "system": "intern_agent",
-   "category": "urgent_action_needed",
+   "category": "informational",
    "action": "read_later",
-   "relevance": 2.0,
-   "priority": 0.8333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "df350de53561",
+   "id": "059c7c4ac806",
    "system": "intern_agent",
    "category": "promotion_or_spam",
    "action": "ignore",
    "relevance": 0.0,
    "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "e7492d59f6f9",
+   "id": "9b37b5840115",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "read_later",
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "1d8627499a26",
    "system": "intern_agent",
    "category": "job_alert",
    "action": "ignore",
-   "relevance": 2.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "dafe29d90fa6",
-   "system": "intern_agent",
-   "category": "urgent_action_needed",
-   "action": "reply_today",
-   "relevance": 2.0,
-   "priority": 0.8333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "c62104c20e12",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "track_as_application",
-   "relevance": 3.0,
-   "priority": 0.5,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "f8bfd814fbde",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "track_as_application",
    "relevance": 1.0,
-   "priority": 0.3333,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   },
   {
-   "id": "6394b49cbccb",
+   "id": "144f5496a785",
+   "system": "intern_agent",
+   "category": "informational",
+   "action": "ignore",
+   "relevance": 1.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "200a4c01c274",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "cab607b864ce",
+   "system": "intern_agent",
+   "category": "promotion_or_spam",
+   "action": "ignore",
+   "relevance": 0.0,
+   "priority": 0.0,
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
+  },
+  {
+   "id": "b5424ce5048a",
    "system": "intern_agent",
    "category": "important",
    "action": "add_to_calendar",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "8498686961d5",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "track_as_application",
    "relevance": 3.0,
    "priority": 0.5,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "7ef788da0e8d",
-   "system": "intern_agent",
-   "category": "important",
-   "action": "reply_today",
-   "relevance": 0.0,
-   "priority": 0.25,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "6963cdbe60b1",
-   "system": "intern_agent",
-   "category": "job_alert",
-   "action": "read_later",
-   "relevance": 0.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
-  },
-  {
-   "id": "54d5b6758e2a",
-   "system": "intern_agent",
-   "category": "promotion_or_spam",
-   "action": "ignore",
-   "relevance": 1.0,
-   "priority": 0.0,
-   "latency_s": 1.0761702127659574,
-   "cost_usd": 6.770851063829788e-05
+   "latency_s": 5.824981201383829,
+   "cost_usd": 0.0005206866666666667
   }
  ]
 }

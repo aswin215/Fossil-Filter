@@ -78,21 +78,39 @@ The `intern` CLI is installed into the venv by `pip install -e ../intern`. To in
 
 Mail access is read-only: nothing sends, deletes or modifies mail. `load_emails()` is the single source interface.
 
-## Results
+## Results (real APIs, my own inbox)
 
-> **These numbers come from MOCK clients on the synthetic sample**, so the plumbing, UI and eval could be built
-> before keys existed. The mocks are deterministic keyword heuristics with simulated latency. **They say nothing
-> about Drex, Claude, Qwen or Intern.** In mock mode the Intern session is **simulated**: Intern refuses to start
-> without a reachable System 1. Run `python scripts/run_all.py --real` and paste the regenerated table from
-> `results/summary.md` here.
+Real run on 2026-11-14: 259 emails from my Gmail export, **124 hand-labeled** (single annotator). Drex `drex-latest`
+via Intern, Claude `claude-haiku-5-5`, DeepInfra `Qwen/Qwen3.8-27B`, profile `student_jobhunter`. The Intern agent
+session handled 60 emails (labeled ones first). Full report: [results/summary.md](results/summary.md).
 
 | System | Category acc | Category macro-F1 | Urgent recall | Action acc | p50 s | p95 s | emails/s | $ / 1k emails |
 |---|---|---|---|---|---|---|---|---|
-| Claude-only | 0.840 | 0.838 | 0.643 | 0.617 | 2.65 | 3.26 | 0.39 | 3.5062 |
-| DeepInfra Qwen | 0.872 | 0.869 | 0.714 | 0.553 | 1.39 | 1.95 | 0.71 | 0.0818 |
-| Drex (Level A, via Intern) | 0.819 | 0.818 | 0.643 | 0.511 | 0.20 | 0.25 | 5.25 | 0.1314 |
-| Hybrid (Drex + Claude, 68% escalated) | 0.840 | 0.838 | 0.643 | 0.617 | 2.41 | 3.42 | 0.51 | 2.5142 |
-| Intern agent (Level B, simulated) | 0.872 | 0.869 | 0.714 | 0.553 | 1.08 | 1.08 | 0.93 | 0.0677 |
+| Claude-only (Haiku 5.5) | 0.589 | 0.557 | 0.400 | 0.315 | 0.98 | 1.73 | 0.92 | 0.31 |
+| DeepInfra Qwen3.8-27B | 0.537 | 0.467 | 0.333 | 0.252 | 10.76 | 40.21 | 0.06 | 1.25 |
+| **Drex via Intern (Level A)** | 0.565 | 0.497 | 0.200 | 0.242 | **0.30** | **0.38** | **3.30** | 0.37* |
+| Hybrid (Drex + Claude, 60% escalated) | 0.581 | 0.554 | 0.400 | 0.298 | 1.13 | 1.85 | 1.06 | 0.52* |
+| Intern agent (Level B, 60 emails) | 0.533 | 0.421 | 0.000 | 0.483 | 5.82 | 5.82 | 0.17 | 0.52** |
+
+\* The Drex price is a placeholder ($0.20 per 1M input tokens), because the console did not report a per-call cost.
+\*\* Intern reported $0 for the session, so the cost is estimated from tokens at placeholder DeepInfra prices.
+Claude cost uses list prices in `config.py`. Qwen cost is DeepInfra's own `estimated_cost`.
+
+**What the numbers say:**
+- **Drex is the fastest by far**: p50 0.30 s, **3.3× faster than Claude Haiku** and about 36× faster than Qwen on
+  DeepInfra. Its p95 (0.38 s) is also the tightest. Category accuracy is 2.4 points below Claude (0.565 vs 0.589),
+  which is within noise for 124 labels.
+- **Cost:** against Haiku, one of the cheapest frontier models, Drex is about the same cost (0.8×) at the
+  placeholder price. The cost case depends on Drex's real price.
+- **Hybrid** recovers Claude-level accuracy (0.581, Claude's urgent recall) and escalates 60% of emails.
+- **The Intern agent** completed: 60/60 labeled in 8 turns and 5.8 min, with 15 Drex System 1 decisions (p50 504 ms).
+  It scored lowest on category and missed every urgent email, but had the best action accuracy (0.483). Per-email
+  decisions beat one agent reading 60 truncated emails.
+- **Every system is weak on my "important" emails.** Claude called 22 of 25 and Drex 19 of 25 *informational*. They
+  are judged against a generic persona, not my real profile, so they can't know which senders matter to me. This is
+  the personalization gap the onboarding profile is meant to close.
+- **Guardrail:** both semantic checks catch 100% of the synthetic sensitive set. Drex takes 0.26 s per check vs
+  Claude's 1.30 s, with a 0.10 false-block rate vs 0.00 for Claude.
 
 `results/summary.md` also contains:
 - speedup, cost multiple and accuracy delta vs Claude for every system
@@ -161,8 +179,12 @@ The audit log stores only ids, layers and rule names.
 
 ## Honest limitations
 
-- **Mock numbers are not evidence.** In mock mode the Intern session is simulated, and its accuracy equals mock
-  Qwen's because it uses the same mock labels.
+- **Mock mode is not evidence.** `USE_MOCKS=true` numbers (and the simulated Intern session) only exercise the plumbing.
+- **Job ranking is not meaningful on my inbox**: my 2 LinkedIn alerts yielded 2 jobs (rated medium and low), so
+  P@k is 0 and NDCG is trivially 1.0.
+- **Drex was run against a generic persona** (`student_jobhunter`), not a profile of me, which likely understates
+  every system on "important" mail.
+- **The Drex price is a placeholder**, so cost multiples involving Drex are provisional.
 - **Vendor-reported benchmarks**: Drex's and Intern's claims come from Nace. This project measures them only on this
   small set.
 - **Small, single-annotator label set** (~100 emails, ~40 jobs). Confidence intervals are wide.
