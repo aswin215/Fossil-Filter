@@ -1,0 +1,14 @@
+{
+  "name": "founder",
+  "answers": {
+    "role": "Solo founder of an early-stage B2B SaaS startup (pre-seed)",
+    "goals": "Close seed round, ship v1 to design partners, hire first engineer",
+    "urgent": "Investor replies and term sheets, customer outages or escalations, legal/incorporation deadlines, payroll",
+    "important": "Design partner feedback, candidate applications for the founding engineer role, accelerator updates",
+    "ignore": "Student newsletters, campus events, retail promotions, generic job alerts",
+    "job_targets": "n/a (hiring, not job hunting)",
+    "dealbreakers": "n/a",
+    "people": "Investors, design partners, cofounder candidates, lawyer, accountant"
+  },
+  "profile_text": "Role: solo founder of a pre-seed B2B SaaS startup.\nGoals: close the seed round, ship v1 to design partners, hire the first engineer.\nUrgent: investor replies and term sheets, customer outages or escalations, legal and incorporation deadlines, payroll.\nImportant: design partner feedback, founding-engineer candidate applications, accelerator and investor updates.\nIgnore: student newsletters, campus events, coursework, retail promotions, generic job alerts (not job hunting).\nJob targets: none; is hiring, not looking for a job.\nKey senders: investors, design partners, candidates, lawyer, accountant."
+}

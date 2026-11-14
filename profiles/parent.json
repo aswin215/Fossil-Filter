@@ -1,0 +1,14 @@
+{
+  "name": "parent",
+  "answers": {
+    "role": "Working parent of two kids (ages 7 and 12), hospital nurse on rotating shifts",
+    "goals": "Keep on top of school, medical appointments and family logistics; not miss bills",
+    "urgent": "School closures or nurse calls, pediatrician appointment changes, shift changes, permission slips due tomorrow",
+    "important": "Teacher messages, report cards, activity schedules, family events",
+    "ignore": "Tech newsletters, job alerts, startup content, promotions except grocery deals",
+    "job_targets": "n/a",
+    "dealbreakers": "n/a",
+    "people": "Kids' teachers, school office, pediatrician, partner, hospital scheduling"
+  },
+  "profile_text": "Role: working parent of two kids (7 and 12), hospital nurse on rotating shifts.\nGoals: stay on top of school, medical appointments and family logistics; never miss bills or forms.\nUrgent: school closures or calls from the school nurse, pediatrician appointment changes, shift schedule changes, permission slips or forms due tomorrow.\nImportant: teacher messages, report cards, kids' activity schedules, family events.\nIgnore: tech and AI newsletters, job alerts, startup and developer content, most promotions (grocery deals are fine).\nJob targets: none.\nKey senders: teachers, school office, pediatrician, partner, hospital scheduling."
+}

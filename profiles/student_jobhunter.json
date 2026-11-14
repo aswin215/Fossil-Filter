@@ -1,0 +1,14 @@
+{
+  "name": "student_jobhunter",
+  "answers": {
+    "role": "CS master's student (international, F-1), graduating May 2027",
+    "goals": "Land a Summer 2027 ML or backend internship, or a new-grad role; finish thesis",
+    "urgent": "Interview scheduling, recruiter deadlines, online assessments about to expire, offer deadlines, advisor/thesis deadlines, CPT/OPT paperwork",
+    "important": "Application status updates, referrals, advisor feedback, TA duties, class project changes",
+    "ignore": "Retail promotions, sales, crypto, generic newsletters",
+    "job_targets": "ML engineer / data science / backend intern or new grad; Python, PyTorch, Go, SQL, Kubernetes; Bay Area or Remote",
+    "dealbreakers": "Needs visa sponsorship; no security clearance or US-citizen-only roles; no roles asking 3+ years experience",
+    "people": "Thesis advisor, graduate office, recruiters, project teammates"
+  },
+  "profile_text": "Role: CS master's student (F-1 international), graduating May 2027.\nGoals: land a Summer 2027 ML or backend internship or a new-grad ML/backend role; finish thesis.\nUrgent: interview scheduling, recruiter or offer deadlines, online assessments about to expire, thesis/advisor deadlines, CPT/OPT paperwork.\nImportant: application status updates, referrals, advisor feedback, TA duties, class/capstone project changes.\nIgnore: retail promotions, sales, crypto, generic newsletters.\nJob targets: machine learning engineer, data science, backend software engineer; internship or new grad / entry level; Python, PyTorch, Go, SQL, Kubernetes; Bay Area or Remote.\nDealbreakers: needs visa sponsorship; no security clearance or US-citizens-only roles; no roles requiring 3+ years of experience.\nKey senders: thesis advisor, graduate admissions office, recruiters, project teammates."
+}
