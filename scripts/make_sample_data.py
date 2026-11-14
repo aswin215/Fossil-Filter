@@ -1,10 +1,10 @@
 """Generate a deterministic SAMPLE dataset so the pipeline runs before you export your real Gmail.
 
 Writes:
-  data/raw/sample.mbox            ~100 fake emails (incl. LinkedIn job alerts, attachments, odd charsets)
-  data/labels.csv                 sample labels for the student_jobhunter persona  (replace with yours!)
-  data/job_gold.csv               sample job fit labels for the jobs inside the alerts (replace with yours!)
-  data/synthetic_sensitive.jsonl  60 sensitive + 60 benign emails for the guardrail benchmark
+  data/sample/sample.mbox         ~100 fake emails (incl. LinkedIn job alerts, attachments, odd charsets)
+  data/sample/labels.csv          sample labels for the student_jobhunter persona  (your own labels go in data/labels.csv)
+  data/sample/job_gold.csv        sample job fit labels for the jobs inside the alerts (your own labels go in data/labels.csv)
+  data/sample/synthetic_sensitive.jsonl  60 sensitive + 60 benign emails for the guardrail benchmark
 
 Everything here is fabricated. Labels are the generator's intent, not a human's judgement.
 """
@@ -224,8 +224,8 @@ SENSITIVE_IN_INBOX = [
 
 
 def main() -> None:
-    config.RAW_DIR.mkdir(parents=True, exist_ok=True)
-    mbox_path = config.RAW_DIR / "sample.mbox"
+    config.SAMPLE_DIR.mkdir(parents=True, exist_ok=True)
+    mbox_path = config.SAMPLE_DIR / "sample.mbox"
     if mbox_path.exists():
         mbox_path.unlink()
     box = mailbox.mbox(str(mbox_path))
@@ -275,12 +275,12 @@ def main() -> None:
     box.close()
 
     from src.loader import message_id_to_id
-    with open(config.LABELS_PATH, "w", newline="") as f:
+    with open(config.SAMPLE_DIR / "labels.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["id", "category", "action"])
         for m in labels:
             w.writerow([message_id_to_id(m["mid"]), m["category"], m["action"]])
-    with open(config.JOB_GOLD_PATH, "w", newline="") as f:
+    with open(config.SAMPLE_DIR / "job_gold.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["email_id", "job_title", "company", "my_rank_or_fit"])
         for m in labels:

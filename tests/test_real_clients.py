@@ -1,6 +1,6 @@
-"""Offline contract tests for the REAL Drex/NDI clients using httpx.MockTransport.
-
-Responses mirror the shapes documented at console.nace.ai/docs (2026-11-14). No network, no keys.
+"""Offline contract tests for the REAL Drex (via Intern's DecisionsApiBackend) and NDI clients, using
+httpx.MockTransport. Responses mirror the shapes documented at console.nace.ai/docs and Intern's
+src/intern/decisions.py (2026-11-14). No network, no keys.
 Run:  python -m pytest -q tests   (or: python tests/test_real_clients.py)
 """
 from __future__ import annotations
@@ -10,11 +10,14 @@ import sys
 from pathlib import Path
 
 import httpx
+from pydantic import SecretStr
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import config  # noqa: E402
 
 config.NACE_API_KEY = config.NDI_API_KEY = "nace_sk_test"
+from intern.decisions import DecisionsApiBackend, System1Unavailable  # noqa: E402
+
 from src.clients.drex_client import DrexClient  # noqa: E402
 from src.clients.ndi_client import NDIClient  # noqa: E402
 from src.jobs import JOB_QUESTIONS  # noqa: E402
@@ -52,18 +55,24 @@ def drex_handler(calls):
     return h
 
 
+def _client(handler, retry_window_s=30.0):
+    backend = DecisionsApiBackend("https://console.nace.ai/v1", SecretStr("nace_sk_test"), ["drex-latest"],
+                                  transport=httpx.MockTransport(handler))
+    return DrexClient(model="drex-latest", backend=backend, retry_window_s=retry_window_s)
+
+
 def test_drex_triage_and_jobs():
     calls = []
-    c = DrexClient()
-    c._http = httpx.Client(base_url="https://console.nace.ai", transport=httpx.MockTransport(drex_handler(calls)),
-                           headers={"Authorization": "Bearer nace_sk_test"})
+    c = _client(drex_handler(calls))
     r = c.evaluate("PROFILE:\nx\n\nEMAIL:\ny", TRIAGE_QUESTIONS)
-    assert len(calls) == 2, "should retry once after 429"
+    assert len(calls) == 2, "Intern's backend should retry once after 429"
     row = result_from_drex("e1", r)
     assert row["category"] == "urgent_action_needed" and abs(row["relevance"] - 1.5) < 1e-9
-    assert r.input_tokens == 812 and r.model == "drex-max-v1.1"
+    assert r.input_tokens == 812 and not r.cached
     j = c.evaluate("PROFILE:\nx\n\nJOB:\ny", JOB_QUESTIONS)
     assert abs(j.answers["has_dealbreaker"].p_yes - 0.2) < 1e-9
+    assert c.evaluate("PROFILE:\nx\n\nEMAIL:\ny", TRIAGE_QUESTIONS).cached, "Intern's cache answers repeats"
+    assert c.usage()["asks"] == 2
 
 
 def test_drex_422_is_clear_error():
@@ -71,12 +80,11 @@ def test_drex_422_is_clear_error():
         return httpx.Response(422, json={"error": {"type": "invalid_request_error", "message": "bad",
                                                    "issues": [{"path": "model", "message": "unknown model"}]},
                                          "request_id": "req_" + "b" * 32})
-    c = DrexClient()
-    c._http = httpx.Client(base_url="https://x", transport=httpx.MockTransport(h))
+    c = _client(h, retry_window_s=0.5)
     try:
         c.evaluate("s", TRIAGE_QUESTIONS)
-    except RuntimeError as e:
-        assert "422" in str(e) and "unknown model" in str(e)
+    except System1Unavailable as e:  # Intern stops instead of guessing; the guardrail drops the email
+        assert "422" in str(e)
     else:
         raise AssertionError("expected error")
 
@@ -124,6 +132,41 @@ def test_ndi_extract_flow():
         nd.httpx.post, nd.time.sleep = orig_post, orig_sleep
     assert len(r.jobs) == 1 and r.jobs[0].fields["company"] == "Acme"
     assert r.jobs[0].grounding["title"]["source_text"] == "ML Intern" and r.jobs[0].confidence == 0.93
+
+
+def test_deepinfra_judge_validates_json():
+    import src.clients.deepinfra_client as di
+    from src.baseline import TRIAGE_SCHEMA
+
+    config.DEEPINFRA_API_KEY = "di_test"
+
+    def h(req):
+        body = json.loads(req.content)
+        assert req.url.path == "/v1/openai/chat/completions" and body["temperature"] == 0
+        assert body["response_format"] == {"type": "json_object"}
+        content = '<think>hmm</think>```json\n{"category": "Important", "relevance": "high", "action": "reply_today"}\n```'
+        return httpx.Response(200, json={"choices": [{"message": {"content": content}}],
+                                         "usage": {"prompt_tokens": 500, "completion_tokens": 20,
+                                                   "estimated_cost": 0.00007}})
+    c = di.DeepInfraClient("Qwen/Qwen3.8-27B")
+    c._http = httpx.Client(base_url="https://api.deepinfra.com/v1/openai", transport=httpx.MockTransport(h))
+    r = c.judge("sys", "user", TRIAGE_SCHEMA)
+    assert r.data == {"category": "important", "relevance": "high", "action": "reply_today"}
+    assert r.input_tokens == 500 and r.cost_usd == 0.00007
+
+
+def test_agent_events_never_keep_content():
+    from src.agent import _sanitize
+
+    assert _sanitize({"type": "text_delta", "turn": 1, "text": "Your code is 123456"}) is None
+    end = _sanitize({"type": "tool_call_end", "turn": 2, "name": "read", "call_id": "c", "status": "ok",
+                     "content": "Subject: bank statement", "duration_ms": 5})
+    assert "content" not in end and end["name"] == "read"
+    start = _sanitize({"type": "tool_call_start", "turn": 2, "name": "bash", "call_id": "c",
+                       "arguments": {"command": "cat emails.jsonl"}})
+    assert "arguments" not in start
+    assert "final_text" not in _sanitize({"type": "run_end", "reason": "completed", "turns": 3, "usage": {},
+                                          "final_text": "DONE: email from bank", "duration_ms": 1})
 
 
 if __name__ == "__main__":

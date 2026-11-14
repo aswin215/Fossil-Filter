@@ -46,13 +46,14 @@ def extract_jobs(email: dict, ndi) -> tuple[list[dict], dict]:
 
 
 def score_job_drex(profile_text: str, job: dict, drex) -> dict:
-    r = drex.evaluate(job_state(profile_text, job), JOB_QUESTIONS)
+    r = drex.evaluate(job_state(profile_text, job), JOB_QUESTIONS, purpose="job_fit")
     fit, tgt, deal = r.answers["fit"], r.answers["is_target_role"], r.answers["has_dealbreaker"]
     return {
         "fit": fit.score, "fit_probs": fit.probabilities, "p_target": tgt.p_yes, "p_dealbreaker": deal.p_yes,
         "confidence": min(fit.top_prob, tgt.top_prob, deal.top_prob), "fit_entropy": fit.entropy_norm,
         "rank_score": job_rank_score(fit.score, tgt.p_yes, deal.p_yes),
         "latency_s": r.latency_s, "input_tokens": r.input_tokens, "output_tokens": 0, "system": "drex",
+        "drex_cost_usd": r.cost_usd,
     }
 
 

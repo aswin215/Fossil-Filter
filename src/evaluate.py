@@ -1,4 +1,5 @@
-"""Evaluation: Claude-only vs Drex vs Hybrid. Writes results/summary.md, summary.json and charts.
+"""Evaluation: Claude-only vs DeepInfra Qwen vs Drex (via Intern's client) vs Hybrid vs the Intern agent.
+Writes results/summary.md, summary.json and charts.
 
 Predictions are cached in results/cache/ (keyed by system, profile, mode/model) so re-runs with real
 APIs don't re-pay. Delete the cache directory to force fresh calls.
@@ -24,9 +25,14 @@ from src.loader import load_emails
 from src.profile import load_profile
 from src.triage import CATEGORIES, triage_email
 
-SYSTEMS = ["claude", "drex", "hybrid"]
-LABEL = {"claude": "Claude-only", "drex": "Drex", "hybrid": "Hybrid"}
-COLORS = {"claude": "#2a78d6", "drex": "#eb6834", "hybrid": "#1baf7a"}  # validated categorical slots 1-3
+ALL_SYSTEMS = ["claude", "deepinfra", "drex", "hybrid", "intern_agent"]
+JOB_SYSTEMS = ["claude", "drex", "hybrid"]
+LABEL = {"claude": "Claude-only", "deepinfra": "DeepInfra Qwen", "drex": "Drex (Level A)", "hybrid": "Hybrid",
+         "intern_agent": "Intern agent (Level B)"}
+SHORT = {"claude": "Claude", "deepinfra": "Qwen", "drex": "Drex", "hybrid": "Hybrid", "intern_agent": "Intern"}
+# Fixed categorical slot per system (palette slots 1-5); bars are also labeled on the axis, never color alone.
+COLORS = {"claude": "#2a78d6", "drex": "#eb6834", "hybrid": "#1baf7a", "deepinfra": "#eda100",
+          "intern_agent": "#e87ba4"}
 INK, INK2, MUTED, GRID, BASE, SURFACE = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3c2b7", "#fcfcfb"
 THRESHOLDS = [round(x, 2) for x in np.arange(0.30, 0.96, 0.05)]
 
@@ -35,7 +41,8 @@ THRESHOLDS = [round(x, 2) for x in np.arange(0.30, 0.96, 0.05)]
 def _tag(clients, system: str) -> str:
     if clients.mock:
         return "mock"
-    return (clients.drex.model if system == "drex" else clients.claude.model).replace("/", "_")
+    m = {"drex": clients.drex, "deepinfra": clients.deepinfra}.get(system, clients.claude)
+    return m.model.replace("/", "_").replace(":", "_")
 
 
 def cached(name: str, items: list, key, fn, workers: int) -> dict:
@@ -106,8 +113,9 @@ def latency_stats(rows: dict[str, dict]) -> dict:
             "throughput_per_s": float(len(lat) / lat.sum()) if lat.sum() else 0.0}
 
 
-def drex_cost(input_tokens: float) -> float:
-    return input_tokens * config.DREX_PRICE_PER_MTOK_INPUT / 1e6
+def drex_cost(input_tokens: float, reported: float = 0.0) -> float:
+    """API-reported cost (Intern passes usage.cost through) when present, else tokens x config price."""
+    return reported or input_tokens * config.DREX_PRICE_PER_MTOK_INPUT / 1e6
 
 
 def claude_cost(inp: float, out: float, model: str | None) -> float:
@@ -115,9 +123,18 @@ def claude_cost(inp: float, out: float, model: str | None) -> float:
     return (inp * p["input"] + out * p["output"]) / 1e6
 
 
+def deepinfra_cost(inp: float, out: float, reported: float = 0.0) -> float:
+    p = config.DEEPINFRA_PRICE_PER_MTOK
+    return reported or (inp * p["input"] + out * p["output"]) / 1e6
+
+
 def row_cost(r: dict, system: str) -> float:
+    if system == "intern_agent":
+        return r.get("cost_usd", 0.0)
+    if system == "deepinfra":
+        return deepinfra_cost(r["input_tokens"], r["output_tokens"], r.get("cost_usd", 0.0))
     if system == "drex" or (system == "hybrid" and not r.get("escalated")):
-        return drex_cost(r["input_tokens"])
+        return drex_cost(r["input_tokens"], r.get("drex_cost_usd", 0.0))
     c = claude_cost(r["input_tokens"], r["output_tokens"], r.get("model"))
     return c + (drex_cost(r.get("drex_input_tokens", 0)) if system == "hybrid" else 0.0)
 
@@ -154,7 +171,13 @@ def run_triage_systems(emails, labels, profile_name, clients, workers) -> dict:
                   lambda e: triage_email(prof, e, clients.drex), workers)
     claude = cached(f"triage_claude_{profile_name}_{_tag(clients, 'claude')}", labeled, key,
                     lambda e: triage_email_claude(prof, e, clients.claude), workers)
-    return {"drex": drex, "claude": claude}
+    out = {"drex": drex, "claude": claude}
+    if clients.deepinfra is not None:
+        out["deepinfra"] = cached(f"triage_deepinfra_{profile_name}_{_tag(clients, 'deepinfra')}", labeled, key,
+                                  lambda e: triage_email_claude(prof, e, clients.deepinfra), workers)
+    else:
+        print("  [eval] DEEPINFRA_API_KEY not set: skipping the DeepInfra Qwen baseline")
+    return out
 
 
 def threshold_sweep(drex, claude, labels) -> list[dict]:
@@ -187,7 +210,7 @@ def run_jobs_eval(emails, profile_name, clients, workers) -> dict:
 
 def jobs_metrics(J: dict, gold: dict, threshold: float, claude_model: str | None = None) -> dict:
     out = {}
-    for sys in SYSTEMS:
+    for sys in JOB_SYSTEMS:
         scored = []
         for j in J["jobs"]:
             k = J["jkey"](j)
@@ -205,7 +228,8 @@ def jobs_metrics(J: dict, gold: dict, threshold: float, claude_model: str | None
     out["drex"].update(latency_stats(J["drex"]))
     out["claude"].update(latency_stats(J["claude"]))
     out["hybrid"]["escalated_frac"] = float(np.mean([x["confidence"] < threshold for x in d])) if d else 0
-    out["cost_per_1k_jobs"] = {"drex": 1000 * float(np.mean([drex_cost(x["input_tokens"]) for x in d])) if d else 0,
+    out["cost_per_1k_jobs"] = {"drex": 1000 * float(np.mean([drex_cost(x["input_tokens"], x.get("drex_cost_usd", 0))
+                                                             for x in d])) if d else 0,
                                "claude": 1000 * float(np.mean([claude_cost(x["input_tokens"], x["output_tokens"],
                                                                            claude_model)
                                                                for x in c])) if c else 0}
@@ -280,7 +304,8 @@ def guardrail_bench(clients, workers) -> dict:
                             "claude_p50_s": float(np.median(clat)), "claude_p95_s": float(np.percentile(clat, 95))}
     cmodel = None if clients.mock else clients.claude.model
     out["check_cost_per_1k"] = {
-        "drex": 1000 * float(np.mean([drex_cost(v["meta"]["input_tokens"]) for v in dx.values()])),
+        "drex": 1000 * float(np.mean([drex_cost(v["meta"]["input_tokens"], v["meta"].get("drex_cost_usd", 0))
+                                      for v in dx.values()])),
         "claude": 1000 * float(np.mean([claude_cost(v["meta"]["input_tokens"], v["meta"]["output_tokens"], cmodel)
                                         for v in cl.values()]))}
     return out
@@ -315,7 +340,7 @@ def charts(summary: dict, sweep: list[dict], out_dir: Path) -> list[str]:
         ax.plot(ts, [s[k] for s in sweep], color=COLORS["hybrid"], linewidth=2, marker="o", markersize=4,
                 label="Hybrid")
         if k != "escalated_frac":
-            for sysname in ("claude", "drex"):
+            for sysname in [x for x in ("claude", "deepinfra", "drex") if x in summary["triage"]]:
                 v = summary["triage"][sysname]["category_acc" if k == "category_acc" else "cost_per_1k"]
                 ax.axhline(v, color=COLORS[sysname], linewidth=1.5, linestyle="--", label=LABEL[sysname])
         ax.axvline(config.ESCALATE_THRESHOLD, color=MUTED, linewidth=0.8, linestyle=":")
@@ -327,14 +352,15 @@ def charts(summary: dict, sweep: list[dict], out_dir: Path) -> list[str]:
     plt.close(fig)
     files.append(p.name)
 
-    fig, axes = plt.subplots(1, 3, figsize=(13, 3.4), facecolor=SURFACE)
+    fig, axes = plt.subplots(1, 3, figsize=(14, 3.6), facecolor=SURFACE)
     tri = summary["triage"]
+    systems = [s for s in ALL_SYSTEMS if s in tri]
     for ax, (k, title, yl, fmt) in zip(axes, [("p50_s", "Latency p50 per email", "seconds", "{:.2f}s"),
-                                              ("p95_s", "Latency p95 per email", "seconds", "{:.2f}s"),
+                                              ("category_acc", "Category accuracy", "accuracy", "{:.2f}"),
                                               ("cost_per_1k", "Cost per 1,000 emails", "USD", "${:.3f}")]):
         _style(ax, title, yl)
-        vals = [tri[s][k] for s in SYSTEMS]
-        bars = ax.bar([LABEL[s] for s in SYSTEMS], vals, color=[COLORS[s] for s in SYSTEMS], width=0.55,
+        vals = [tri[s].get(k, 0) or 0 for s in systems]
+        bars = ax.bar([SHORT[s] for s in systems], vals, color=[COLORS[s] for s in systems], width=0.6,
                       edgecolor=SURFACE, linewidth=2)
         for b, v in zip(bars, vals):
             ax.annotate(fmt.format(v), (b.get_x() + b.get_width() / 2, v), ha="center", va="bottom",
@@ -357,27 +383,51 @@ def write_report(S: dict, out_dir: Path) -> Path:
     L = []
     mode = "MOCK CLIENTS (numbers are placeholders, not evidence)" if S["mock"] else "REAL APIs"
     L += ["# Inbox Predator - evaluation summary", "",
-          f"Mode: **{mode}** · Drex model: `{S['drex_model']}` · Claude model: `{S['claude_model']}` · "
+          "Built with Claude Code; **Intern runs inside the product**: every Drex call goes through Intern's "
+          "`intern.decisions` client (Level A), and the Intern agent row is an Intern session with System 2 = "
+          "DeepInfra Qwen and System 1 = Drex (Level B).", "",
+          f"Mode: **{mode}** · data: `{S.get('data_source')}` · Drex model: `{S['drex_model']}` · Claude model: "
+          f"`{S['claude_model']}` · DeepInfra model: `{S.get('deepinfra_model')}` · "
           f"profile: `{S['profile']}` · labeled emails: {tri['claude'].get('n', 0)} · "
           f"escalation threshold: {S['threshold']}", ""]
     if config.DREX_PRICE_IS_PLACEHOLDER:
         L += [f"> Drex price is a PLACEHOLDER (${config.DREX_PRICE_PER_MTOK_INPUT}/M input tokens). Set "
               "`DREX_PRICE_PER_MTOK_INPUT` in .env from the Nace pricing page before quoting cost multiples.", ""]
-    L += ["## Headline: Claude-only vs Drex vs Hybrid (email triage)", "",
+    systems = [s for s in ALL_SYSTEMS if s in tri]
+    L += ["## Headline: Claude-only vs DeepInfra Qwen vs Drex vs Hybrid vs Intern agent (email triage)", "",
           "| System | Category acc | Category macro-F1 | Urgent recall | Action acc | p50 s | p95 s | emails/s | $ / 1k emails | Escalated |",
           "|---|---|---|---|---|---|---|---|---|---|"]
-    for s in SYSTEMS:
+    for s in systems:
         m = tri[s]
         L.append(f"| {LABEL[s]} | {_f(m.get('category_acc'))} | {_f(m.get('category_macro_f1'))} | "
                  f"{_f(m.get('urgent_recall'))} | {_f(m.get('action_acc'))} | {_f(m['p50_s'], 2)} | "
                  f"{_f(m['p95_s'], 2)} | {_f(m['throughput_per_s'], 2)} | {_f(m['cost_per_1k'], 4)} | "
                  f"{_f(m.get('escalated_frac', 0.0), 2) if s == 'hybrid' else '-'} |")
-    c, d, h = tri["claude"], tri["drex"], tri["hybrid"]
-    L += ["", "| Comparison | Speedup (p50, x) | Cost multiple (Claude / X) | Category acc delta vs Claude |",
+    c = tri["claude"]
+    L += ["", "| Comparison vs Claude-only | Speedup (p50, x) | Cost multiple (Claude / X) | Category acc delta |",
           "|---|---|---|---|"]
-    for s, m in (("Drex", d), ("Hybrid", h)):
-        L.append(f"| {s} | {c['p50_s'] / m['p50_s']:.1f}x | {c['cost_per_1k'] / m['cost_per_1k']:.1f}x | "
-                 f"{m.get('category_acc', 0) - c.get('category_acc', 0):+.3f} |")
+    for s in systems[1:]:
+        m = tri[s]
+        sp = f"{c['p50_s'] / m['p50_s']:.1f}x" if m["p50_s"] else "n/a"
+        cm = f"{c['cost_per_1k'] / m['cost_per_1k']:.1f}x" if m["cost_per_1k"] else "n/a"
+        L.append(f"| {LABEL[s]} | {sp} | {cm} | {m.get('category_acc', 0) - c.get('category_acc', 0):+.3f} |")
+    A = S.get("agent")
+    if A:
+        L += ["", "Intern agent latency and cost are the whole session (wall clock, System 2 + System 1) divided "
+                  "by emails handled, so p50 = p95.", ""]
+        L += ["## Intern inside the product", "",
+              f"**Level A: Drex through `intern.decisions.DecisionClient`.** {S['intern_level_a']['asks']} asks "
+              f"answered ({S['intern_level_a']['cached']} from Intern's cache, {S['intern_level_a']['errors']} "
+              f"failed attempts), backend `{S['intern_level_a']['backend']}`.", "",
+              f"**Level B: Intern agent session** ({'SIMULATED in mock mode' if A['simulated'] else 'real run'}): "
+              f"System 2 `{A['system2']}`, System 1 `{A['system1']}`. {A['labeled_by_agent']}/{A['n_emails']} emails "
+              f"labeled ({A['coverage']:.0%} coverage), {A['turns']} turns, {A['tool_calls']} tool calls, "
+              f"stop reason `{A['reason']}`.", "",
+              "| System 1 asks | by purpose | p50 ms | nudges | guard blocks | compactions | System 2 tokens in/out | "
+              "System 2 $ | System 1 $ | wall s |", "|---|---|---|---|---|---|---|---|---|---|",
+              f"| {A['system1_asks']} | {A['system1_by_purpose']} | {A['system1_p50_ms']} | {A['nudges']} | "
+              f"{A['guard_blocks']} | {A['compactions']} | {A['system2_input_tokens']}/{A['system2_output_tokens']} | "
+              f"{A['system2_cost_usd']:.4f} | {A['system1_cost_usd']:.4f} | {A['wall_s']:.1f} |", ""]
     L += ["", "![latency and cost](latency_cost.png)", "",
           "## Hybrid threshold sweep", "", "| threshold | category acc | action acc | urgent recall | $ / 1k | escalated | p50 s |",
           "|---|---|---|---|---|---|---|"]
@@ -391,7 +441,7 @@ def write_report(S: dict, out_dir: Path) -> Path:
               f"NDI: {J['ndi']['alerts']} alerts -> {J['ndi']['jobs_extracted']} jobs, p50 {J['ndi']['p50_s']:.2f}s per "
               f"alert, est. cost ${J['ndi']['cost_usd']:.4f}.", "",
               "| System | P@5 | P@10 | NDCG@10 | p50 s / job | gold-matched jobs |", "|---|---|---|---|---|---|"]
-        for s in SYSTEMS:
+        for s in JOB_SYSTEMS:
             m = J[s]
             L.append(f"| {LABEL[s]} | {m['p@5']:.2f} | {m['p@10']:.2f} | {m['ndcg@10']:.3f} | "
                      f"{_f(m.get('p50_s'), 2) if 'p50_s' in m else '-'} | {m['matched_gold']}/{m['n_jobs']} |")
@@ -425,14 +475,15 @@ def write_report(S: dict, out_dir: Path) -> Path:
           "- Latency is per-call wall clock including network; throughput is single-stream (1 / mean latency).",
           "- Claude baseline uses structured JSON output with low effort (current Claude models do not accept "
           "`temperature`).",
-          "- Costs come from token counts x prices in `config.py`.", ""]
+          "- Costs come from API-reported cost when the API returns one, else token counts x prices in `config.py`.",
+          "- DeepInfra Qwen is scored with JSON mode at temperature 0 and validated against the same enums.", ""]
     p = out_dir / "summary.md"
     p.write_text("\n".join(L))
     return p
 
 
 def run(clients, profile="student_jobhunter", workers: int | None = None, do_jobs=True, do_guard=True,
-        do_personas=True) -> dict:
+        do_personas=True, do_agent=True) -> dict:
     workers = workers or (8 if clients.mock else 4)
     t0 = time.time()
     emails = load_emails()
@@ -441,13 +492,27 @@ def run(clients, profile="student_jobhunter", workers: int | None = None, do_job
     R = run_triage_systems(emails, labels, profile, clients, workers)
     th = config.ESCALATE_THRESHOLD
     hyb = combine_offline(R["drex"], R["claude"], th)
+    systems_rows = [("claude", R["claude"]), ("deepinfra", R.get("deepinfra")), ("drex", R["drex"]), ("hybrid", hyb)]
+    agent = None
+    if do_agent:
+        from src.agent import run_agent
+
+        try:
+            agent = run_agent(profile, clients, emails)
+            systems_rows.append(("intern_agent", {i: r for i, r in agent["rows"].items() if i in labels}))
+        except Exception as ex:  # keep the rest of the eval; report the failure
+            print(f"  [eval] Intern agent run failed: {type(ex).__name__}: {str(ex)[:300]}")
     tri = {}
-    for s, rows in (("claude", R["claude"]), ("drex", R["drex"]), ("hybrid", hyb)):
-        tri[s] = {**triage_metrics(rows, labels), **latency_stats(rows), "cost_per_1k": cost_per_1k(rows, s)}
+    for s, rows in systems_rows:
+        if rows:
+            tri[s] = {**triage_metrics(rows, labels), **latency_stats(rows), "cost_per_1k": cost_per_1k(rows, s)}
     tri["hybrid"]["escalated_frac"] = float(np.mean([r["escalated"] for r in hyb.values()])) if hyb else 0.0
-    S = {"mock": clients.mock, "profile": profile, "threshold": th,
+    S = {"mock": clients.mock, "profile": profile, "threshold": th, "data_source": config.DATA_SOURCE,
          "drex_model": getattr(clients.drex, "model", "?"), "claude_model": getattr(clients.claude, "model", "?"),
+         "deepinfra_model": getattr(clients.deepinfra, "model", None),
          "triage": tri, "sweep": threshold_sweep(R["drex"], R["claude"], labels)}
+    if agent:
+        S["agent"] = agent["summary"]
     print("[eval] triage done")
     if do_jobs:
         J = run_jobs_eval(emails, profile, clients, workers)
@@ -461,6 +526,7 @@ def run(clients, profile="student_jobhunter", workers: int | None = None, do_job
         print("[eval] personalization done")
     out = config.RESULTS_DIR
     out.mkdir(exist_ok=True)
+    S["intern_level_a"] = clients.drex.usage()
     S["charts"] = charts(S, S["sweep"], out)
     (out / "summary.json").write_text(json.dumps(S, indent=2, default=str))
     p = write_report(S, out)
@@ -476,7 +542,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--profile", default="student_jobhunter")
     ap.add_argument("--real", action="store_true", help="override USE_MOCKS and use real APIs")
-    ap.add_argument("--skip", nargs="*", default=[], choices=["jobs", "guard", "personas"])
+    ap.add_argument("--skip", nargs="*", default=[], choices=["jobs", "guard", "personas", "agent"])
     a = ap.parse_args()
     run(get_clients(False if a.real else None), a.profile, do_jobs="jobs" not in a.skip,
-        do_guard="guard" not in a.skip, do_personas="personas" not in a.skip)
+        do_guard="guard" not in a.skip, do_personas="personas" not in a.skip, do_agent="agent" not in a.skip)

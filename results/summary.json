@@ -2,8 +2,10 @@
   "mock": true,
   "profile": "student_jobhunter",
   "threshold": 0.7,
+  "data_source": "sample",
   "drex_model": "mock-drex",
   "claude_model": "mock-claude",
+  "deepinfra_model": "mock-qwen",
   "triage": {
     "claude": {
       "n": 94,
@@ -15,6 +17,17 @@
       "p95_s": 3.2642893110551614,
       "throughput_per_s": 0.38811775467563797,
       "cost_per_1k": 3.5062127659574465
+    },
+    "deepinfra": {
+      "n": 94,
+      "category_acc": 0.8723404255319149,
+      "category_macro_f1": 0.8687845075222747,
+      "urgent_recall": 0.7142857142857143,
+      "action_acc": 0.5531914893617021,
+      "p50_s": 1.3926298924238956,
+      "p95_s": 1.951879148546578,
+      "throughput_per_s": 0.7136822574801732,
+      "cost_per_1k": 0.08177659574468085
     },
     "drex": {
       "n": 94,
@@ -38,6 +51,17 @@
       "throughput_per_s": 0.5053896704910936,
       "cost_per_1k": 2.51416170212766,
       "escalated_frac": 0.6808510638297872
+    },
+    "intern_agent": {
+      "n": 94,
+      "category_acc": 0.8723404255319149,
+      "category_macro_f1": 0.8687845075222747,
+      "urgent_recall": 0.7142857142857143,
+      "action_acc": 0.5531914893617021,
+      "p50_s": 1.0761702127659574,
+      "p95_s": 1.0761702127659574,
+      "throughput_per_s": 0.9292210359826019,
+      "cost_per_1k": 0.06770851063829789
     }
   },
   "sweep": [
@@ -168,6 +192,53 @@
       "p50_s": 2.8059754329747464
     }
   ],
+  "agent": {
+    "simulated": true,
+    "reason": "completed",
+    "turns": 15,
+    "wall_s": 101.15999999999998,
+    "n_emails": 94,
+    "system1_asks": 21,
+    "system1_by_purpose": {
+      "supervise": 14,
+      "guard": 7
+    },
+    "system1_p50_ms": 556,
+    "system1_cost_usd": 0.0,
+    "nudges": 1,
+    "guard_blocks": 0,
+    "tool_calls": 14,
+    "compactions": 0,
+    "system2_input_tokens": 48606,
+    "system2_output_tokens": 3760,
+    "system2_cost_usd": 0.006364600000000001,
+    "total_cost_usd": 0.006364600000000001,
+    "system2": "mock-qwen (simulated)",
+    "system1": "mock-drex (simulated)",
+    "profile": "student_jobhunter",
+    "guard": {
+      "scanned": 100,
+      "withheld": 6,
+      "rule_counts": {
+        "sender_domain": 2,
+        "subject": 3,
+        "attachment_name": 2,
+        "otp_code": 1,
+        "password_in_body": 1,
+        "reset_link": 1,
+        "ssn": 1,
+        "tax_form": 1,
+        "drex:medical": 1
+      },
+      "layer_counts": {
+        "layer1_rules": 5,
+        "layer2_drex": 1
+      },
+      "drex_input_tokens": 16332
+    },
+    "labeled_by_agent": 94,
+    "coverage": 1.0
+  },
   "jobs": {
     "claude": {
       "n_jobs": 39,
@@ -184,27 +255,27 @@
       "matched_gold": 39,
       "p@5": 0.4,
       "p@10": 0.5,
-      "ndcg@10": 0.6219713612221488,
+      "ndcg@10": 0.6219713612221489,
       "p50_s": 0.18287876707103073,
       "p95_s": 0.24577248798352028,
-      "throughput_per_s": 5.536705619613971
+      "throughput_per_s": 5.651614437599202
     },
     "hybrid": {
       "n_jobs": 39,
       "matched_gold": 39,
       "p@5": 0.6,
       "p@10": 0.7,
-      "ndcg@10": 0.7476007959739591,
+      "ndcg@10": 0.7476007959739592,
       "escalated_frac": 0.6585365853658537
     },
     "cost_per_1k_jobs": {
-      "drex": 0.08751219512195121,
+      "drex": 0.08535121951219511,
       "claude": 2.7342439024390246
     },
     "ndi": {
       "alerts": 9,
       "jobs_extracted": 41,
-      "p50_s": 0.9000432500382886,
+      "p50_s": 0.9000426250044257,
       "cost_usd": 0.108
     }
   },
@@ -240,13 +311,13 @@
       "missed_by_class": {}
     },
     "check_latency": {
-      "drex_p50_s": 0.1985995269703212,
-      "drex_p95_s": 0.2579662775616083,
+      "drex_p50_s": 0.16128648813611046,
+      "drex_p95_s": 0.24951436636911575,
       "claude_p50_s": 2.6365835049973296,
       "claude_p95_s": 3.3029571984435795
     },
     "check_cost_per_1k": {
-      "drex": 0.04820833333333334,
+      "drex": 0.03170333333333333,
       "claude": 2.0641666666666665
     }
   },
@@ -320,6 +391,17 @@
       }
     },
     "note": "labels.csv reflects the student_jobhunter persona; lower agreement for other personas is expected"
+  },
+  "intern_level_a": {
+    "backend": "mock:mock-drex",
+    "asks": 473,
+    "failed": 0,
+    "input_tokens": 227840,
+    "cost_usd": 0.0,
+    "events": 541,
+    "cached": 68,
+    "errors": 0,
+    "p50_ms": 0
   },
   "charts": [
     "threshold_sweep.png",

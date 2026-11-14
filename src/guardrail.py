@@ -94,11 +94,12 @@ def guard_state(email: dict) -> str:
 
 
 def layer2_drex(email: dict, drex, threshold: float) -> tuple[bool, str | None, dict]:
-    r = drex.evaluate(guard_state(email), GUARD_QUESTION)
+    r = drex.evaluate(guard_state(email), GUARD_QUESTION, purpose="guardrail")
     probs = r.answers["sensitive_class"].probabilities
     p_sens = sum(v for k, v in probs.items() if k != "none")
     top = max((k for k in probs if k != "none"), key=probs.get)
-    return p_sens > threshold, top, {"latency_s": r.latency_s, "input_tokens": r.input_tokens, "p_sensitive": p_sens}
+    return p_sens > threshold, top, {"latency_s": r.latency_s, "input_tokens": r.input_tokens, "p_sensitive": p_sens,
+                                     "drex_cost_usd": r.cost_usd}
 
 
 CLAUDE_GUARD_SYSTEM = ("Classify whether this email contains sensitive personal data. Classes:\n" +

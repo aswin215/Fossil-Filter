@@ -1,4 +1,7 @@
-"""Claude-only baseline: same profile, same inputs, same output schema as the Drex path."""
+"""LLM baselines (Claude-only, and DeepInfra Qwen): same profile, same inputs, same output schema as the Drex path.
+
+Any client with `judge(system, user, schema, max_tokens) -> LLMResult` works; Claude stays independent of Intern.
+"""
 from __future__ import annotations
 
 from src.triage import (ACTION_DESC, ACTIONS, CATEGORIES, CATEGORY_DESC, RELEVANCE, build_state, priority)
@@ -48,12 +51,13 @@ def triage_email_claude(profile_text: str, email: dict, claude) -> dict:
     d = r.data
     rel = float(RELEVANCE.index(d["relevance"]))
     return {
-        "id": email["id"], "system": "claude",
+        "id": email["id"], "system": getattr(claude, "name", "claude"),
         "category": d["category"], "category_probs": _onehot(CATEGORIES, d["category"]),
         "action": d["action"], "action_probs": _onehot(ACTIONS, d["action"]),
         "relevance": rel, "confidence": 1.0,
         "priority": priority(float(d["category"] == "urgent_action_needed"), float(d["category"] == "important"), rel),
         "latency_s": r.latency_s, "input_tokens": r.input_tokens, "output_tokens": r.output_tokens, "model": r.model,
+        "cost_usd": r.cost_usd,
     }
 
 
@@ -66,5 +70,6 @@ def score_job_claude(profile_text: str, job: dict, claude) -> dict:
     return {
         "fit": fit, "p_target": float(d["is_target_role"]), "p_dealbreaker": float(d["has_dealbreaker"]),
         "confidence": 1.0, "rank_score": job_rank_score(fit, float(d["is_target_role"]), float(d["has_dealbreaker"])),
-        "latency_s": r.latency_s, "input_tokens": r.input_tokens, "output_tokens": r.output_tokens, "system": "claude",
+        "latency_s": r.latency_s, "input_tokens": r.input_tokens, "output_tokens": r.output_tokens,
+        "system": getattr(claude, "name", "claude"), "model": r.model, "cost_usd": r.cost_usd,
     }

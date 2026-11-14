@@ -1,21 +1,40 @@
 # Inbox Predator - evaluation summary
 
-Mode: **MOCK CLIENTS (numbers are placeholders, not evidence)** · Drex model: `mock-drex` · Claude model: `mock-claude` · profile: `student_jobhunter` · labeled emails: 94 · escalation threshold: 0.7
+Built with Claude Code; **Intern runs inside the product**: every Drex call goes through Intern's `intern.decisions` client (Level A), and the Intern agent row is an Intern session with System 2 = DeepInfra Qwen and System 1 = Drex (Level B).
+
+Mode: **MOCK CLIENTS (numbers are placeholders, not evidence)** · data: `sample` · Drex model: `mock-drex` · Claude model: `mock-claude` · DeepInfra model: `mock-qwen` · profile: `student_jobhunter` · labeled emails: 94 · escalation threshold: 0.7
 
 > Drex price is a PLACEHOLDER ($0.2/M input tokens). Set `DREX_PRICE_PER_MTOK_INPUT` in .env from the Nace pricing page before quoting cost multiples.
 
-## Headline: Claude-only vs Drex vs Hybrid (email triage)
+## Headline: Claude-only vs DeepInfra Qwen vs Drex vs Hybrid vs Intern agent (email triage)
 
 | System | Category acc | Category macro-F1 | Urgent recall | Action acc | p50 s | p95 s | emails/s | $ / 1k emails | Escalated |
 |---|---|---|---|---|---|---|---|---|---|
 | Claude-only | 0.840 | 0.838 | 0.643 | 0.617 | 2.65 | 3.26 | 0.39 | 3.5062 | - |
-| Drex | 0.819 | 0.818 | 0.643 | 0.511 | 0.20 | 0.25 | 5.25 | 0.1314 | - |
+| DeepInfra Qwen | 0.872 | 0.869 | 0.714 | 0.553 | 1.39 | 1.95 | 0.71 | 0.0818 | - |
+| Drex (Level A) | 0.819 | 0.818 | 0.643 | 0.511 | 0.20 | 0.25 | 5.25 | 0.1314 | - |
 | Hybrid | 0.840 | 0.838 | 0.643 | 0.617 | 2.41 | 3.42 | 0.51 | 2.5142 | 0.68 |
+| Intern agent (Level B) | 0.872 | 0.869 | 0.714 | 0.553 | 1.08 | 1.08 | 0.93 | 0.0677 | - |
 
-| Comparison | Speedup (p50, x) | Cost multiple (Claude / X) | Category acc delta vs Claude |
+| Comparison vs Claude-only | Speedup (p50, x) | Cost multiple (Claude / X) | Category acc delta |
 |---|---|---|---|
-| Drex | 13.3x | 26.7x | -0.021 |
+| DeepInfra Qwen | 1.9x | 42.9x | +0.032 |
+| Drex (Level A) | 13.3x | 26.7x | -0.021 |
 | Hybrid | 1.1x | 1.4x | +0.000 |
+| Intern agent (Level B) | 2.5x | 51.8x | +0.032 |
+
+Intern agent latency and cost are the whole session (wall clock, System 2 + System 1) divided by emails handled, so p50 = p95.
+
+## Intern inside the product
+
+**Level A: Drex through `intern.decisions.DecisionClient`.** 473 asks answered (68 from Intern's cache, 0 failed attempts), backend `mock:mock-drex`.
+
+**Level B: Intern agent session** (SIMULATED in mock mode): System 2 `mock-qwen (simulated)`, System 1 `mock-drex (simulated)`. 94/94 emails labeled (100% coverage), 15 turns, 14 tool calls, stop reason `completed`.
+
+| System 1 asks | by purpose | p50 ms | nudges | guard blocks | compactions | System 2 tokens in/out | System 2 $ | System 1 $ | wall s |
+|---|---|---|---|---|---|---|---|---|---|
+| 21 | {'supervise': 14, 'guard': 7} | 556 | 1 | 0 | 0 | 48606/3760 | 0.0064 | 0.0000 | 101.2 |
+
 
 ![latency and cost](latency_cost.png)
 
@@ -47,10 +66,10 @@ NDI: 9 alerts -> 41 jobs, p50 0.90s per alert, est. cost $0.1080.
 | System | P@5 | P@10 | NDCG@10 | p50 s / job | gold-matched jobs |
 |---|---|---|---|---|---|
 | Claude-only | 0.60 | 0.60 | 0.748 | 2.49 | 39/39 |
-| Drex | 0.40 | 0.50 | 0.622 | 0.18 | 39/39 |
+| Drex (Level A) | 0.40 | 0.50 | 0.622 | 0.18 | 39/39 |
 | Hybrid | 0.60 | 0.70 | 0.748 | - | 39/39 |
 
-Cost per 1k jobs scored: Drex $0.0875, Claude $2.7342. Hybrid escalated 66%.
+Cost per 1k jobs scored: Drex $0.0854, Claude $2.7342. Hybrid escalated 66%.
 
 ## Sensitive-data guardrail benchmark
 
@@ -64,7 +83,7 @@ Cost per 1k jobs scored: Drex $0.0875, Claude $2.7342. Hybrid escalated 66%.
 | layer1+drex | 1.000 | 0.100 | - |
 | layer1+claude | 1.000 | 0.100 | - |
 
-Semantic check latency p50/p95: Drex 0.20/0.26s vs Claude 2.64/3.30s. Cost per 1k checks: Drex $0.0482 vs Claude $2.0642.
+Semantic check latency p50/p95: Drex 0.16/0.25s vs Claude 2.64/3.30s. Cost per 1k checks: Drex $0.0317 vs Claude $2.0642.
 
 ## Personalization test (same emails, 3 profiles, Drex)
 
@@ -86,4 +105,5 @@ Semantic check latency p50/p95: Drex 0.20/0.26s vs Claude 2.64/3.30s. Cost per 1
 
 - Latency is per-call wall clock including network; throughput is single-stream (1 / mean latency).
 - Claude baseline uses structured JSON output with low effort (current Claude models do not accept `temperature`).
-- Costs come from token counts x prices in `config.py`.
+- Costs come from API-reported cost when the API returns one, else token counts x prices in `config.py`.
+- DeepInfra Qwen is scored with JSON mode at temperature 0 and validated against the same enums.

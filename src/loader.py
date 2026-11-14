@@ -124,7 +124,7 @@ def parse_message(msg: Message, save_attachments: bool = True) -> dict:
 
 
 def mbox_to_jsonl(mbox_paths: list[Path] | None = None, out: Path = config.EMAILS_PATH) -> int:
-    paths = mbox_paths or sorted(config.RAW_DIR.glob("*.mbox"))
+    paths = mbox_paths or config.MBOX_PATHS
     if not paths:
         raise FileNotFoundError(f"No .mbox files in {config.RAW_DIR}. Export Gmail via Takeout or run "
                                 f"`python scripts/make_sample_data.py`.")

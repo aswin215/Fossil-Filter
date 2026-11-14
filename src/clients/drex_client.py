@@ -1,121 +1,193 @@
-"""Drex client (real + mock).
+"""Drex client: a thin adapter over Intern's decision client (`intern.decisions`), real + mock.
 
-Real API, per console.nace.ai/docs/drex (read 2026-11-14):
-  POST {base}/v1/systemone, Authorization: Bearer nace_sk_...
-  body {"model", "state", "questions": {id: {"type": "choice"|"score"|"noul", "instructions", "criteria"}}}
-  200  {"model", "answers": {id: {...}}, "usage": {"input_tokens", "output_tokens"}, "evaluation_time_ms", "request_id"}
-  429/503/529 -> retry after `retry-after-ms`.
+Every Drex call in the batch pipeline goes through `intern.decisions.DecisionClient`, so retries, 429 handling,
+model failover, the answer cache, concurrency limits and `decision` events come from Nace's harness, not from us.
+
+Wire format (verified in Intern's src/intern/decisions.py and console.nace.ai/docs/drex):
+  POST {base_url}/systemone   base_url = https://console.nace.ai/v1   Authorization: Bearer $NACE_API_KEY
+  {"model", "state", "questions": {name: {"type": "choice"|"score"|"noul", "instructions", "criteria"?}}}
+  -> {"answers": {name: answer}, "usage": {...}}
+Intern normalizes a score answer to 0..1 with a per-level probability list; this adapter converts it back to the
+expected level index (0..n-1) that the rest of the project uses.
+
+Mock mode keeps the same path: a deterministic fake `DecisionBackend` sits behind the real Intern
+`DecisionClient`, so the harness (cache, events, concurrency) is exercised even without keys.
 """
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import json
+import threading
 import time
+import uuid
+from collections import deque
 
-import httpx
+from pydantic import SecretStr
+
+from intern.decisions import (Answers, ChoiceAnswer, ChoiceQuestion, DecisionClient, DecisionsApiBackend,
+                              NoulAnswer, NoulQuestion, ScoreAnswer, ScoreQuestion)
 
 import config
 from src.clients import mock_engine as me
 from src.clients.base import Answer, DrexResult, estimate_tokens
 
-RETRYABLE = {429, 500, 503, 529}
+# ------------------------------------------------------------------ one background event loop
+# Intern's client is async; our pipeline is a sync thread pool. All asks run on one long-lived loop so Intern's
+# pooled HTTP client, semaphore and cache are shared across threads (and across Streamlit reruns).
+_LOOP: asyncio.AbstractEventLoop | None = None
+_LOCK = threading.Lock()
 
 
-def _parse_answer(raw: dict) -> Answer:
-    t = raw.get("type")
+def _loop() -> asyncio.AbstractEventLoop:
+    global _LOOP
+    with _LOCK:
+        if _LOOP is None:
+            _LOOP = asyncio.new_event_loop()
+            threading.Thread(target=_LOOP.run_forever, name="intern-decisions", daemon=True).start()
+    return _LOOP
+
+
+def _run(coro):
+    return asyncio.run_coroutine_threadsafe(coro, _loop()).result()
+
+
+# ------------------------------------------------------------------ question / answer conversion
+def to_intern(q: dict):
+    t = q["type"]
     if t == "choice":
-        return Answer(type="choice", probabilities={k: float(v) for k, v in raw["probabilities"].items()},
-                      choice=raw.get("choice"), confidence=raw.get("confidence"))
+        return ChoiceQuestion(instructions=q["instructions"],
+                              criteria={k: (v or k.replace("_", " ")) for k, v in q["criteria"].items()})
     if t == "score":
-        legend = raw.get("legend")
-        if isinstance(legend, dict):
-            legend = [legend[str(i)] for i in range(len(legend))]
-        return Answer(type="score", probabilities={str(k): float(v) for k, v in raw["probabilities"].items()},
-                      score=float(raw["score"]), confidence=raw.get("confidence"), legend=legend)
+        return ScoreQuestion(instructions=q["instructions"], criteria=list(q["criteria"]))
     if t == "noul":
-        return Answer(type="noul", p_yes=float(raw["noul"]), confidence=raw.get("confidence"))
-    raise ValueError(f"unknown Drex answer type: {t!r}")
+        return NoulQuestion(instructions=q["instructions"])
+    raise ValueError(f"unknown question type {t!r}")
 
 
-class DrexClient:
-    name = "drex"
-
-    def __init__(self, model: str | None = None, timeout: float | None = None):
-        config.require_real_keys("NACE_API_KEY")
-        self.model = model or config.DREX_MODEL
-        self._http = httpx.Client(
-            base_url=config.NACE_BASE_URL,
-            timeout=timeout or config.HTTP_TIMEOUT_S,
-            headers={"Authorization": f"Bearer {config.NACE_API_KEY}", "X-Nace-Legend": "array"},
-        )
-
-    def evaluate(self, state: str, questions: dict[str, dict], images: list[str] | None = None) -> DrexResult:
-        body: dict = {"model": self.model, "state": state, "questions": questions}
-        if images:
-            body["images"] = images
-        t0 = time.perf_counter()
-        for attempt in range(3):
-            r = self._http.post("/v1/systemone", json=body)
-            if r.status_code == 200:
-                break
-            if r.status_code in RETRYABLE and attempt < 2:
-                wait_ms = float(r.headers.get("retry-after-ms") or 1000 * (attempt + 1))
-                time.sleep(min(wait_ms, 30000) / 1000)
-                continue
-            try:
-                err = r.json().get("error", {})
-            except json.JSONDecodeError:
-                err = {"message": r.text[:200]}
-            raise RuntimeError(f"Drex {r.status_code} {err.get('type')}: {err.get('message')} "
-                               f"issues={err.get('issues')}")
-        latency = time.perf_counter() - t0
-        data = r.json()
-        return DrexResult(
-            answers={qid: _parse_answer(a) for qid, a in data["answers"].items()},
-            input_tokens=int(data.get("usage", {}).get("input_tokens", 0)),
-            latency_s=latency,
-            model=data.get("model", self.model),
-            server_ms=data.get("evaluation_time_ms"),
-            request_id=data.get("request_id"),
-        )
+def from_intern(a, q: dict) -> Answer:
+    if isinstance(a, ChoiceAnswer):
+        probs = {k: float(v) for k, v in a.probabilities.items()} or {a.choice: 1.0}
+        return Answer("choice", probs, choice=a.choice, confidence=a.confidence or probs.get(a.choice))
+    if isinstance(a, ScoreAnswer):
+        n = len(q["criteria"])
+        idx = a.score * (n - 1)  # Intern: 0..1 -> our expected level index 0..n-1
+        probs = ({str(i): float(p) for i, p in enumerate(a.probabilities)} if a.probabilities
+                 else {str(i): float(i == round(idx)) for i in range(n)})
+        return Answer("score", probs, score=idx, confidence=a.confidence or max(probs.values()),
+                      legend=a.legend or list(q["criteria"]))
+    if isinstance(a, NoulAnswer):
+        return Answer("noul", p_yes=float(a.noul), confidence=max(a.noul, 1 - a.noul))
+    raise ValueError(f"unexpected answer {a!r}")
 
 
-class MockDrexClient:
-    """Deterministic fake Drex. Simulated latency ~120-260 ms, noisier than mock Claude."""
-    name = "drex"
+# ------------------------------------------------------------------ mock System 1 backend
+class MockDrexBackend:
+    """Deterministic fake Drex implementing Intern's `DecisionBackend` protocol. Noisier than mock Claude.
+    Latency is simulated (~120-260 ms) and reported, not slept, so mock evals stay fast."""
     NOISE = 0.9
 
     def __init__(self, model: str = "mock-drex"):
+        self.name = f"mock:{model}"
         self.model = model
 
-    def evaluate(self, state: str, questions: dict[str, dict], images: list[str] | None = None) -> DrexResult:
+    @staticmethod
+    def simulated_latency(state: str) -> float:
+        return 0.12 + (int(hashlib.sha1(state.encode()).hexdigest()[:4], 16) / 0xFFFF) * 0.14
+
+    async def decide(self, state: str, questions: dict) -> Answers:
         seed = hashlib.sha1(state.encode()).hexdigest()
-        answers: dict[str, Answer] = {}
+        out: dict = {}
         for qid, q in questions.items():
             s = f"{seed}:{qid}"
-            if q["type"] == "choice":
-                probs = me.choice(state, list(q["criteria"].keys()), s, self.NOISE)
+            if isinstance(q, ChoiceQuestion):
+                probs = me.choice(state, list(q.criteria.keys()), s, self.NOISE)
                 top = max(probs, key=probs.get)
-                answers[qid] = Answer("choice", probs, choice=top, confidence=probs[top])
-            elif q["type"] == "score":
-                n = len(q["criteria"])
-                if qid in ("fit",):
-                    probs = me.relevance(state, n, s, self.NOISE)
-                    # dealbreakers / non-target roles drag fit down in the mock
+                out[qid] = ChoiceAnswer(choice=top, probabilities=probs, confidence=probs[top])
+            elif isinstance(q, ScoreQuestion):
+                n = len(q.criteria)
+                probs = me.relevance(state, n, s, self.NOISE)
+                if qid == "fit":  # dealbreakers / non-target roles drag fit down in the mock
                     pen = me.noul(state, "has_dealbreaker", s, 0.0) - me.noul(state, "is_target_role", s, 0.0)
-                    shift = {str(i): p * (1.0 - 0.5 * pen * (int(i) / (n - 1))) for i, p in probs.items()}
+                    shift = {i: p * (1.0 - 0.5 * pen * (int(i) / (n - 1))) for i, p in probs.items()}
                     z = sum(shift.values())
                     probs = {k: v / z for k, v in shift.items()}
-                else:
-                    probs = me.relevance(state, n, s, self.NOISE)
-                exp = sum(int(k) * v for k, v in probs.items())
-                answers[qid] = Answer("score", probs, score=exp, confidence=max(probs.values()),
-                                      legend=list(q["criteria"]))
-            elif q["type"] == "noul":
-                p = me.noul(state, qid, s, self.NOISE)
-                answers[qid] = Answer("noul", p_yes=p, confidence=max(p, 1 - p))
+                plist = [probs[str(i)] for i in range(n)]
+                exp = sum(i * p for i, p in enumerate(plist))
+                out[qid] = ScoreAnswer(score=exp / (n - 1), probabilities=plist, legend=list(q.criteria),
+                                       confidence=max(plist))
             else:
-                raise ValueError(f"bad question type {q['type']}")
-        q_tokens = estimate_tokens(json.dumps(questions))
-        sim_latency = 0.12 + (int(seed[:4], 16) / 0xFFFF) * 0.14
-        return DrexResult(answers, estimate_tokens(state) + q_tokens, sim_latency, self.model, sim_latency * 800)
+                out[qid] = NoulAnswer(noul=me.noul(state, qid, s, self.NOISE))
+        q_tokens = estimate_tokens(json.dumps({k: v.model_dump() for k, v in questions.items()}))
+        return Answers(answers=out, input_tokens=estimate_tokens(state) + q_tokens)
+
+
+# ------------------------------------------------------------------ the adapter
+def make_backend(model: str):
+    """Console (`drex-*`, key NACE_API_KEY) or OpenRouter's decisions API (`decisions:nace-ai/drex-max`)."""
+    if model.startswith("decisions:"):
+        config.require_real_keys("OPENROUTER_API_KEY")
+        models = model.removeprefix("decisions:").split(",")
+        return DecisionsApiBackend(config.OPENROUTER_DECISIONS_URL, SecretStr(config.OPENROUTER_API_KEY), models,
+                                   timeout_s=config.HTTP_TIMEOUT_S)
+    config.require_real_keys("NACE_API_KEY")
+    return DecisionsApiBackend(config.NACE_BASE_URL, SecretStr(config.NACE_API_KEY), model.split(","),
+                               timeout_s=config.HTTP_TIMEOUT_S)
+
+
+class DrexClient:
+    """Sync facade used by triage/jobs/guardrail. `evaluate(state, questions)` -> DrexResult."""
+    name = "drex"
+
+    def __init__(self, model: str | None = None, backend=None, retry_window_s: float = 30.0,
+                 max_concurrency: int = 16):
+        self.model = model or config.DREX_MODEL
+        self.backend = backend or make_backend(self.model)
+        self.mock = isinstance(self.backend, MockDrexBackend)
+        # Decision events (purpose, ok, cached, duration, tokens, cost, answers) - never the state text.
+        self.events: deque = deque(maxlen=20_000)
+        self._by_subject: dict[str, object] = {}
+        self.decisions = DecisionClient(self.backend, self._on_event, timeout_s=config.HTTP_TIMEOUT_S,
+                                        max_state_tokens=32_768, max_concurrency=max_concurrency,
+                                        retry_window_s=retry_window_s)
+
+    def _on_event(self, ev) -> None:
+        self.events.append(ev)
+        if ev.ok and ev.subject:
+            self._by_subject[ev.subject] = ev
+
+    def evaluate(self, state: str, questions: dict[str, dict], purpose: str = "inbox-predator") -> DrexResult:
+        iq = {k: to_intern(q) for k, q in questions.items()}
+        subject = f"{purpose}:{uuid.uuid4().hex[:12]}"
+        t0 = time.perf_counter()
+        answers = _run(self.decisions.ask(purpose, state, iq, subject=subject))
+        wall = time.perf_counter() - t0
+        ev = self._by_subject.pop(subject, None)
+        cached = bool(getattr(ev, "cached", False))
+        in_tok = int(getattr(ev, "input_tokens", 0) or 0)
+        if self.mock:
+            wall = 0.0005 if cached else self.backend.simulated_latency(state)
+            if cached:
+                in_tok = 0
+        return DrexResult(
+            answers={k: from_intern(a, questions[k]) for k, a in answers.items()},
+            input_tokens=in_tok,
+            latency_s=wall,
+            model=self.model,
+            server_ms=getattr(ev, "duration_ms", None),
+            cost_usd=float(getattr(ev, "cost_usd", 0.0) or 0.0),
+            cached=cached,
+        )
+
+    def usage(self) -> dict:
+        u = self.decisions.usage
+        evs = [e for e in self.events if e.purpose != "check"]
+        dur = sorted(e.duration_ms for e in evs if e.ok and not e.cached)
+        return {"backend": self.backend.name, "asks": u.asks, "failed": u.failed,
+                "input_tokens": u.input_tokens, "cost_usd": u.cost_usd,
+                "events": len(evs), "cached": sum(e.cached for e in evs), "errors": sum(not e.ok for e in evs),
+                "p50_ms": dur[len(dur) // 2] if dur else None}
+
+
+def MockDrexClient(model: str = "mock-drex") -> DrexClient:  # noqa: N802 - kept as the old factory name
+    return DrexClient(model=model, backend=MockDrexBackend(model))

@@ -3,17 +3,25 @@
 credentials.json
 token.json
 
-# private mail data
+# private mail data (this repo is PUBLIC: only synthetic data in data/sample/ is committed)
 data/raw/
 *.mbox
+!data/sample/sample.mbox
 data/emails.jsonl
 data/att/
+data/labels.csv
+data/job_gold.csv
+data/agent_workspace/
+profiles/me.json
 
-# local caches / env
+# local caches / env / run outputs that may reference private mail
 .venv/
 __pycache__/
 *.pyc
+.pytest_cache/
 results/cache/
+results/agent_events.jsonl
+results/audit_log.jsonl
+.intern/
 .streamlit/secrets.toml
 .DS_Store
-results/audit_log.jsonl

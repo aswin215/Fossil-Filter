@@ -62,6 +62,8 @@ class DrexResult:
     model: str
     server_ms: float | None = None
     request_id: str | None = None
+    cost_usd: float = 0.0  # reported by the API via Intern's usage.cost, when present
+    cached: bool = False  # answered from Intern's DecisionClient cache
 
 
 @dataclass
@@ -71,6 +73,7 @@ class LLMResult:
     output_tokens: int
     latency_s: float
     model: str
+    cost_usd: float = 0.0  # provider-reported cost, when the API returns one (DeepInfra: usage.estimated_cost)
 
 
 @dataclass

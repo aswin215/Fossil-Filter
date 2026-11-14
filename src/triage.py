@@ -65,8 +65,9 @@ def result_from_drex(email_id: str, r: DrexResult) -> dict:
         "priority": priority(cat.probabilities.get("urgent_action_needed", 0),
                              cat.probabilities.get("important", 0), rel.score),
         "latency_s": r.latency_s, "input_tokens": r.input_tokens, "output_tokens": 0, "model": r.model,
+        "drex_cost_usd": r.cost_usd, "cached": r.cached,
     }
 
 
 def triage_email(profile_text: str, email: dict, drex) -> dict:
-    return result_from_drex(email["id"], drex.evaluate(build_state(profile_text, email), TRIAGE_QUESTIONS))
+    return result_from_drex(email["id"], drex.evaluate(build_state(profile_text, email), TRIAGE_QUESTIONS, purpose="triage"))

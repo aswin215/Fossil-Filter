@@ -1,0 +1,2091 @@
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Amazon <shipment-tracking@amazon.example>
+Subject: Your order has shipped
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 02 Nov 2026 12:09:00 +0000
+Message-ID: <sample-001@sample.inbox-predator>
+
+Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
+age in Your Orders.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Medium Daily Digest <noreply@medium.example>
+Subject: Daily digest: 5 stories on system design
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 02 Nov 2026 15:57:00 +0000
+Message-ID: <sample-002@sample.inbox-predator>
+
+Stories for you: Designing rate limiters, Kafka in practice, and more. Read l=
+ater from your digest.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: ML Engineer, New Grad: 6 new jobs at Tessellate and more
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============2064870173549346775=="
+To: alex.student@example.edu
+Date: Mon, 02 Nov 2026 19:46:00 +0000
+Message-ID: <sample-003@sample.inbox-predator>
+
+--===============2064870173549346775==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+ML Engineer, New Grad
+Tessellate
+San Jose, CA
+Entry level · Full-time
+Skills: Python, PyTorch
+No sponsorship available for this role
+View job: https://www.linkedin.com/jobs/view/3924602213
+
+Backend Engineer I (New Grad)
+Tessellate
+San Francisco, CA
+Entry level · Full-time
+Skills: Java, Spring, AWS
+
+View job: https://www.linkedin.com/jobs/view/3673715057
+
+Data Science Intern
+Brightpath
+New York, NY
+Internship · Internship
+Skills: Python, SQL, scikit-learn
+
+View job: https://www.linkedin.com/jobs/view/3453290810
+
+New Grad Software Engineer, ML Platform
+Kiln Robotics
+San Jose, CA
+Entry level · Full-time
+Skills: Python, Spark, Kubernetes
+Visa sponsorship available
+View job: https://www.linkedin.com/jobs/view/3413140753
+
+Data Analyst, Entry Level
+Fernway
+Mountain View, CA
+Entry level · Full-time
+Skills: SQL, Tableau, Excel
+
+View job: https://www.linkedin.com/jobs/view/3502564736
+
+QA Automation Intern
+Datacrest
+Remote
+Internship · Internship
+Skills: Selenium, Python
+
+View job: https://www.linkedin.com/jobs/view/3594021782
+
+Manage job alerts · Unsubscribe
+
+--===============2064870173549346775==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3924602213">ML Engineer=
+, New Grad</a><p class=3D"company">Tessellate</p><p class=3D"location">San Jo=
+se, CA</p><p class=3D"seniority">Entry level</p><p class=3D"type">Full-time</=
+p><p class=3D"skills">Python, PyTorch</p><p class=3D"notes">No sponsorship av=
+ailable for this role</p></div><!--/job--><div class=3D"job-card"><a class=3D=
+"title" href=3D"https://www.linkedin.com/jobs/view/3673715057">Backend Engine=
+er I (New Grad)</a><p class=3D"company">Tessellate</p><p class=3D"location">S=
+an Francisco, CA</p><p class=3D"seniority">Entry level</p><p class=3D"type">F=
+ull-time</p><p class=3D"skills">Java, Spring, AWS</p><p class=3D"notes"></p><=
+/div><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://ww=
+w.linkedin.com/jobs/view/3453290810">Data Science Intern</a><p class=3D"compa=
+ny">Brightpath</p><p class=3D"location">New York, NY</p><p class=3D"seniority=
+">Internship</p><p class=3D"type">Internship</p><p class=3D"skills">Python, S=
+QL, scikit-learn</p><p class=3D"notes"></p></div><!--/job--><div class=3D"job=
+-card"><a class=3D"title" href=3D"https://www.linkedin.com/jobs/view/34131407=
+53">New Grad Software Engineer, ML Platform</a><p class=3D"company">Kiln Robo=
+tics</p><p class=3D"location">San Jose, CA</p><p class=3D"seniority">Entry le=
+vel</p><p class=3D"type">Full-time</p><p class=3D"skills">Python, Spark, Kube=
+rnetes</p><p class=3D"notes">Visa sponsorship available</p></div><!--/job--><=
+div class=3D"job-card"><a class=3D"title" href=3D"https://www.linkedin.com/jo=
+bs/view/3502564736">Data Analyst, Entry Level</a><p class=3D"company">Fernway=
+</p><p class=3D"location">Mountain View, CA</p><p class=3D"seniority">Entry l=
+evel</p><p class=3D"type">Full-time</p><p class=3D"skills">SQL, Tableau, Exce=
+l</p><p class=3D"notes"></p></div><!--/job--><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3594021782">QA Automati=
+on Intern</a><p class=3D"company">Datacrest</p><p class=3D"location">Remote</=
+p><p class=3D"seniority">Internship</p><p class=3D"type">Internship</p><p cla=
+ss=3D"skills">Selenium, Python</p><p class=3D"notes"></p></div><!--/job--><p =
+class=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corpora=
+tion</p></body></html>
+
+--===============2064870173549346775==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Lucas Rossi <sam@helixhealth.example>
+Subject: Please confirm your interview slot by EOD today
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 02 Nov 2026 21:10:00 +0000
+Message-ID: <sample-004@sample.inbox-predator>
+
+Hi Alex,
+
+Thanks for applying to the Machine Learning Intern role at Helix Health. We'd=
+ like to schedule your technical interview. Please confirm one of the slots b=
+elow by end of day today, otherwise we will need to release them:
+
+- Thu 2pm PT
+- Fri 10am PT
+
+Best,
+Lucas Rossi
+University Recruiting, Helix Health
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Pizza Palace <promo@pizza.example>
+Subject: Free shipping weekend + BOGO deal
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 00:53:00 +0000
+Message-ID: <sample-005@sample.inbox-predator>
+
+This weekend only: buy one get one free on large pizzas and free delivery. Pr=
+omo code BOGO. Unsubscribe.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Amazon <shipment-tracking@amazon.example>
+Subject: Your order has shipped
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 03:31:00 +0000
+Message-ID: <sample-006@sample.inbox-predator>
+
+Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
+age in Your Orders.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Jordan Kim <omar@quantia.example>
+Subject: Please confirm your interview slot by EOD today
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 05:05:00 +0000
+Message-ID: <sample-007@sample.inbox-predator>
+
+Hi Alex,
+
+Thanks for applying to the Machine Learning Intern role at Quantia. We'd like=
+ to schedule your technical interview. Please confirm one of the slots below =
+by end of day today, otherwise we will need to release them:
+
+- Thu 2pm PT
+- Fri 10am PT
+
+Best,
+Jordan Kim
+University Recruiting, Quantia
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Crypto Signals <vip@signals.example>
+Subject: Make $5k/week - act now
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 10:10:00 +0000
+Message-ID: <sample-008@sample.inbox-predator>
+
+Join our VIP crypto signals group. Members earn $5k a week. Act now, limited =
+spots. Unsubscribe.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prof. Nguyen <nina@example.edu>
+Subject: Comments on your research proposal
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============5030212908947282291=="
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 11:45:00 +0000
+Message-ID: <sample-009@sample.inbox-predator>
+
+--===============5030212908947282291==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Alex, I left comments on your proposal in the shared doc. Overall the dire=
+ction on retrieval models is good. Let's discuss at our next meeting; no rush.
+
+--===============5030212908947282291==
+Content-Type: text/plain
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="job_description.txt"
+MIME-Version: 1.0
+
+Sm9iIGRlc2NyaXB0aW9uOiBNTCBpbnRlcm4uIFB5dGhvbiwgUHlUb3JjaC4gU3VtbWVyIDIwMjcu
+
+--===============5030212908947282291==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Coursera <promo@coursera.example>
+Subject: Exclusive offer: 40% off Coursera Plus
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 14:04:00 +0000
+Message-ID: <sample-010@sample.inbox-predator>
+
+Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
+ARN40. Unsubscribe anytime.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Coursera <promo@coursera.example>
+Subject: Exclusive offer: 40% off Coursera Plus
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 17:45:00 +0000
+Message-ID: <sample-011@sample.inbox-predator>
+
+Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
+ARN40. Unsubscribe anytime.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Priya Garcia <elena@example.edu>
+Subject: Group project demo moved to TODAY 4pm
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 20:17:00 +0000
+Message-ID: <sample-012@sample.inbox-predator>
+
+Heads up team - the professor moved our capstone demo to today at 4pm in Room=
+ 210. Please be there 15 minutes early. Reply if you can't make it.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Kaggle <noreply@kaggle.example>
+Subject: New competition announcement
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 03 Nov 2026 23:50:00 +0000
+Message-ID: <sample-013@sample.inbox-predator>
+
+A new featured competition on tabular forecasting launched today. Community n=
+otebooks and a recap of last month's winners inside.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Kaggle <noreply@kaggle.example>
+Subject: New competition announcement
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 04 Nov 2026 03:26:00 +0000
+Message-ID: <sample-014@sample.inbox-predator>
+
+A new featured competition on tabular forecasting launched today. Community n=
+otebooks and a recap of last month's winners inside.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Pizza Palace <promo@pizza.example>
+Subject: Free shipping weekend + BOGO deal
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 04 Nov 2026 05:15:00 +0000
+Message-ID: <sample-015@sample.inbox-predator>
+
+This weekend only: buy one get one free on large pizzas and free delivery. Pr=
+omo code BOGO. Unsubscribe.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Amazon <shipment-tracking@amazon.example>
+Subject: Your order has shipped
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 04 Nov 2026 09:15:00 +0000
+Message-ID: <sample-016@sample.inbox-predator>
+
+Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
+age in Your Orders.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: GitHub <notifications@github.com>
+Subject: [repo] CI run succeeded on main
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 04 Nov 2026 11:59:00 +0000
+Message-ID: <sample-017@sample.inbox-predator>
+
+All checks have passed for commit a1b2c3d on main. This is an automated notif=
+ication.
+
+Merci, =E0 bient=F4t.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: Your job alert for Backend Engineer I (New Grad)
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============7201021942015805117=="
+To: alex.student@example.edu
+Date: Wed, 04 Nov 2026 14:12:00 +0000
+Message-ID: <sample-018@sample.inbox-predator>
+
+--===============7201021942015805117==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+Backend Engineer I (New Grad)
+Quantia
+Seattle, WA
+Entry level · Full-time
+Skills: Java, Spring, AWS
+
+View job: https://www.linkedin.com/jobs/view/3968990653
+
+Frontend Engineer Intern
+Nimbus AI
+San Francisco, CA
+Internship · Internship
+Skills: React, TypeScript, CSS
+
+View job: https://www.linkedin.com/jobs/view/3406919288
+
+QA Automation Intern
+Nimbus AI
+Seattle, WA
+Internship · Internship
+Skills: Selenium, Python
+
+View job: https://www.linkedin.com/jobs/view/3284759615
+
+Principal Data Scientist
+Orbitly
+Remote
+Director · Full-time
+Skills: Python, Causal Inference
+10+ years experience
+View job: https://www.linkedin.com/jobs/view/3454200826
+
+Manage job alerts · Unsubscribe
+
+--===============7201021942015805117==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3968990653">Backend Eng=
+ineer I (New Grad)</a><p class=3D"company">Quantia</p><p class=3D"location">S=
+eattle, WA</p><p class=3D"seniority">Entry level</p><p class=3D"type">Full-ti=
+me</p><p class=3D"skills">Java, Spring, AWS</p><p class=3D"notes"></p></div><=
+!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://www.link=
+edin.com/jobs/view/3406919288">Frontend Engineer Intern</a><p class=3D"compan=
+y">Nimbus AI</p><p class=3D"location">San Francisco, CA</p><p class=3D"senior=
+ity">Internship</p><p class=3D"type">Internship</p><p class=3D"skills">React,=
+ TypeScript, CSS</p><p class=3D"notes"></p></div><!--/job--><div class=3D"job=
+-card"><a class=3D"title" href=3D"https://www.linkedin.com/jobs/view/32847596=
+15">QA Automation Intern</a><p class=3D"company">Nimbus AI</p><p class=3D"loc=
+ation">Seattle, WA</p><p class=3D"seniority">Internship</p><p class=3D"type">=
+Internship</p><p class=3D"skills">Selenium, Python</p><p class=3D"notes"></p>=
+</div><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://w=
+ww.linkedin.com/jobs/view/3454200826">Principal Data Scientist</a><p class=3D=
+"company">Orbitly</p><p class=3D"location">Remote</p><p class=3D"seniority">D=
+irector</p><p class=3D"type">Full-time</p><p class=3D"skills">Python, Causal =
+Inference</p><p class=3D"notes">10+ years experience</p></div><!--/job--><p c=
+lass=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corporat=
+ion</p></body></html>
+
+--===============7201021942015805117==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Coursera <promo@coursera.example>
+Subject: Exclusive offer: 40% off Coursera Plus
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 04 Nov 2026 18:03:00 +0000
+Message-ID: <sample-019@sample.inbox-predator>
+
+Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
+ARN40. Unsubscribe anytime.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: The Batch <newsletter@deeplearning.example>
+Subject: The Batch: new open-weight models, weekly recap
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 04 Nov 2026 20:54:00 +0000
+Message-ID: <sample-020@sample.inbox-predator>
+
+This week in AI: new open-weight models, a recap of the latest benchmarks, an=
+d an article on agent evaluation. Read the full newsletter on our site.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Helix Health Talent <talent@helixhealth.example>
+Subject: Update on your application - moving to next steps
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 05 Nov 2026 01:15:00 +0000
+Message-ID: <sample-021@sample.inbox-predator>
+
+Good news! Your application for Backend Software Engineer, New Grad has moved=
+ to the next stage. A recruiter will contact you within the next week to sche=
+dule a phone screen.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Tessellate Recruiting <recruiting@tessellate.example>
+Subject: Unfortunately - your application to Tessellate
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 05 Nov 2026 04:33:00 +0000
+Message-ID: <sample-022@sample.inbox-predator>
+
+Hi Alex, thank you for your interest in the Software Engineering Intern role.=
+ After careful review we have decided to move forward with other candidates. =
+We encourage you to apply again.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prof. Kim <wei@example.edu>
+Subject: Comments on your research proposal
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 05 Nov 2026 07:41:00 +0000
+Message-ID: <sample-023@sample.inbox-predator>
+
+Hi Alex, I left comments on your proposal in the shared doc. Overall the dire=
+ction on retrieval models is good. Let's discuss at our next meeting; no rush.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Chase <no-reply@chase.com>
+Subject: Your statement is ready
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============2647975021508238458=="
+To: alex.student@example.edu
+Date: Thu, 05 Nov 2026 09:29:00 +0000
+Message-ID: <sample-024@sample.inbox-predator>
+
+--===============2647975021508238458==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Your October statement for account ending 4421 is ready. New balance: $1,284.=
+11. Minimum payment due Nov 25.
+
+--===============2647975021508238458==
+Content-Type: application/pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="statement_oct.pdf"
+MIME-Version: 1.0
+
+JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2Jq
+CjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2Jq
+CjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIg
+NzkyXSAvQ29udGVudHMgNCAwIFIgL1Jlc291cmNlcyA8PCAvRm9udCA8PCAvRjEgNSAwIFIgPj4g
+Pj4gPj4KZW5kb2JqCjQgMCBvYmoKPDwgL0xlbmd0aCA1MiA+PgpzdHJlYW0KQlQgL0YxIDEyIFRm
+IDcyIDcyMCBUZCAoQ29uZmlkZW50aWFsIGRvY3VtZW50KSBUaiBFVAplbmRzdHJlYW0KZW5kb2Jq
+CjUgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0
+aWNhID4+CmVuZG9iagp4cmVmCjAgNgowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwMDkgMDAw
+MDAgbiAKMDAwMDAwMDA1OCAwMDAwMCBuIAowMDAwMDAwMTE1IDAwMDAwIG4gCjAwMDAwMDAyNDEg
+MDAwMDAgbiAKMDAwMDAwMDM0MyAwMDAwMCBuIAp0cmFpbGVyIDw8IC9TaXplIDYgL1Jvb3QgMSAw
+IFIgPj4Kc3RhcnR4cmVmCjQxMwolJUVPRg==
+
+--===============2647975021508238458==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Coursera <promo@coursera.example>
+Subject: Exclusive offer: 40% off Coursera Plus
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 05 Nov 2026 13:13:00 +0000
+Message-ID: <sample-025@sample.inbox-predator>
+
+Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
+ARN40. Unsubscribe anytime.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Medium Daily Digest <noreply@medium.example>
+Subject: Daily digest: 5 stories on system design
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 05 Nov 2026 15:53:00 +0000
+Message-ID: <sample-026@sample.inbox-predator>
+
+Stories for you: Designing rate limiters, Kafka in practice, and more. Read l=
+ater from your digest.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Notion <team@notion.example>
+Subject: Introducing new AI features - try them free
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 05 Nov 2026 19:19:00 +0000
+Message-ID: <sample-027@sample.inbox-predator>
+
+We've launched new AI features in Notion. Try them free for 30 days. Exclusiv=
+e offer for students.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Jordan Chen <elena@gmail.com>
+Subject: Referral for the Tessellate new grad role?
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 05 Nov 2026 20:17:00 +0000
+Message-ID: <sample-028@sample.inbox-predator>
+
+Hey Alex! I saw you're looking at Tessellate. I work on their ML platform tea=
+m and can refer you for the new grad role. Can you send me your resume and th=
+e job link?
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: Jobs you may be interested in: Frontend Engineer Intern
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============2673891441496131324=="
+To: alex.student@example.edu
+Date: Fri, 06 Nov 2026 01:16:00 +0000
+Message-ID: <sample-029@sample.inbox-predator>
+
+--===============2673891441496131324==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+Frontend Engineer Intern
+Helix Health
+Remote
+Internship · Internship
+Skills: React, TypeScript, CSS
+
+View job: https://www.linkedin.com/jobs/view/3542678844
+
+Staff Backend Engineer
+Orbitly
+Remote
+Mid-Senior level · Full-time
+Skills: Go, Distributed Systems
+8+ years experience
+View job: https://www.linkedin.com/jobs/view/3972097649
+
+Backend Engineer I (New Grad)
+Nimbus AI
+San Jose, CA
+Entry level · Full-time
+Skills: Java, Spring, AWS
+
+View job: https://www.linkedin.com/jobs/view/3681057736
+
+Data Science Intern
+Fernway
+Remote
+Internship · Internship
+Skills: Python, SQL, scikit-learn
+
+View job: https://www.linkedin.com/jobs/view/3047337803
+
+Senior Machine Learning Engineer
+Nimbus AI
+Remote
+Mid-Senior level · Full-time
+Skills: Python, TensorFlow, AWS
+5+ years of production ML experience
+View job: https://www.linkedin.com/jobs/view/3827982963
+
+Manage job alerts · Unsubscribe
+
+--===============2673891441496131324==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3542678844">Frontend En=
+gineer Intern</a><p class=3D"company">Helix Health</p><p class=3D"location">R=
+emote</p><p class=3D"seniority">Internship</p><p class=3D"type">Internship</p=
+><p class=3D"skills">React, TypeScript, CSS</p><p class=3D"notes"></p></div><=
+!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://www.link=
+edin.com/jobs/view/3972097649">Staff Backend Engineer</a><p class=3D"company"=
+>Orbitly</p><p class=3D"location">Remote</p><p class=3D"seniority">Mid-Senior=
+ level</p><p class=3D"type">Full-time</p><p class=3D"skills">Go, Distributed =
+Systems</p><p class=3D"notes">8+ years experience</p></div><!--/job--><div cl=
+ass=3D"job-card"><a class=3D"title" href=3D"https://www.linkedin.com/jobs/vie=
+w/3681057736">Backend Engineer I (New Grad)</a><p class=3D"company">Nimbus AI=
+</p><p class=3D"location">San Jose, CA</p><p class=3D"seniority">Entry level<=
+/p><p class=3D"type">Full-time</p><p class=3D"skills">Java, Spring, AWS</p><p=
+ class=3D"notes"></p></div><!--/job--><div class=3D"job-card"><a class=3D"tit=
+le" href=3D"https://www.linkedin.com/jobs/view/3047337803">Data Science Inter=
+n</a><p class=3D"company">Fernway</p><p class=3D"location">Remote</p><p class=
+=3D"seniority">Internship</p><p class=3D"type">Internship</p><p class=3D"skil=
+ls">Python, SQL, scikit-learn</p><p class=3D"notes"></p></div><!--/job--><div=
+ class=3D"job-card"><a class=3D"title" href=3D"https://www.linkedin.com/jobs/=
+view/3827982963">Senior Machine Learning Engineer</a><p class=3D"company">Nim=
+bus AI</p><p class=3D"location">Remote</p><p class=3D"seniority">Mid-Senior l=
+evel</p><p class=3D"type">Full-time</p><p class=3D"skills">Python, TensorFlow=
+, AWS</p><p class=3D"notes">5+ years of production ML experience</p></div><!-=
+-/job--><p class=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 Linke=
+dIn Corporation</p></body></html>
+
+--===============2673891441496131324==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Northwind Systems Talent <talent@northwindsystems.example>
+Subject: Update on your application - moving to next steps
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 06 Nov 2026 02:04:00 +0000
+Message-ID: <sample-030@sample.inbox-predator>
+
+Good news! Your application for Backend Software Engineer, New Grad has moved=
+ to the next stage. A recruiter will contact you within the next week to sche=
+dule a phone screen.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Wei Rossi <wei@example.edu>
+Subject: Group project demo moved to TODAY 4pm
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 06 Nov 2026 06:08:00 +0000
+Message-ID: <sample-031@sample.inbox-predator>
+
+Heads up team - the professor moved our capstone demo to today at 4pm in Room=
+ 210. Please be there 15 minutes early. Reply if you can't make it.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: The Batch <newsletter@deeplearning.example>
+Subject: The Batch: new open-weight models, weekly recap
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 06 Nov 2026 10:06:00 +0000
+Message-ID: <sample-032@sample.inbox-predator>
+
+This week in AI: new open-weight models, a recap of the latest benchmarks, an=
+d an article on agent evaluation. Read the full newsletter on our site.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Campus Events <events@example.edu>
+Subject: Reminder: career fair this Thursday
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 06 Nov 2026 11:56:00 +0000
+Message-ID: <sample-033@sample.inbox-predator>
+
+FYI the fall engineering career fair is Thursday in the Student Union. Over 8=
+0 employers attending. No registration needed.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Indeed <alert@indeed.example>
+Subject: New jobs: python developer in San Jose, CA
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 06 Nov 2026 15:10:00 +0000
+Message-ID: <sample-034@sample.inbox-predator>
+
+New jobs matching your search 'python developer': Python Developer at Fernway=
+ (Full-time), Backend Engineer at Helix Health. Apply now.
+
+Merci, =E0 bient=F4t.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Crypto Signals <vip@signals.example>
+Subject: Make $5k/week - act now
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 06 Nov 2026 18:19:00 +0000
+Message-ID: <sample-035@sample.inbox-predator>
+
+Join our VIP crypto signals group. Members earn $5k a week. Act now, limited =
+spots. Unsubscribe.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Amazon <shipment-tracking@amazon.example>
+Subject: Your order has shipped
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 06 Nov 2026 21:22:00 +0000
+Message-ID: <sample-036@sample.inbox-predator>
+
+Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
+age in Your Orders.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Google <no-reply@accounts.google.example>
+Subject: Your verification code
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 07 Nov 2026 01:32:00 +0000
+Message-ID: <sample-037@sample.inbox-predator>
+
+Your Google verification code is 482913. Don't share it with anyone.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn <messages-noreply@linkedin.com>
+Subject: Lucas Rossi viewed your profile
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 07 Nov 2026 04:16:00 +0000
+Message-ID: <sample-038@sample.inbox-predator>
+
+Lucas Rossi, a recruiter at Nimbus AI, viewed your profile. See who else view=
+ed your profile this week.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: Your job alert for Data Science Intern
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============5625185997797696309=="
+To: alex.student@example.edu
+Date: Sat, 07 Nov 2026 05:33:00 +0000
+Message-ID: <sample-039@sample.inbox-predator>
+
+--===============5625185997797696309==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+Data Science Intern
+Northwind Systems
+Remote
+Internship · Internship
+Skills: Python, SQL, scikit-learn
+
+View job: https://www.linkedin.com/jobs/view/3468574364
+
+Software Engineer Intern - Defense Systems
+Kiln Robotics
+Mountain View, CA
+Internship · Internship
+Skills: C++, Linux
+Active security clearance required; US citizens only
+View job: https://www.linkedin.com/jobs/view/3124173718
+
+Frontend Engineer Intern
+Fernway
+Mountain View, CA
+Internship · Internship
+Skills: React, TypeScript, CSS
+
+View job: https://www.linkedin.com/jobs/view/3204095531
+
+Backend Engineer I (New Grad)
+Lumen Labs
+San Jose, CA
+Entry level · Full-time
+Skills: Java, Spring, AWS
+
+View job: https://www.linkedin.com/jobs/view/3761052404
+
+Manage job alerts · Unsubscribe
+
+--===============5625185997797696309==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3468574364">Data Scienc=
+e Intern</a><p class=3D"company">Northwind Systems</p><p class=3D"location">R=
+emote</p><p class=3D"seniority">Internship</p><p class=3D"type">Internship</p=
+><p class=3D"skills">Python, SQL, scikit-learn</p><p class=3D"notes"></p></di=
+v><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://www.l=
+inkedin.com/jobs/view/3124173718">Software Engineer Intern - Defense Systems<=
+/a><p class=3D"company">Kiln Robotics</p><p class=3D"location">Mountain View,=
+ CA</p><p class=3D"seniority">Internship</p><p class=3D"type">Internship</p><=
+p class=3D"skills">C++, Linux</p><p class=3D"notes">Active security clearance=
+ required; US citizens only</p></div><!--/job--><div class=3D"job-card"><a cl=
+ass=3D"title" href=3D"https://www.linkedin.com/jobs/view/3204095531">Frontend=
+ Engineer Intern</a><p class=3D"company">Fernway</p><p class=3D"location">Mou=
+ntain View, CA</p><p class=3D"seniority">Internship</p><p class=3D"type">Inte=
+rnship</p><p class=3D"skills">React, TypeScript, CSS</p><p class=3D"notes"></=
+p></div><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https:/=
+/www.linkedin.com/jobs/view/3761052404">Backend Engineer I (New Grad)</a><p c=
+lass=3D"company">Lumen Labs</p><p class=3D"location">San Jose, CA</p><p class=
+=3D"seniority">Entry level</p><p class=3D"type">Full-time</p><p class=3D"skil=
+ls">Java, Spring, AWS</p><p class=3D"notes"></p></div><!--/job--><p class=3D"=
+footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corporation</p><=
+/body></html>
+
+--===============5625185997797696309==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Graduate Admissions <gradoffice@example.edu>
+Subject: Immediate action: OPT/CPT form missing signature
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 07 Nov 2026 10:20:00 +0000
+Message-ID: <sample-040@sample.inbox-predator>
+
+Your CPT authorization form is missing your advisor signature. Your internshi=
+p start date is at risk. Please upload the signed form immediately; the proce=
+ssing deadline is tomorrow.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: GitHub <notifications@github.com>
+Subject: [repo] CI run succeeded on main
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 07 Nov 2026 12:44:00 +0000
+Message-ID: <sample-041@sample.inbox-predator>
+
+All checks have passed for commit a1b2c3d on main. This is an automated notif=
+ication.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prof. Garcia <lucas@example.edu>
+Subject: Comments on your research proposal
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 07 Nov 2026 16:57:00 +0000
+Message-ID: <sample-042@sample.inbox-predator>
+
+Hi Alex, I left comments on your proposal in the shared doc. Overall the dire=
+ction on retrieval models is good. Let's discuss at our next meeting; no rush.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: CS Department <cs-news@example.edu>
+Subject: Department newsletter - November
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 07 Nov 2026 18:13:00 +0000
+Message-ID: <sample-043@sample.inbox-predator>
+
+Highlights: faculty awards, upcoming research talks, and a recap of the hacka=
+thon. Weekly digest from the department.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn <messages-noreply@linkedin.com>
+Subject: Omar Haddad viewed your profile
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 07 Nov 2026 20:32:00 +0000
+Message-ID: <sample-044@sample.inbox-predator>
+
+Omar Haddad, a recruiter at Orbitly, viewed your profile. See who else viewed=
+ your profile this week.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Nina Chen <lucas@example.edu>
+Subject: Advisor meeting next Tuesday 3pm
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sun, 08 Nov 2026 01:21:00 +0000
+Message-ID: <sample-045@sample.inbox-predator>
+
+Hi Alex, confirming our 1:1 advisor meeting next Tuesday at 3pm in my office.=
+ Bring your updated results. Calendar invite attached.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: TechGear <deals@techgear.example>
+Subject: URGENT: 60% off ends TONIGHT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sun, 08 Nov 2026 02:30:00 +0000
+Message-ID: <sample-046@sample.inbox-predator>
+
+Last chance! Our biggest sale of the year ends tonight. 60% off headphones an=
+d laptops. Shop now. Unsubscribe here.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Handshake <jobs@handshake.example>
+Subject: 5 new jobs for you this week
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sun, 08 Nov 2026 06:25:00 +0000
+Message-ID: <sample-047@sample.inbox-predator>
+
+Recommended jobs based on your profile: Data Engineering Intern at Quantia, M=
+L Research Intern at Northwind Systems, Software Engineer I at Northwind Syst=
+ems. Apply now on Handshake.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Handshake <jobs@handshake.example>
+Subject: 5 new jobs for you this week
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sun, 08 Nov 2026 10:29:00 +0000
+Message-ID: <sample-048@sample.inbox-predator>
+
+Recommended jobs based on your profile: Data Engineering Intern at Fernway, M=
+L Research Intern at Quantia, Software Engineer I at Brightpath. Apply now on=
+ Handshake.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Elena Garcia <lucas@orbitly.example>
+Subject: Please confirm your interview slot by EOD today
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sun, 08 Nov 2026 13:35:00 +0000
+Message-ID: <sample-049@sample.inbox-predator>
+
+Hi Alex,
+
+Thanks for applying to the Machine Learning Intern role at Orbitly. We'd like=
+ to schedule your technical interview. Please confirm one of the slots below =
+by end of day today, otherwise we will need to release them:
+
+- Thu 2pm PT
+- Fri 10am PT
+
+Best,
+Elena Garcia
+University Recruiting, Orbitly
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Northwind Systems Recruiting <recruiting@northwindsystems.example>
+Subject: Unfortunately - your application to Northwind Systems
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sun, 08 Nov 2026 15:57:00 +0000
+Message-ID: <sample-050@sample.inbox-predator>
+
+Hi Alex, thank you for your interest in the Software Engineering Intern role.=
+ After careful review we have decided to move forward with other candidates. =
+We encourage you to apply again.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: GitHub <noreply@github.com>
+Subject: [GitHub] Please reset your password
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sun, 08 Nov 2026 17:47:00 +0000
+Message-ID: <sample-051@sample.inbox-predator>
+
+We heard you need a password reset. Use the link below to choose a new passwo=
+rd: https://github.com/password_reset/abc123token
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Kaggle <noreply@kaggle.example>
+Subject: New competition announcement
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sun, 08 Nov 2026 22:15:00 +0000
+Message-ID: <sample-052@sample.inbox-predator>
+
+A new featured competition on tabular forecasting launched today. Community n=
+otebooks and a recap of last month's winners inside.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Quantia Recruiting <recruiting@quantia.example>
+Subject: Action required: online assessment expires in 24 hours
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 01:05:00 +0000
+Message-ID: <sample-053@sample.inbox-predator>
+
+Your HackerRank assessment for the Software Engineer, New Grad position at Qu=
+antia expires within 24 hours. Complete it before Friday 11:59pm PT. This is =
+your final reminder.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: CS Department <cs-news@example.edu>
+Subject: Department newsletter - November
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 02:26:00 +0000
+Message-ID: <sample-054@sample.inbox-predator>
+
+Highlights: faculty awards, upcoming research talks, and a recap of the hacka=
+thon. Weekly digest from the department.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Daniel Rossi <aisha@example.edu>
+Subject: Advisor meeting next Tuesday 3pm
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 06:57:00 +0000
+Message-ID: <sample-055@sample.inbox-predator>
+
+Hi Alex, confirming our 1:1 advisor meeting next Tuesday at 3pm in my office.=
+ Bring your updated results. Calendar invite attached.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: The Batch <newsletter@deeplearning.example>
+Subject: The Batch: new open-weight models, weekly recap
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 09:34:00 +0000
+Message-ID: <sample-056@sample.inbox-predator>
+
+This week in AI: new open-weight models, a recap of the latest benchmarks, an=
+d an article on agent evaluation. Read the full newsletter on our site.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Amazon <shipment-tracking@amazon.example>
+Subject: Your order has shipped
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 12:42:00 +0000
+Message-ID: <sample-057@sample.inbox-predator>
+
+Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
+age in Your Orders.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Crypto Signals <vip@signals.example>
+Subject: Make $5k/week - act now
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 15:37:00 +0000
+Message-ID: <sample-058@sample.inbox-predator>
+
+Join our VIP crypto signals group. Members earn $5k a week. Act now, limited =
+spots. Unsubscribe.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Helix Health Recruiting <recruiting@helixhealth.example>
+Subject: Unfortunately - your application to Helix Health
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 17:03:00 +0000
+Message-ID: <sample-059@sample.inbox-predator>
+
+Hi Alex, thank you for your interest in the Software Engineering Intern role.=
+ After careful review we have decided to move forward with other candidates. =
+We encourage you to apply again.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Indeed <alert@indeed.example>
+Subject: New jobs: python developer in San Jose, CA
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 21:48:00 +0000
+Message-ID: <sample-060@sample.inbox-predator>
+
+New jobs matching your search 'python developer': Python Developer at Orbitly=
+ (Full-time), Backend Engineer at Arcwise. Apply now.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: TA Coordinator <ta-office@example.edu>
+Subject: TA assignment for Spring semester
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Mon, 09 Nov 2026 23:22:00 +0000
+Message-ID: <sample-061@sample.inbox-predator>
+
+You've been assigned as a teaching assistant for CS 146 (Data Structures) nex=
+t semester. Details about orientation will follow.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prof. Shah <priya@example.edu>
+Subject: Thesis draft feedback - need your response before tomorrow
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 10 Nov 2026 04:09:00 +0000
+Message-ID: <sample-062@sample.inbox-predator>
+
+Alex,
+
+I've reviewed chapter 3. There are two issues with the evaluation section tha=
+t must be fixed before the committee deadline tomorrow at noon. Can you reply=
+ today with a plan?
+
+- Prof. Shah
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prof. Lee <nina@example.edu>
+Subject: Thesis draft feedback - need your response before tomorrow
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 10 Nov 2026 06:49:00 +0000
+Message-ID: <sample-063@sample.inbox-predator>
+
+Alex,
+
+I've reviewed chapter 3. There are two issues with the evaluation section tha=
+t must be fixed before the committee deadline tomorrow at noon. Can you reply=
+ today with a plan?
+
+- Prof. Lee
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Coursera <promo@coursera.example>
+Subject: Exclusive offer: 40% off Coursera Plus
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 10 Nov 2026 09:06:00 +0000
+Message-ID: <sample-064@sample.inbox-predator>
+
+Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
+ARN40. Unsubscribe anytime.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Notion <team@notion.example>
+Subject: Introducing new AI features - try them free
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 10 Nov 2026 11:04:00 +0000
+Message-ID: <sample-065@sample.inbox-predator>
+
+We've launched new AI features in Notion. Try them free for 30 days. Exclusiv=
+e offer for students.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Northwind Systems Recruiting <recruiting@northwindsystems.example>
+Subject: Unfortunately - your application to Northwind Systems
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 10 Nov 2026 14:50:00 +0000
+Message-ID: <sample-066@sample.inbox-predator>
+
+Hi Alex, thank you for your interest in the Software Engineering Intern role.=
+ After careful review we have decided to move forward with other candidates. =
+We encourage you to apply again.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Notion <team@notion.example>
+Subject: Introducing new AI features - try them free
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 10 Nov 2026 19:41:00 +0000
+Message-ID: <sample-067@sample.inbox-predator>
+
+We've launched new AI features in Notion. Try them free for 30 days. Exclusiv=
+e offer for students.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Campus Events <events@example.edu>
+Subject: Reminder: career fair this Thursday
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Tue, 10 Nov 2026 21:45:00 +0000
+Message-ID: <sample-068@sample.inbox-predator>
+
+FYI the fall engineering career fair is Thursday in the Student Union. Over 8=
+0 employers attending. No registration needed.
+
+Merci, =E0 bient=F4t.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: Jobs you may be interested in: Principal Data Scientist
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============8571443051576137034=="
+To: alex.student@example.edu
+Date: Tue, 10 Nov 2026 23:17:00 +0000
+Message-ID: <sample-069@sample.inbox-predator>
+
+--===============8571443051576137034==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+Principal Data Scientist
+Helix Health
+Remote
+Director · Full-time
+Skills: Python, Causal Inference
+10+ years experience
+View job: https://www.linkedin.com/jobs/view/3661330848
+
+New Grad Software Engineer, ML Platform
+Datacrest
+Seattle, WA
+Entry level · Full-time
+Skills: Python, Spark, Kubernetes
+Visa sponsorship available
+View job: https://www.linkedin.com/jobs/view/3499154414
+
+Staff Backend Engineer
+Fernway
+New York, NY
+Mid-Senior level · Full-time
+Skills: Go, Distributed Systems
+8+ years experience
+View job: https://www.linkedin.com/jobs/view/3636164778
+
+Data Analyst, Entry Level
+Lumen Labs
+Remote
+Entry level · Full-time
+Skills: SQL, Tableau, Excel
+
+View job: https://www.linkedin.com/jobs/view/3914520040
+
+Manage job alerts · Unsubscribe
+
+--===============8571443051576137034==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3661330848">Principal D=
+ata Scientist</a><p class=3D"company">Helix Health</p><p class=3D"location">R=
+emote</p><p class=3D"seniority">Director</p><p class=3D"type">Full-time</p><p=
+ class=3D"skills">Python, Causal Inference</p><p class=3D"notes">10+ years ex=
+perience</p></div><!--/job--><div class=3D"job-card"><a class=3D"title" href=
+=3D"https://www.linkedin.com/jobs/view/3499154414">New Grad Software Engineer=
+, ML Platform</a><p class=3D"company">Datacrest</p><p class=3D"location">Seat=
+tle, WA</p><p class=3D"seniority">Entry level</p><p class=3D"type">Full-time<=
+/p><p class=3D"skills">Python, Spark, Kubernetes</p><p class=3D"notes">Visa s=
+ponsorship available</p></div><!--/job--><div class=3D"job-card"><a class=3D"=
+title" href=3D"https://www.linkedin.com/jobs/view/3636164778">Staff Backend E=
+ngineer</a><p class=3D"company">Fernway</p><p class=3D"location">New York, NY=
+</p><p class=3D"seniority">Mid-Senior level</p><p class=3D"type">Full-time</p=
+><p class=3D"skills">Go, Distributed Systems</p><p class=3D"notes">8+ years e=
+xperience</p></div><!--/job--><div class=3D"job-card"><a class=3D"title" href=
+=3D"https://www.linkedin.com/jobs/view/3914520040">Data Analyst, Entry Level<=
+/a><p class=3D"company">Lumen Labs</p><p class=3D"location">Remote</p><p clas=
+s=3D"seniority">Entry level</p><p class=3D"type">Full-time</p><p class=3D"ski=
+lls">SQL, Tableau, Excel</p><p class=3D"notes"></p></div><!--/job--><p class=
+=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corporation<=
+/p></body></html>
+
+--===============8571443051576137034==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Maria Okafor <daniel@example.edu>
+Subject: Advisor meeting next Tuesday 3pm
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 11 Nov 2026 02:31:00 +0000
+Message-ID: <sample-070@sample.inbox-predator>
+
+Hi Alex, confirming our 1:1 advisor meeting next Tuesday at 3pm in my office.=
+ Bring your updated results. Calendar invite attached.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Arcwise Recruiting <recruiting@arcwise.example>
+Subject: Action required: online assessment expires in 24 hours
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 11 Nov 2026 07:44:00 +0000
+Message-ID: <sample-071@sample.inbox-predator>
+
+Your HackerRank assessment for the Software Engineer, New Grad position at Ar=
+cwise expires within 24 hours. Complete it before Friday 11:59pm PT. This is =
+your final reminder.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Venmo <venmo@venmo.com>
+Subject: You paid Jordan $24.00
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 11 Nov 2026 09:35:00 +0000
+Message-ID: <sample-072@sample.inbox-predator>
+
+You paid Jordan Lee $24.00 for dinner. Balance: $310.50.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: The Batch <newsletter@deeplearning.example>
+Subject: The Batch: new open-weight models, weekly recap
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 11 Nov 2026 13:48:00 +0000
+Message-ID: <sample-073@sample.inbox-predator>
+
+This week in AI: new open-weight models, a recap of the latest benchmarks, an=
+d an article on agent evaluation. Read the full newsletter on our site.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: Your job alert for Embedded Software Intern
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============4695572340964015118=="
+To: alex.student@example.edu
+Date: Wed, 11 Nov 2026 16:33:00 +0000
+Message-ID: <sample-074@sample.inbox-predator>
+
+--===============4695572340964015118==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+Embedded Software Intern
+Orbitly
+San Jose, CA
+Internship · Internship
+Skills: C, RTOS, Embedded Linux
+
+View job: https://www.linkedin.com/jobs/view/3099915275
+
+Senior Machine Learning Engineer
+Lumen Labs
+San Francisco, CA
+Mid-Senior level · Full-time
+Skills: Python, TensorFlow, AWS
+5+ years of production ML experience
+View job: https://www.linkedin.com/jobs/view/3434222401
+
+Staff Backend Engineer
+Northwind Systems
+San Francisco, CA
+Mid-Senior level · Full-time
+Skills: Go, Distributed Systems
+8+ years experience
+View job: https://www.linkedin.com/jobs/view/3328786222
+
+QA Automation Intern
+Helix Health
+Mountain View, CA
+Internship · Internship
+Skills: Selenium, Python
+
+View job: https://www.linkedin.com/jobs/view/3396232693
+
+Manage job alerts · Unsubscribe
+
+--===============4695572340964015118==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3099915275">Embedded So=
+ftware Intern</a><p class=3D"company">Orbitly</p><p class=3D"location">San Jo=
+se, CA</p><p class=3D"seniority">Internship</p><p class=3D"type">Internship</=
+p><p class=3D"skills">C, RTOS, Embedded Linux</p><p class=3D"notes"></p></div=
+><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://www.li=
+nkedin.com/jobs/view/3434222401">Senior Machine Learning Engineer</a><p class=
+=3D"company">Lumen Labs</p><p class=3D"location">San Francisco, CA</p><p clas=
+s=3D"seniority">Mid-Senior level</p><p class=3D"type">Full-time</p><p class=
+=3D"skills">Python, TensorFlow, AWS</p><p class=3D"notes">5+ years of product=
+ion ML experience</p></div><!--/job--><div class=3D"job-card"><a class=3D"tit=
+le" href=3D"https://www.linkedin.com/jobs/view/3328786222">Staff Backend Engi=
+neer</a><p class=3D"company">Northwind Systems</p><p class=3D"location">San F=
+rancisco, CA</p><p class=3D"seniority">Mid-Senior level</p><p class=3D"type">=
+Full-time</p><p class=3D"skills">Go, Distributed Systems</p><p class=3D"notes=
+">8+ years experience</p></div><!--/job--><div class=3D"job-card"><a class=3D=
+"title" href=3D"https://www.linkedin.com/jobs/view/3396232693">QA Automation =
+Intern</a><p class=3D"company">Helix Health</p><p class=3D"location">Mountain=
+ View, CA</p><p class=3D"seniority">Internship</p><p class=3D"type">Internshi=
+p</p><p class=3D"skills">Selenium, Python</p><p class=3D"notes"></p></div><!-=
+-/job--><p class=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 Linke=
+dIn Corporation</p></body></html>
+
+--===============4695572340964015118==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Campus Events <events@example.edu>
+Subject: Reminder: career fair this Thursday
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Wed, 11 Nov 2026 18:16:00 +0000
+Message-ID: <sample-075@sample.inbox-predator>
+
+FYI the fall engineering career fair is Thursday in the Student Union. Over 8=
+0 employers attending. No registration needed.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: Tessellate is hiring: Data Science Intern
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============7651774952337312604=="
+To: alex.student@example.edu
+Date: Wed, 11 Nov 2026 20:53:00 +0000
+Message-ID: <sample-076@sample.inbox-predator>
+
+--===============7651774952337312604==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+Data Science Intern
+Tessellate
+New York, NY
+Internship · Internship
+Skills: Python, SQL, scikit-learn
+
+View job: https://www.linkedin.com/jobs/view/3575379544
+
+Staff Backend Engineer
+Northwind Systems
+San Francisco, CA
+Mid-Senior level · Full-time
+Skills: Go, Distributed Systems
+8+ years experience
+View job: https://www.linkedin.com/jobs/view/3205665554
+
+Embedded Software Intern
+Quantia
+New York, NY
+Internship · Internship
+Skills: C, RTOS, Embedded Linux
+
+View job: https://www.linkedin.com/jobs/view/3519904272
+
+Backend Engineer I (New Grad)
+Lumen Labs
+New York, NY
+Entry level · Full-time
+Skills: Java, Spring, AWS
+
+View job: https://www.linkedin.com/jobs/view/3633064117
+
+Manage job alerts · Unsubscribe
+
+--===============7651774952337312604==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3575379544">Data Scienc=
+e Intern</a><p class=3D"company">Tessellate</p><p class=3D"location">New York=
+, NY</p><p class=3D"seniority">Internship</p><p class=3D"type">Internship</p>=
+<p class=3D"skills">Python, SQL, scikit-learn</p><p class=3D"notes"></p></div=
+><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://www.li=
+nkedin.com/jobs/view/3205665554">Staff Backend Engineer</a><p class=3D"compan=
+y">Northwind Systems</p><p class=3D"location">San Francisco, CA</p><p class=
+=3D"seniority">Mid-Senior level</p><p class=3D"type">Full-time</p><p class=3D=
+"skills">Go, Distributed Systems</p><p class=3D"notes">8+ years experience</p=
+></div><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://=
+www.linkedin.com/jobs/view/3519904272">Embedded Software Intern</a><p class=
+=3D"company">Quantia</p><p class=3D"location">New York, NY</p><p class=3D"sen=
+iority">Internship</p><p class=3D"type">Internship</p><p class=3D"skills">C, =
+RTOS, Embedded Linux</p><p class=3D"notes"></p></div><!--/job--><div class=3D=
+"job-card"><a class=3D"title" href=3D"https://www.linkedin.com/jobs/view/3633=
+064117">Backend Engineer I (New Grad)</a><p class=3D"company">Lumen Labs</p><=
+p class=3D"location">New York, NY</p><p class=3D"seniority">Entry level</p><p=
+ class=3D"type">Full-time</p><p class=3D"skills">Java, Spring, AWS</p><p clas=
+s=3D"notes"></p></div><!--/job--><p class=3D"footer">Manage job alerts =C2=B7=
+ Unsubscribe =C2=B7 LinkedIn Corporation</p></body></html>
+
+--===============7651774952337312604==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Brightpath Talent <talent@brightpath.example>
+Subject: Update on your application - moving to next steps
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 01:08:00 +0000
+Message-ID: <sample-077@sample.inbox-predator>
+
+Good news! Your application for Backend Software Engineer, New Grad has moved=
+ to the next stage. A recruiter will contact you within the next week to sche=
+dule a phone screen.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Coursera <promo@coursera.example>
+Subject: Exclusive offer: 40% off Coursera Plus
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 03:06:00 +0000
+Message-ID: <sample-078@sample.inbox-predator>
+
+Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
+ARN40. Unsubscribe anytime.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: TechGear <deals@techgear.example>
+Subject: URGENT: 60% off ends TONIGHT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 05:16:00 +0000
+Message-ID: <sample-079@sample.inbox-predator>
+
+Last chance! Our biggest sale of the year ends tonight. 60% off headphones an=
+d laptops. Shop now. Unsubscribe here.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Pizza Palace <promo@pizza.example>
+Subject: Free shipping weekend + BOGO deal
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 10:03:00 +0000
+Message-ID: <sample-080@sample.inbox-predator>
+
+This weekend only: buy one get one free on large pizzas and free delivery. Pr=
+omo code BOGO. Unsubscribe.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Handshake <jobs@handshake.example>
+Subject: 5 new jobs for you this week
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 12:38:00 +0000
+Message-ID: <sample-081@sample.inbox-predator>
+
+Recommended jobs based on your profile: Data Engineering Intern at Tessellate=
+, ML Research Intern at Quantia, Software Engineer I at Tessellate. Apply now=
+ on Handshake.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Fernway Recruiting <recruiting@fernway.example>
+Subject: Unfortunately - your application to Fernway
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 16:27:00 +0000
+Message-ID: <sample-082@sample.inbox-predator>
+
+Hi Alex, thank you for your interest in the Software Engineering Intern role.=
+ After careful review we have decided to move forward with other candidates. =
+We encourage you to apply again.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prof. Shah <maria@example.edu>
+Subject: Comments on your research proposal
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 19:13:00 +0000
+Message-ID: <sample-083@sample.inbox-predator>
+
+Hi Alex, I left comments on your proposal in the shared doc. Overall the dire=
+ction on retrieval models is good. Let's discuss at our next meeting; no rush.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: Your job alert for New Grad Software Engineer, ML Platform
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============0020945154956201329=="
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 20:43:00 +0000
+Message-ID: <sample-084@sample.inbox-predator>
+
+--===============0020945154956201329==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+New Grad Software Engineer, ML Platform
+Tessellate
+San Francisco, CA
+Entry level · Full-time
+Skills: Python, Spark, Kubernetes
+Visa sponsorship available
+View job: https://www.linkedin.com/jobs/view/3002873038
+
+Embedded Software Intern
+Fernway
+Seattle, WA
+Internship · Internship
+Skills: C, RTOS, Embedded Linux
+
+View job: https://www.linkedin.com/jobs/view/3740206617
+
+Data Science Intern
+Kiln Robotics
+Seattle, WA
+Internship · Internship
+Skills: Python, SQL, scikit-learn
+
+View job: https://www.linkedin.com/jobs/view/3312737284
+
+Sales Development Representative
+Nimbus AI
+San Francisco, CA
+Entry level · Full-time
+Skills: Salesforce, Cold calling
+
+View job: https://www.linkedin.com/jobs/view/3309350265
+
+Data Analyst, Entry Level
+Northwind Systems
+Remote
+Entry level · Full-time
+Skills: SQL, Tableau, Excel
+
+View job: https://www.linkedin.com/jobs/view/3754827139
+
+Manage job alerts · Unsubscribe
+
+--===============0020945154956201329==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3002873038">New Grad So=
+ftware Engineer, ML Platform</a><p class=3D"company">Tessellate</p><p class=
+=3D"location">San Francisco, CA</p><p class=3D"seniority">Entry level</p><p c=
+lass=3D"type">Full-time</p><p class=3D"skills">Python, Spark, Kubernetes</p><=
+p class=3D"notes">Visa sponsorship available</p></div><!--/job--><div class=
+=3D"job-card"><a class=3D"title" href=3D"https://www.linkedin.com/jobs/view/3=
+740206617">Embedded Software Intern</a><p class=3D"company">Fernway</p><p cla=
+ss=3D"location">Seattle, WA</p><p class=3D"seniority">Internship</p><p class=
+=3D"type">Internship</p><p class=3D"skills">C, RTOS, Embedded Linux</p><p cla=
+ss=3D"notes"></p></div><!--/job--><div class=3D"job-card"><a class=3D"title" =
+href=3D"https://www.linkedin.com/jobs/view/3312737284">Data Science Intern</a=
+><p class=3D"company">Kiln Robotics</p><p class=3D"location">Seattle, WA</p><=
+p class=3D"seniority">Internship</p><p class=3D"type">Internship</p><p class=
+=3D"skills">Python, SQL, scikit-learn</p><p class=3D"notes"></p></div><!--/jo=
+b--><div class=3D"job-card"><a class=3D"title" href=3D"https://www.linkedin.c=
+om/jobs/view/3309350265">Sales Development Representative</a><p class=3D"comp=
+any">Nimbus AI</p><p class=3D"location">San Francisco, CA</p><p class=3D"seni=
+ority">Entry level</p><p class=3D"type">Full-time</p><p class=3D"skills">Sale=
+sforce, Cold calling</p><p class=3D"notes"></p></div><!--/job--><div class=3D=
+"job-card"><a class=3D"title" href=3D"https://www.linkedin.com/jobs/view/3754=
+827139">Data Analyst, Entry Level</a><p class=3D"company">Northwind Systems</=
+p><p class=3D"location">Remote</p><p class=3D"seniority">Entry level</p><p cl=
+ass=3D"type">Full-time</p><p class=3D"skills">SQL, Tableau, Excel</p><p class=
+=3D"notes"></p></div><!--/job--><p class=3D"footer">Manage job alerts =C2=B7 =
+Unsubscribe =C2=B7 LinkedIn Corporation</p></body></html>
+
+--===============0020945154956201329==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Payroll <payroll@example.edu>
+Subject: Your W-2 is available
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============3476443821031744370=="
+To: alex.student@example.edu
+Date: Thu, 12 Nov 2026 23:59:00 +0000
+Message-ID: <sample-085@sample.inbox-predator>
+
+--===============3476443821031744370==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Your 2025 Form W-2 is attached. SSN on file: 123-45-6789.
+
+--===============3476443821031744370==
+Content-Type: application/pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="W-2_2025.pdf"
+MIME-Version: 1.0
+
+JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2Jq
+CjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2Jq
+CjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIg
+NzkyXSAvQ29udGVudHMgNCAwIFIgL1Jlc291cmNlcyA8PCAvRm9udCA8PCAvRjEgNSAwIFIgPj4g
+Pj4gPj4KZW5kb2JqCjQgMCBvYmoKPDwgL0xlbmd0aCA1MiA+PgpzdHJlYW0KQlQgL0YxIDEyIFRm
+IDcyIDcyMCBUZCAoQ29uZmlkZW50aWFsIGRvY3VtZW50KSBUaiBFVAplbmRzdHJlYW0KZW5kb2Jq
+CjUgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0
+aWNhID4+CmVuZG9iagp4cmVmCjAgNgowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwMDkgMDAw
+MDAgbiAKMDAwMDAwMDA1OCAwMDAwMCBuIAowMDAwMDAwMTE1IDAwMDAwIG4gCjAwMDAwMDAyNDEg
+MDAwMDAgbiAKMDAwMDAwMDM0MyAwMDAwMCBuIAp0cmFpbGVyIDw8IC9TaXplIDYgL1Jvb3QgMSAw
+IFIgPj4Kc3RhcnR4cmVmCjQxMwolJUVPRg==
+
+--===============3476443821031744370==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Fernway Recruiting <recruiting@fernway.example>
+Subject: Action required: online assessment expires in 24 hours
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 13 Nov 2026 04:09:00 +0000
+Message-ID: <sample-086@sample.inbox-predator>
+
+Your HackerRank assessment for the Software Engineer, New Grad position at Fe=
+rnway expires within 24 hours. Complete it before Friday 11:59pm PT. This is =
+your final reminder.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Medium Daily Digest <noreply@medium.example>
+Subject: Daily digest: 5 stories on system design
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 13 Nov 2026 07:58:00 +0000
+Message-ID: <sample-087@sample.inbox-predator>
+
+Stories for you: Designing rate limiters, Kafka in practice, and more. Read l=
+ater from your digest.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Coursera <promo@coursera.example>
+Subject: Exclusive offer: 40% off Coursera Plus
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 13 Nov 2026 09:32:00 +0000
+Message-ID: <sample-088@sample.inbox-predator>
+
+Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
+ARN40. Unsubscribe anytime.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Graduate Admissions <gradoffice@example.edu>
+Subject: Immediate action: OPT/CPT form missing signature
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 13 Nov 2026 12:38:00 +0000
+Message-ID: <sample-089@sample.inbox-predator>
+
+Your CPT authorization form is missing your advisor signature. Your internshi=
+p start date is at risk. Please upload the signed form immediately; the proce=
+ssing deadline is tomorrow.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Coursera <promo@coursera.example>
+Subject: Exclusive offer: 40% off Coursera Plus
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 13 Nov 2026 16:52:00 +0000
+Message-ID: <sample-090@sample.inbox-predator>
+
+Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
+ARN40. Unsubscribe anytime.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
+Subject: Datacrest is hiring: Software Engineer Intern - Backend
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="===============4215454788311473440=="
+To: alex.student@example.edu
+Date: Fri, 13 Nov 2026 19:06:00 +0000
+Message-ID: <sample-091@sample.inbox-predator>
+
+--===============4215454788311473440==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Jobs matching your alert
+
+Software Engineer Intern - Backend
+Datacrest
+New York, NY
+Internship · Internship
+Skills: Go, Python, PostgreSQL, Kubernetes
+
+View job: https://www.linkedin.com/jobs/view/3474840200
+
+ML Engineer, New Grad
+Lumen Labs
+San Francisco, CA
+Entry level · Full-time
+Skills: Python, PyTorch
+No sponsorship available for this role
+View job: https://www.linkedin.com/jobs/view/3628492896
+
+Sales Development Representative
+Fernway
+New York, NY
+Entry level · Full-time
+Skills: Salesforce, Cold calling
+
+View job: https://www.linkedin.com/jobs/view/3874288855
+
+New Grad Software Engineer, ML Platform
+Orbitly
+San Jose, CA
+Entry level · Full-time
+Skills: Python, Spark, Kubernetes
+Visa sponsorship available
+View job: https://www.linkedin.com/jobs/view/3504669821
+
+QA Automation Intern
+Arcwise
+Seattle, WA
+Internship · Internship
+Skills: Selenium, Python
+
+View job: https://www.linkedin.com/jobs/view/3357887167
+
+Manage job alerts · Unsubscribe
+
+--===============4215454788311473440==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<html><body><h2>Jobs matching your alert</h2><div class=3D"job-card"><a class=
+=3D"title" href=3D"https://www.linkedin.com/jobs/view/3474840200">Software En=
+gineer Intern - Backend</a><p class=3D"company">Datacrest</p><p class=3D"loca=
+tion">New York, NY</p><p class=3D"seniority">Internship</p><p class=3D"type">=
+Internship</p><p class=3D"skills">Go, Python, PostgreSQL, Kubernetes</p><p cl=
+ass=3D"notes"></p></div><!--/job--><div class=3D"job-card"><a class=3D"title"=
+ href=3D"https://www.linkedin.com/jobs/view/3628492896">ML Engineer, New Grad=
+</a><p class=3D"company">Lumen Labs</p><p class=3D"location">San Francisco, C=
+A</p><p class=3D"seniority">Entry level</p><p class=3D"type">Full-time</p><p =
+class=3D"skills">Python, PyTorch</p><p class=3D"notes">No sponsorship availab=
+le for this role</p></div><!--/job--><div class=3D"job-card"><a class=3D"titl=
+e" href=3D"https://www.linkedin.com/jobs/view/3874288855">Sales Development R=
+epresentative</a><p class=3D"company">Fernway</p><p class=3D"location">New Yo=
+rk, NY</p><p class=3D"seniority">Entry level</p><p class=3D"type">Full-time</=
+p><p class=3D"skills">Salesforce, Cold calling</p><p class=3D"notes"></p></di=
+v><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"https://www.l=
+inkedin.com/jobs/view/3504669821">New Grad Software Engineer, ML Platform</a>=
+<p class=3D"company">Orbitly</p><p class=3D"location">San Jose, CA</p><p clas=
+s=3D"seniority">Entry level</p><p class=3D"type">Full-time</p><p class=3D"ski=
+lls">Python, Spark, Kubernetes</p><p class=3D"notes">Visa sponsorship availab=
+le</p></div><!--/job--><div class=3D"job-card"><a class=3D"title" href=3D"htt=
+ps://www.linkedin.com/jobs/view/3357887167">QA Automation Intern</a><p class=
+=3D"company">Arcwise</p><p class=3D"location">Seattle, WA</p><p class=3D"seni=
+ority">Internship</p><p class=3D"type">Internship</p><p class=3D"skills">Sele=
+nium, Python</p><p class=3D"notes"></p></div><!--/job--><p class=3D"footer">M=
+anage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corporation</p></body></h=
+tml>
+
+--===============4215454788311473440==--
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prof. Okafor <elena@example.edu>
+Subject: Thesis draft feedback - need your response before tomorrow
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Fri, 13 Nov 2026 20:29:00 +0000
+Message-ID: <sample-092@sample.inbox-predator>
+
+Alex,
+
+I've reviewed chapter 3. There are two issues with the evaluation section tha=
+t must be fixed before the committee deadline tomorrow at noon. Can you reply=
+ today with a plan?
+
+- Prof. Okafor
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Tessellate Careers <no-reply@tessellate.example>
+Subject: Your application for Machine Learning Engineer Intern
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 14 Nov 2026 01:55:00 +0000
+Message-ID: <sample-093@sample.inbox-predator>
+
+Hi Alex,
+
+Thank you for applying to Tessellate. We have received your application for M=
+achine Learning Engineer Intern (Summer 2027). Our team is reviewing candidat=
+es and will reach out with next steps.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Quantia Recruiting <recruiting@quantia.example>
+Subject: Unfortunately - your application to Quantia
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 14 Nov 2026 03:40:00 +0000
+Message-ID: <sample-094@sample.inbox-predator>
+
+Hi Alex, thank you for your interest in the Software Engineering Intern role.=
+ After careful review we have decided to move forward with other candidates. =
+We encourage you to apply again.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Priya Garcia <kenji@example.edu>
+Subject: Advisor meeting next Tuesday 3pm
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 14 Nov 2026 07:31:00 +0000
+Message-ID: <sample-095@sample.inbox-predator>
+
+Hi Alex, confirming our 1:1 advisor meeting next Tuesday at 3pm in my office.=
+ Bring your updated results. Calendar invite attached.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Northwind Systems Careers <no-reply@northwindsystems.example>
+Subject: Your application for Machine Learning Engineer Intern
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 14 Nov 2026 08:35:00 +0000
+Message-ID: <sample-096@sample.inbox-predator>
+
+Hi Alex,
+
+Thank you for applying to Northwind Systems. We have received your applicatio=
+n for Machine Learning Engineer Intern (Summer 2027). Our team is reviewing c=
+andidates and will reach out with next steps.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Health Portal <portal@clinic.example>
+Subject: New lab results in your patient portal
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 14 Nov 2026 12:05:00 +0000
+Message-ID: <sample-097@sample.inbox-predator>
+
+Your recent lab results are available in the patient portal. Log in to view y=
+our test results.
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prof. Lee <nina@example.edu>
+Subject: Thesis draft feedback - need your response before tomorrow
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 14 Nov 2026 15:32:00 +0000
+Message-ID: <sample-098@sample.inbox-predator>
+
+Alex,
+
+I've reviewed chapter 3. There are two issues with the evaluation section tha=
+t must be fixed before the committee deadline tomorrow at noon. Can you reply=
+ today with a plan?
+
+- Prof. Lee
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Sam Nguyen <elena@gmail.com>
+Subject: Referral for the Orbitly new grad role?
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 14 Nov 2026 17:24:00 +0000
+Message-ID: <sample-099@sample.inbox-predator>
+
+Hey Alex! I saw you're looking at Orbitly. I work on their ML platform team a=
+nd can refer you for the new grad role. Can you send me your resume and the j=
+ob link?
+
+From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From: Prize Center <winner@prizes.example>
+Subject: Congratulations you have been selected!
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+To: alex.student@example.edu
+Date: Sat, 14 Nov 2026 22:17:00 +0000
+Message-ID: <sample-100@sample.inbox-predator>
+
+Congratulations you are our lucky winner of a $1000 gift card. Claim your pri=
+ze now with this exclusive offer. Limited time.
+

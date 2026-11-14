@@ -1,8 +1,9 @@
-"""One command: load emails -> full evaluation -> per-profile inbox runs for the dashboard.
+"""One command: load emails -> full evaluation (incl. the Intern agent run) -> per-profile inbox runs.
 
   python scripts/run_all.py            # uses USE_MOCKS from .env
   python scripts/run_all.py --real     # force real APIs
-  python scripts/run_all.py --sample   # (re)generate the synthetic sample mbox first
+  python scripts/run_all.py --sample   # (re)generate the synthetic sample in data/sample/ first
+  python scripts/run_all.py --skip agent personas   # skip the (slow, paid) Intern agent session and personas
 """
 from __future__ import annotations
 
@@ -20,13 +21,13 @@ def main() -> None:
     ap.add_argument("--real", action="store_true")
     ap.add_argument("--sample", action="store_true")
     ap.add_argument("--profile", default="student_jobhunter")
-    ap.add_argument("--skip", nargs="*", default=[], choices=["jobs", "guard", "personas", "inbox"])
+    ap.add_argument("--skip", nargs="*", default=[], choices=["jobs", "guard", "personas", "inbox", "agent"])
     a = ap.parse_args()
     t0 = time.time()
 
-    if a.sample or not list(config.RAW_DIR.glob("*.mbox")):
+    if a.sample or not all(p.exists() for p in config.MBOX_PATHS):
         if not a.sample:
-            print("No mbox in data/raw/ - generating the synthetic sample (use your Takeout export for real data).")
+            print("No sample mbox yet - generating the synthetic sample (put a Takeout export in data/raw/ for real data).")
         from scripts.make_sample_data import main as make_sample
         make_sample()
     from src.loader import mbox_to_jsonl
@@ -39,7 +40,7 @@ def main() -> None:
 
     clients = get_clients(False if a.real else None)
     run(clients, a.profile, do_jobs="jobs" not in a.skip, do_guard="guard" not in a.skip,
-        do_personas="personas" not in a.skip)
+        do_personas="personas" not in a.skip, do_agent="agent" not in a.skip)
     if "inbox" not in a.skip:
         for p in list_profiles():
             out = run_inbox(p, clients)

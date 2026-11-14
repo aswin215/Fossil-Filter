@@ -1,3 +1,5 @@
+# Python 3.12+ (Intern requires it)
+intern-agent @ git+https://github.com/nace-ai/intern
 httpx
 pydantic
 python-dotenv
