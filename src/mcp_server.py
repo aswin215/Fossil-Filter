@@ -1,4 +1,4 @@
-"""Level C: Inbox Predator as a small MCP server (stdio) for the Intern agent.
+"""Level C: Fossil Filter as a small MCP server (stdio) for the Intern agent.
 
 Tools (all scoped to the agent workspace, which only ever holds guardrail-passed emails):
   list_emails(offset, limit)            ids, senders, subjects

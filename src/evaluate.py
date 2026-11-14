@@ -383,7 +383,7 @@ def write_report(S: dict, out_dir: Path) -> Path:
     tri = S["triage"]
     L = []
     mode = "MOCK CLIENTS (numbers are placeholders, not evidence)" if S["mock"] else "REAL APIs"
-    L += ["# Inbox Predator - evaluation summary", "",
+    L += ["# Fossil Filter - evaluation summary", "",
           "Built with Claude Code; **Intern runs inside the product**: every Drex call goes through Intern's "
           "`intern.decisions` client (Level A), and the Intern agent row is an Intern session with System 2 = "
           "DeepInfra Qwen and System 1 = Drex (Level B).", "",

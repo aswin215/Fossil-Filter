@@ -156,7 +156,7 @@ class DrexClient:
         if ev.ok and ev.subject:
             self._by_subject[ev.subject] = ev
 
-    def evaluate(self, state: str, questions: dict[str, dict], purpose: str = "inbox-predator") -> DrexResult:
+    def evaluate(self, state: str, questions: dict[str, dict], purpose: str = "fossil-filter") -> DrexResult:
         iq = {k: to_intern(q) for k, q in questions.items()}
         subject = f"{purpose}:{uuid.uuid4().hex[:12]}"
         t0 = time.perf_counter()

@@ -1,4 +1,4 @@
-"""Inbox Predator dashboard.  Run:  streamlit run app.py"""
+"""Fossil Filter dashboard.  Run:  streamlit run app.py"""
 from __future__ import annotations
 
 import html
@@ -17,7 +17,7 @@ from src.pipeline import inbox_cache_path, run_inbox
 from src.profile import QUESTIONS, build_profile, list_profiles, load_profile, save_profile
 from src.triage import triage_email
 
-st.set_page_config(page_title="Inbox Predator", layout="wide")
+st.set_page_config(page_title="Fossil Filter", layout="wide")
 
 CHIP = {"urgent_action_needed": ("#e34948", "URGENT"), "important": ("#2a78d6", "IMPORTANT"),
         "informational": ("#898781", "INFO"), "job_alert": ("#1baf7a", "JOB ALERT"),
@@ -41,7 +41,7 @@ def clients_for(mock: bool):
 
 
 # ------------------------------------------------------------------ sidebar
-st.sidebar.title("Inbox Predator")
+st.sidebar.title("Fossil Filter")
 profiles = list_profiles()
 profile = st.sidebar.selectbox("Profile", profiles, index=profiles.index("student_jobhunter")
                                if "student_jobhunter" in profiles else 0)
@@ -86,7 +86,7 @@ with st.sidebar.expander("New profile (onboarding)"):
     st.caption(load_profile(profile)["profile_text"])
 
 mode = "MOCK" if use_mocks else "REAL"
-st.markdown(f"### Inbox Predator <span class='muted'>· {profile} · {mode} clients</span>", unsafe_allow_html=True)
+st.markdown(f"### Fossil Filter <span class='muted'>· {profile} · {mode} clients</span>", unsafe_allow_html=True)
 st.caption("Built with Claude Code · **Intern runs inside the product**: Drex via `intern.decisions` (Level A) and "
            "an Intern agent session, System 2 DeepInfra Qwen + System 1 Drex (Level B).")
 tabs = st.tabs(["Check now", "Jobs", "Everything else", "Safety", "Results", "Intern agent"])
@@ -226,7 +226,7 @@ with tabs[4]:
 
 # ---------------------------------------------------------------- tab 6: Intern
 with tabs[5]:
-    st.subheader("Intern, Nace's agent harness, running inside Inbox Predator")
+    st.subheader("Intern, Nace's agent harness, running inside Fossil Filter")
     st.markdown(
         "**Level A.** Every Drex call in the pipeline (triage, job fit, guardrail) goes through Intern's "
         "`DecisionClient`, which supplies retries, 429 handling, failover, the answer cache and concurrency.  \n"

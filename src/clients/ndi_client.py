@@ -74,7 +74,7 @@ class NDIClient:
         return RuntimeError(f"NDI {r.status_code} {e.get('type')}/{e.get('code')}: {e.get('message')}")
 
     def _upload(self, name: str, content: bytes, content_type: str) -> dict:
-        path = f"inbox-predator/{name}"
+        path = f"fossil-filter/{name}"
         g = self._http.post("/v1/documents/upload-grants", json={"path": path, "ttl_seconds": 600})
         if g.status_code >= 300:
             raise self._err(g)

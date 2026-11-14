@@ -1,4 +1,4 @@
-# Inbox Predator - evaluation summary
+# Fossil Filter - evaluation summary
 
 Built with Claude Code; **Intern runs inside the product**: every Drex call goes through Intern's `intern.decisions` client (Level A), and the Intern agent row is an Intern session with System 2 = DeepInfra Qwen and System 1 = Drex (Level B).
 

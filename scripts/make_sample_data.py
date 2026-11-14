@@ -236,7 +236,7 @@ def main() -> None:
     s_idx, jd_done = 0, False
     for kind in plan:
         i += 1
-        mid = f"<sample-{i:03d}@sample.inbox-predator>"
+        mid = f"<sample-{i:03d}@sample.fossil-filter>"
         if kind == "linkedin":
             msg, meta = linkedin_alert(i, job_gold)
         elif kind == "sensitive":

@@ -1,4 +1,4 @@
-# Inbox Predator
+# Fossil Filter
 
 **Drexathon · Apex Predator track.** A personalized email triage agent that takes a job usually given to a
 frontier LLM (classifying and ranking every incoming email for one specific user) and gives it to **Drex**, Nace
@@ -43,8 +43,8 @@ flowchart LR
 ## Setup (exact steps)
 
 ```bash
-git clone https://github.com/nace-ai/intern ../intern     # Nace's harness, next to this repo (not modified)
-cd inbox-predator
+git clone git@github.com:aswin215/Fossil-Filter.git && git clone https://github.com/nace-ai/intern   # Intern next to this repo (not modified)
+cd Fossil-Filter
 python3.12 -m venv .venv && source .venv/bin/activate      # Intern requires Python 3.12+
 pip install -e "../intern[mcp]" -r requirements.txt       # or: uv add "intern-agent[mcp] @ git+https://github.com/nace-ai/intern"
 cp .env.example .env                                       # USE_MOCKS=true runs everything with no keys

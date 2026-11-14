@@ -1,4 +1,4 @@
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Amazon <shipment-tracking@amazon.example>
 Subject: Your order has shipped
 Content-Type: text/plain; charset="utf-8"
@@ -6,12 +6,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 02 Nov 2026 12:09:00 +0000
-Message-ID: <sample-001@sample.inbox-predator>
+Message-ID: <sample-001@sample.fossil-filter>
 
 Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
 age in Your Orders.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Medium Daily Digest <noreply@medium.example>
 Subject: Daily digest: 5 stories on system design
 Content-Type: text/plain; charset="utf-8"
@@ -19,21 +19,21 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 02 Nov 2026 15:57:00 +0000
-Message-ID: <sample-002@sample.inbox-predator>
+Message-ID: <sample-002@sample.fossil-filter>
 
 Stories for you: Designing rate limiters, Kafka in practice, and more. Read l=
 ater from your digest.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: ML Engineer, New Grad: 6 new jobs at Tessellate and more
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============2064870173549346775=="
+Content-Type: multipart/alternative; boundary="===============4753269884990899870=="
 To: alex.student@example.edu
 Date: Mon, 02 Nov 2026 19:46:00 +0000
-Message-ID: <sample-003@sample.inbox-predator>
+Message-ID: <sample-003@sample.fossil-filter>
 
---===============2064870173549346775==
+--===============4753269884990899870==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -89,7 +89,7 @@ View job: https://www.linkedin.com/jobs/view/3594021782
 
 Manage job alerts · Unsubscribe
 
---===============2064870173549346775==
+--===============4753269884990899870==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -126,9 +126,9 @@ ss=3D"skills">Selenium, Python</p><p class=3D"notes"></p></div><!--/job--><p =
 class=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corpora=
 tion</p></body></html>
 
---===============2064870173549346775==--
+--===============4753269884990899870==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Lucas Rossi <sam@helixhealth.example>
 Subject: Please confirm your interview slot by EOD today
 Content-Type: text/plain; charset="utf-8"
@@ -136,7 +136,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 02 Nov 2026 21:10:00 +0000
-Message-ID: <sample-004@sample.inbox-predator>
+Message-ID: <sample-004@sample.fossil-filter>
 
 Hi Alex,
 
@@ -151,7 +151,7 @@ Best,
 Lucas Rossi
 University Recruiting, Helix Health
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Pizza Palace <promo@pizza.example>
 Subject: Free shipping weekend + BOGO deal
 Content-Type: text/plain; charset="utf-8"
@@ -159,12 +159,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 00:53:00 +0000
-Message-ID: <sample-005@sample.inbox-predator>
+Message-ID: <sample-005@sample.fossil-filter>
 
 This weekend only: buy one get one free on large pizzas and free delivery. Pr=
 omo code BOGO. Unsubscribe.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Amazon <shipment-tracking@amazon.example>
 Subject: Your order has shipped
 Content-Type: text/plain; charset="utf-8"
@@ -172,12 +172,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 03:31:00 +0000
-Message-ID: <sample-006@sample.inbox-predator>
+Message-ID: <sample-006@sample.fossil-filter>
 
 Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
 age in Your Orders.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Jordan Kim <omar@quantia.example>
 Subject: Please confirm your interview slot by EOD today
 Content-Type: text/plain; charset="utf-8"
@@ -185,7 +185,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 05:05:00 +0000
-Message-ID: <sample-007@sample.inbox-predator>
+Message-ID: <sample-007@sample.fossil-filter>
 
 Hi Alex,
 
@@ -200,7 +200,7 @@ Best,
 Jordan Kim
 University Recruiting, Quantia
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Crypto Signals <vip@signals.example>
 Subject: Make $5k/week - act now
 Content-Type: text/plain; charset="utf-8"
@@ -208,28 +208,28 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 10:10:00 +0000
-Message-ID: <sample-008@sample.inbox-predator>
+Message-ID: <sample-008@sample.fossil-filter>
 
 Join our VIP crypto signals group. Members earn $5k a week. Act now, limited =
 spots. Unsubscribe.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prof. Nguyen <nina@example.edu>
 Subject: Comments on your research proposal
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============5030212908947282291=="
+Content-Type: multipart/mixed; boundary="===============6305519353461326345=="
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 11:45:00 +0000
-Message-ID: <sample-009@sample.inbox-predator>
+Message-ID: <sample-009@sample.fossil-filter>
 
---===============5030212908947282291==
+--===============6305519353461326345==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 
 Hi Alex, I left comments on your proposal in the shared doc. Overall the dire=
 ction on retrieval models is good. Let's discuss at our next meeting; no rush.
 
---===============5030212908947282291==
+--===============6305519353461326345==
 Content-Type: text/plain
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="job_description.txt"
@@ -237,9 +237,9 @@ MIME-Version: 1.0
 
 Sm9iIGRlc2NyaXB0aW9uOiBNTCBpbnRlcm4uIFB5dGhvbiwgUHlUb3JjaC4gU3VtbWVyIDIwMjcu
 
---===============5030212908947282291==--
+--===============6305519353461326345==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Coursera <promo@coursera.example>
 Subject: Exclusive offer: 40% off Coursera Plus
 Content-Type: text/plain; charset="utf-8"
@@ -247,12 +247,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 14:04:00 +0000
-Message-ID: <sample-010@sample.inbox-predator>
+Message-ID: <sample-010@sample.fossil-filter>
 
 Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
 ARN40. Unsubscribe anytime.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Coursera <promo@coursera.example>
 Subject: Exclusive offer: 40% off Coursera Plus
 Content-Type: text/plain; charset="utf-8"
@@ -260,12 +260,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 17:45:00 +0000
-Message-ID: <sample-011@sample.inbox-predator>
+Message-ID: <sample-011@sample.fossil-filter>
 
 Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
 ARN40. Unsubscribe anytime.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Priya Garcia <elena@example.edu>
 Subject: Group project demo moved to TODAY 4pm
 Content-Type: text/plain; charset="utf-8"
@@ -273,12 +273,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 20:17:00 +0000
-Message-ID: <sample-012@sample.inbox-predator>
+Message-ID: <sample-012@sample.fossil-filter>
 
 Heads up team - the professor moved our capstone demo to today at 4pm in Room=
  210. Please be there 15 minutes early. Reply if you can't make it.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Kaggle <noreply@kaggle.example>
 Subject: New competition announcement
 Content-Type: text/plain; charset="utf-8"
@@ -286,12 +286,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 03 Nov 2026 23:50:00 +0000
-Message-ID: <sample-013@sample.inbox-predator>
+Message-ID: <sample-013@sample.fossil-filter>
 
 A new featured competition on tabular forecasting launched today. Community n=
 otebooks and a recap of last month's winners inside.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Kaggle <noreply@kaggle.example>
 Subject: New competition announcement
 Content-Type: text/plain; charset="utf-8"
@@ -299,12 +299,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 04 Nov 2026 03:26:00 +0000
-Message-ID: <sample-014@sample.inbox-predator>
+Message-ID: <sample-014@sample.fossil-filter>
 
 A new featured competition on tabular forecasting launched today. Community n=
 otebooks and a recap of last month's winners inside.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Pizza Palace <promo@pizza.example>
 Subject: Free shipping weekend + BOGO deal
 Content-Type: text/plain; charset="utf-8"
@@ -312,12 +312,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 04 Nov 2026 05:15:00 +0000
-Message-ID: <sample-015@sample.inbox-predator>
+Message-ID: <sample-015@sample.fossil-filter>
 
 This weekend only: buy one get one free on large pizzas and free delivery. Pr=
 omo code BOGO. Unsubscribe.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Amazon <shipment-tracking@amazon.example>
 Subject: Your order has shipped
 Content-Type: text/plain; charset="utf-8"
@@ -325,12 +325,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 04 Nov 2026 09:15:00 +0000
-Message-ID: <sample-016@sample.inbox-predator>
+Message-ID: <sample-016@sample.fossil-filter>
 
 Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
 age in Your Orders.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: GitHub <notifications@github.com>
 Subject: [repo] CI run succeeded on main
 Content-Type: text/plain; charset="iso-8859-1"
@@ -338,23 +338,23 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 04 Nov 2026 11:59:00 +0000
-Message-ID: <sample-017@sample.inbox-predator>
+Message-ID: <sample-017@sample.fossil-filter>
 
 All checks have passed for commit a1b2c3d on main. This is an automated notif=
 ication.
 
 Merci, =E0 bient=F4t.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: Your job alert for Backend Engineer I (New Grad)
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============7201021942015805117=="
+Content-Type: multipart/alternative; boundary="===============0769652469211540221=="
 To: alex.student@example.edu
 Date: Wed, 04 Nov 2026 14:12:00 +0000
-Message-ID: <sample-018@sample.inbox-predator>
+Message-ID: <sample-018@sample.fossil-filter>
 
---===============7201021942015805117==
+--===============0769652469211540221==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -394,7 +394,7 @@ View job: https://www.linkedin.com/jobs/view/3454200826
 
 Manage job alerts · Unsubscribe
 
---===============7201021942015805117==
+--===============0769652469211540221==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -421,9 +421,9 @@ Inference</p><p class=3D"notes">10+ years experience</p></div><!--/job--><p c=
 lass=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corporat=
 ion</p></body></html>
 
---===============7201021942015805117==--
+--===============0769652469211540221==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Coursera <promo@coursera.example>
 Subject: Exclusive offer: 40% off Coursera Plus
 Content-Type: text/plain; charset="utf-8"
@@ -431,12 +431,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 04 Nov 2026 18:03:00 +0000
-Message-ID: <sample-019@sample.inbox-predator>
+Message-ID: <sample-019@sample.fossil-filter>
 
 Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
 ARN40. Unsubscribe anytime.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: The Batch <newsletter@deeplearning.example>
 Subject: The Batch: new open-weight models, weekly recap
 Content-Type: text/plain; charset="utf-8"
@@ -444,12 +444,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 04 Nov 2026 20:54:00 +0000
-Message-ID: <sample-020@sample.inbox-predator>
+Message-ID: <sample-020@sample.fossil-filter>
 
 This week in AI: new open-weight models, a recap of the latest benchmarks, an=
 d an article on agent evaluation. Read the full newsletter on our site.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Helix Health Talent <talent@helixhealth.example>
 Subject: Update on your application - moving to next steps
 Content-Type: text/plain; charset="utf-8"
@@ -457,13 +457,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 05 Nov 2026 01:15:00 +0000
-Message-ID: <sample-021@sample.inbox-predator>
+Message-ID: <sample-021@sample.fossil-filter>
 
 Good news! Your application for Backend Software Engineer, New Grad has moved=
  to the next stage. A recruiter will contact you within the next week to sche=
 dule a phone screen.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Tessellate Recruiting <recruiting@tessellate.example>
 Subject: Unfortunately - your application to Tessellate
 Content-Type: text/plain; charset="utf-8"
@@ -471,13 +471,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 05 Nov 2026 04:33:00 +0000
-Message-ID: <sample-022@sample.inbox-predator>
+Message-ID: <sample-022@sample.fossil-filter>
 
 Hi Alex, thank you for your interest in the Software Engineering Intern role.=
  After careful review we have decided to move forward with other candidates. =
 We encourage you to apply again.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prof. Kim <wei@example.edu>
 Subject: Comments on your research proposal
 Content-Type: text/plain; charset="utf-8"
@@ -485,28 +485,28 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 05 Nov 2026 07:41:00 +0000
-Message-ID: <sample-023@sample.inbox-predator>
+Message-ID: <sample-023@sample.fossil-filter>
 
 Hi Alex, I left comments on your proposal in the shared doc. Overall the dire=
 ction on retrieval models is good. Let's discuss at our next meeting; no rush.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Chase <no-reply@chase.com>
 Subject: Your statement is ready
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============2647975021508238458=="
+Content-Type: multipart/mixed; boundary="===============2603513525128667929=="
 To: alex.student@example.edu
 Date: Thu, 05 Nov 2026 09:29:00 +0000
-Message-ID: <sample-024@sample.inbox-predator>
+Message-ID: <sample-024@sample.fossil-filter>
 
---===============2647975021508238458==
+--===============2603513525128667929==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 
 Your October statement for account ending 4421 is ready. New balance: $1,284.=
 11. Minimum payment due Nov 25.
 
---===============2647975021508238458==
+--===============2603513525128667929==
 Content-Type: application/pdf
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="statement_oct.pdf"
@@ -524,9 +524,9 @@ MDAgbiAKMDAwMDAwMDA1OCAwMDAwMCBuIAowMDAwMDAwMTE1IDAwMDAwIG4gCjAwMDAwMDAyNDEg
 MDAwMDAgbiAKMDAwMDAwMDM0MyAwMDAwMCBuIAp0cmFpbGVyIDw8IC9TaXplIDYgL1Jvb3QgMSAw
 IFIgPj4Kc3RhcnR4cmVmCjQxMwolJUVPRg==
 
---===============2647975021508238458==--
+--===============2603513525128667929==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Coursera <promo@coursera.example>
 Subject: Exclusive offer: 40% off Coursera Plus
 Content-Type: text/plain; charset="utf-8"
@@ -534,12 +534,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 05 Nov 2026 13:13:00 +0000
-Message-ID: <sample-025@sample.inbox-predator>
+Message-ID: <sample-025@sample.fossil-filter>
 
 Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
 ARN40. Unsubscribe anytime.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Medium Daily Digest <noreply@medium.example>
 Subject: Daily digest: 5 stories on system design
 Content-Type: text/plain; charset="utf-8"
@@ -547,12 +547,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 05 Nov 2026 15:53:00 +0000
-Message-ID: <sample-026@sample.inbox-predator>
+Message-ID: <sample-026@sample.fossil-filter>
 
 Stories for you: Designing rate limiters, Kafka in practice, and more. Read l=
 ater from your digest.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Notion <team@notion.example>
 Subject: Introducing new AI features - try them free
 Content-Type: text/plain; charset="utf-8"
@@ -560,12 +560,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 05 Nov 2026 19:19:00 +0000
-Message-ID: <sample-027@sample.inbox-predator>
+Message-ID: <sample-027@sample.fossil-filter>
 
 We've launched new AI features in Notion. Try them free for 30 days. Exclusiv=
 e offer for students.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Jordan Chen <elena@gmail.com>
 Subject: Referral for the Tessellate new grad role?
 Content-Type: text/plain; charset="utf-8"
@@ -573,22 +573,22 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 05 Nov 2026 20:17:00 +0000
-Message-ID: <sample-028@sample.inbox-predator>
+Message-ID: <sample-028@sample.fossil-filter>
 
 Hey Alex! I saw you're looking at Tessellate. I work on their ML platform tea=
 m and can refer you for the new grad role. Can you send me your resume and th=
 e job link?
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: Jobs you may be interested in: Frontend Engineer Intern
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============2673891441496131324=="
+Content-Type: multipart/alternative; boundary="===============1346811332672253950=="
 To: alex.student@example.edu
 Date: Fri, 06 Nov 2026 01:16:00 +0000
-Message-ID: <sample-029@sample.inbox-predator>
+Message-ID: <sample-029@sample.fossil-filter>
 
---===============2673891441496131324==
+--===============1346811332672253950==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -636,7 +636,7 @@ View job: https://www.linkedin.com/jobs/view/3827982963
 
 Manage job alerts · Unsubscribe
 
---===============2673891441496131324==
+--===============1346811332672253950==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -668,9 +668,9 @@ evel</p><p class=3D"type">Full-time</p><p class=3D"skills">Python, TensorFlow=
 -/job--><p class=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 Linke=
 dIn Corporation</p></body></html>
 
---===============2673891441496131324==--
+--===============1346811332672253950==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Northwind Systems Talent <talent@northwindsystems.example>
 Subject: Update on your application - moving to next steps
 Content-Type: text/plain; charset="utf-8"
@@ -678,13 +678,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 06 Nov 2026 02:04:00 +0000
-Message-ID: <sample-030@sample.inbox-predator>
+Message-ID: <sample-030@sample.fossil-filter>
 
 Good news! Your application for Backend Software Engineer, New Grad has moved=
  to the next stage. A recruiter will contact you within the next week to sche=
 dule a phone screen.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Wei Rossi <wei@example.edu>
 Subject: Group project demo moved to TODAY 4pm
 Content-Type: text/plain; charset="utf-8"
@@ -692,12 +692,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 06 Nov 2026 06:08:00 +0000
-Message-ID: <sample-031@sample.inbox-predator>
+Message-ID: <sample-031@sample.fossil-filter>
 
 Heads up team - the professor moved our capstone demo to today at 4pm in Room=
  210. Please be there 15 minutes early. Reply if you can't make it.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: The Batch <newsletter@deeplearning.example>
 Subject: The Batch: new open-weight models, weekly recap
 Content-Type: text/plain; charset="utf-8"
@@ -705,12 +705,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 06 Nov 2026 10:06:00 +0000
-Message-ID: <sample-032@sample.inbox-predator>
+Message-ID: <sample-032@sample.fossil-filter>
 
 This week in AI: new open-weight models, a recap of the latest benchmarks, an=
 d an article on agent evaluation. Read the full newsletter on our site.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Campus Events <events@example.edu>
 Subject: Reminder: career fair this Thursday
 Content-Type: text/plain; charset="utf-8"
@@ -718,12 +718,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 06 Nov 2026 11:56:00 +0000
-Message-ID: <sample-033@sample.inbox-predator>
+Message-ID: <sample-033@sample.fossil-filter>
 
 FYI the fall engineering career fair is Thursday in the Student Union. Over 8=
 0 employers attending. No registration needed.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Indeed <alert@indeed.example>
 Subject: New jobs: python developer in San Jose, CA
 Content-Type: text/plain; charset="iso-8859-1"
@@ -731,14 +731,14 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 06 Nov 2026 15:10:00 +0000
-Message-ID: <sample-034@sample.inbox-predator>
+Message-ID: <sample-034@sample.fossil-filter>
 
 New jobs matching your search 'python developer': Python Developer at Fernway=
  (Full-time), Backend Engineer at Helix Health. Apply now.
 
 Merci, =E0 bient=F4t.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Crypto Signals <vip@signals.example>
 Subject: Make $5k/week - act now
 Content-Type: text/plain; charset="utf-8"
@@ -746,12 +746,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 06 Nov 2026 18:19:00 +0000
-Message-ID: <sample-035@sample.inbox-predator>
+Message-ID: <sample-035@sample.fossil-filter>
 
 Join our VIP crypto signals group. Members earn $5k a week. Act now, limited =
 spots. Unsubscribe.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Amazon <shipment-tracking@amazon.example>
 Subject: Your order has shipped
 Content-Type: text/plain; charset="utf-8"
@@ -759,12 +759,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 06 Nov 2026 21:22:00 +0000
-Message-ID: <sample-036@sample.inbox-predator>
+Message-ID: <sample-036@sample.fossil-filter>
 
 Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
 age in Your Orders.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Google <no-reply@accounts.google.example>
 Subject: Your verification code
 Content-Type: text/plain; charset="utf-8"
@@ -772,11 +772,11 @@ Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 07 Nov 2026 01:32:00 +0000
-Message-ID: <sample-037@sample.inbox-predator>
+Message-ID: <sample-037@sample.fossil-filter>
 
 Your Google verification code is 482913. Don't share it with anyone.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn <messages-noreply@linkedin.com>
 Subject: Lucas Rossi viewed your profile
 Content-Type: text/plain; charset="utf-8"
@@ -784,21 +784,21 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 07 Nov 2026 04:16:00 +0000
-Message-ID: <sample-038@sample.inbox-predator>
+Message-ID: <sample-038@sample.fossil-filter>
 
 Lucas Rossi, a recruiter at Nimbus AI, viewed your profile. See who else view=
 ed your profile this week.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: Your job alert for Data Science Intern
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============5625185997797696309=="
+Content-Type: multipart/alternative; boundary="===============3228224735594467157=="
 To: alex.student@example.edu
 Date: Sat, 07 Nov 2026 05:33:00 +0000
-Message-ID: <sample-039@sample.inbox-predator>
+Message-ID: <sample-039@sample.fossil-filter>
 
---===============5625185997797696309==
+--===============3228224735594467157==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -838,7 +838,7 @@ View job: https://www.linkedin.com/jobs/view/3761052404
 
 Manage job alerts · Unsubscribe
 
---===============5625185997797696309==
+--===============3228224735594467157==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -866,9 +866,9 @@ ls">Java, Spring, AWS</p><p class=3D"notes"></p></div><!--/job--><p class=3D"=
 footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corporation</p><=
 /body></html>
 
---===============5625185997797696309==--
+--===============3228224735594467157==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Graduate Admissions <gradoffice@example.edu>
 Subject: Immediate action: OPT/CPT form missing signature
 Content-Type: text/plain; charset="utf-8"
@@ -876,13 +876,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 07 Nov 2026 10:20:00 +0000
-Message-ID: <sample-040@sample.inbox-predator>
+Message-ID: <sample-040@sample.fossil-filter>
 
 Your CPT authorization form is missing your advisor signature. Your internshi=
 p start date is at risk. Please upload the signed form immediately; the proce=
 ssing deadline is tomorrow.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: GitHub <notifications@github.com>
 Subject: [repo] CI run succeeded on main
 Content-Type: text/plain; charset="utf-8"
@@ -890,12 +890,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 07 Nov 2026 12:44:00 +0000
-Message-ID: <sample-041@sample.inbox-predator>
+Message-ID: <sample-041@sample.fossil-filter>
 
 All checks have passed for commit a1b2c3d on main. This is an automated notif=
 ication.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prof. Garcia <lucas@example.edu>
 Subject: Comments on your research proposal
 Content-Type: text/plain; charset="utf-8"
@@ -903,12 +903,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 07 Nov 2026 16:57:00 +0000
-Message-ID: <sample-042@sample.inbox-predator>
+Message-ID: <sample-042@sample.fossil-filter>
 
 Hi Alex, I left comments on your proposal in the shared doc. Overall the dire=
 ction on retrieval models is good. Let's discuss at our next meeting; no rush.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: CS Department <cs-news@example.edu>
 Subject: Department newsletter - November
 Content-Type: text/plain; charset="utf-8"
@@ -916,12 +916,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 07 Nov 2026 18:13:00 +0000
-Message-ID: <sample-043@sample.inbox-predator>
+Message-ID: <sample-043@sample.fossil-filter>
 
 Highlights: faculty awards, upcoming research talks, and a recap of the hacka=
 thon. Weekly digest from the department.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn <messages-noreply@linkedin.com>
 Subject: Omar Haddad viewed your profile
 Content-Type: text/plain; charset="utf-8"
@@ -929,12 +929,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 07 Nov 2026 20:32:00 +0000
-Message-ID: <sample-044@sample.inbox-predator>
+Message-ID: <sample-044@sample.fossil-filter>
 
 Omar Haddad, a recruiter at Orbitly, viewed your profile. See who else viewed=
  your profile this week.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Nina Chen <lucas@example.edu>
 Subject: Advisor meeting next Tuesday 3pm
 Content-Type: text/plain; charset="utf-8"
@@ -942,12 +942,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sun, 08 Nov 2026 01:21:00 +0000
-Message-ID: <sample-045@sample.inbox-predator>
+Message-ID: <sample-045@sample.fossil-filter>
 
 Hi Alex, confirming our 1:1 advisor meeting next Tuesday at 3pm in my office.=
  Bring your updated results. Calendar invite attached.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: TechGear <deals@techgear.example>
 Subject: URGENT: 60% off ends TONIGHT
 Content-Type: text/plain; charset="utf-8"
@@ -955,12 +955,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sun, 08 Nov 2026 02:30:00 +0000
-Message-ID: <sample-046@sample.inbox-predator>
+Message-ID: <sample-046@sample.fossil-filter>
 
 Last chance! Our biggest sale of the year ends tonight. 60% off headphones an=
 d laptops. Shop now. Unsubscribe here.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Handshake <jobs@handshake.example>
 Subject: 5 new jobs for you this week
 Content-Type: text/plain; charset="utf-8"
@@ -968,13 +968,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sun, 08 Nov 2026 06:25:00 +0000
-Message-ID: <sample-047@sample.inbox-predator>
+Message-ID: <sample-047@sample.fossil-filter>
 
 Recommended jobs based on your profile: Data Engineering Intern at Quantia, M=
 L Research Intern at Northwind Systems, Software Engineer I at Northwind Syst=
 ems. Apply now on Handshake.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Handshake <jobs@handshake.example>
 Subject: 5 new jobs for you this week
 Content-Type: text/plain; charset="utf-8"
@@ -982,13 +982,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sun, 08 Nov 2026 10:29:00 +0000
-Message-ID: <sample-048@sample.inbox-predator>
+Message-ID: <sample-048@sample.fossil-filter>
 
 Recommended jobs based on your profile: Data Engineering Intern at Fernway, M=
 L Research Intern at Quantia, Software Engineer I at Brightpath. Apply now on=
  Handshake.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Elena Garcia <lucas@orbitly.example>
 Subject: Please confirm your interview slot by EOD today
 Content-Type: text/plain; charset="utf-8"
@@ -996,7 +996,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sun, 08 Nov 2026 13:35:00 +0000
-Message-ID: <sample-049@sample.inbox-predator>
+Message-ID: <sample-049@sample.fossil-filter>
 
 Hi Alex,
 
@@ -1011,7 +1011,7 @@ Best,
 Elena Garcia
 University Recruiting, Orbitly
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Northwind Systems Recruiting <recruiting@northwindsystems.example>
 Subject: Unfortunately - your application to Northwind Systems
 Content-Type: text/plain; charset="utf-8"
@@ -1019,13 +1019,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sun, 08 Nov 2026 15:57:00 +0000
-Message-ID: <sample-050@sample.inbox-predator>
+Message-ID: <sample-050@sample.fossil-filter>
 
 Hi Alex, thank you for your interest in the Software Engineering Intern role.=
  After careful review we have decided to move forward with other candidates. =
 We encourage you to apply again.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: GitHub <noreply@github.com>
 Subject: [GitHub] Please reset your password
 Content-Type: text/plain; charset="utf-8"
@@ -1033,12 +1033,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sun, 08 Nov 2026 17:47:00 +0000
-Message-ID: <sample-051@sample.inbox-predator>
+Message-ID: <sample-051@sample.fossil-filter>
 
 We heard you need a password reset. Use the link below to choose a new passwo=
 rd: https://github.com/password_reset/abc123token
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Kaggle <noreply@kaggle.example>
 Subject: New competition announcement
 Content-Type: text/plain; charset="utf-8"
@@ -1046,12 +1046,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sun, 08 Nov 2026 22:15:00 +0000
-Message-ID: <sample-052@sample.inbox-predator>
+Message-ID: <sample-052@sample.fossil-filter>
 
 A new featured competition on tabular forecasting launched today. Community n=
 otebooks and a recap of last month's winners inside.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Quantia Recruiting <recruiting@quantia.example>
 Subject: Action required: online assessment expires in 24 hours
 Content-Type: text/plain; charset="utf-8"
@@ -1059,13 +1059,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 01:05:00 +0000
-Message-ID: <sample-053@sample.inbox-predator>
+Message-ID: <sample-053@sample.fossil-filter>
 
 Your HackerRank assessment for the Software Engineer, New Grad position at Qu=
 antia expires within 24 hours. Complete it before Friday 11:59pm PT. This is =
 your final reminder.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: CS Department <cs-news@example.edu>
 Subject: Department newsletter - November
 Content-Type: text/plain; charset="utf-8"
@@ -1073,12 +1073,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 02:26:00 +0000
-Message-ID: <sample-054@sample.inbox-predator>
+Message-ID: <sample-054@sample.fossil-filter>
 
 Highlights: faculty awards, upcoming research talks, and a recap of the hacka=
 thon. Weekly digest from the department.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Daniel Rossi <aisha@example.edu>
 Subject: Advisor meeting next Tuesday 3pm
 Content-Type: text/plain; charset="utf-8"
@@ -1086,12 +1086,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 06:57:00 +0000
-Message-ID: <sample-055@sample.inbox-predator>
+Message-ID: <sample-055@sample.fossil-filter>
 
 Hi Alex, confirming our 1:1 advisor meeting next Tuesday at 3pm in my office.=
  Bring your updated results. Calendar invite attached.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: The Batch <newsletter@deeplearning.example>
 Subject: The Batch: new open-weight models, weekly recap
 Content-Type: text/plain; charset="utf-8"
@@ -1099,12 +1099,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 09:34:00 +0000
-Message-ID: <sample-056@sample.inbox-predator>
+Message-ID: <sample-056@sample.fossil-filter>
 
 This week in AI: new open-weight models, a recap of the latest benchmarks, an=
 d an article on agent evaluation. Read the full newsletter on our site.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Amazon <shipment-tracking@amazon.example>
 Subject: Your order has shipped
 Content-Type: text/plain; charset="utf-8"
@@ -1112,12 +1112,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 12:42:00 +0000
-Message-ID: <sample-057@sample.inbox-predator>
+Message-ID: <sample-057@sample.fossil-filter>
 
 Your order of USB-C hub has shipped and will arrive Thursday. Track your pack=
 age in Your Orders.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Crypto Signals <vip@signals.example>
 Subject: Make $5k/week - act now
 Content-Type: text/plain; charset="utf-8"
@@ -1125,12 +1125,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 15:37:00 +0000
-Message-ID: <sample-058@sample.inbox-predator>
+Message-ID: <sample-058@sample.fossil-filter>
 
 Join our VIP crypto signals group. Members earn $5k a week. Act now, limited =
 spots. Unsubscribe.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Helix Health Recruiting <recruiting@helixhealth.example>
 Subject: Unfortunately - your application to Helix Health
 Content-Type: text/plain; charset="utf-8"
@@ -1138,13 +1138,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 17:03:00 +0000
-Message-ID: <sample-059@sample.inbox-predator>
+Message-ID: <sample-059@sample.fossil-filter>
 
 Hi Alex, thank you for your interest in the Software Engineering Intern role.=
  After careful review we have decided to move forward with other candidates. =
 We encourage you to apply again.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Indeed <alert@indeed.example>
 Subject: New jobs: python developer in San Jose, CA
 Content-Type: text/plain; charset="utf-8"
@@ -1152,12 +1152,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 21:48:00 +0000
-Message-ID: <sample-060@sample.inbox-predator>
+Message-ID: <sample-060@sample.fossil-filter>
 
 New jobs matching your search 'python developer': Python Developer at Orbitly=
  (Full-time), Backend Engineer at Arcwise. Apply now.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: TA Coordinator <ta-office@example.edu>
 Subject: TA assignment for Spring semester
 Content-Type: text/plain; charset="utf-8"
@@ -1165,12 +1165,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Mon, 09 Nov 2026 23:22:00 +0000
-Message-ID: <sample-061@sample.inbox-predator>
+Message-ID: <sample-061@sample.fossil-filter>
 
 You've been assigned as a teaching assistant for CS 146 (Data Structures) nex=
 t semester. Details about orientation will follow.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prof. Shah <priya@example.edu>
 Subject: Thesis draft feedback - need your response before tomorrow
 Content-Type: text/plain; charset="utf-8"
@@ -1178,7 +1178,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 10 Nov 2026 04:09:00 +0000
-Message-ID: <sample-062@sample.inbox-predator>
+Message-ID: <sample-062@sample.fossil-filter>
 
 Alex,
 
@@ -1188,7 +1188,7 @@ t must be fixed before the committee deadline tomorrow at noon. Can you reply=
 
 - Prof. Shah
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prof. Lee <nina@example.edu>
 Subject: Thesis draft feedback - need your response before tomorrow
 Content-Type: text/plain; charset="utf-8"
@@ -1196,7 +1196,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 10 Nov 2026 06:49:00 +0000
-Message-ID: <sample-063@sample.inbox-predator>
+Message-ID: <sample-063@sample.fossil-filter>
 
 Alex,
 
@@ -1206,7 +1206,7 @@ t must be fixed before the committee deadline tomorrow at noon. Can you reply=
 
 - Prof. Lee
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Coursera <promo@coursera.example>
 Subject: Exclusive offer: 40% off Coursera Plus
 Content-Type: text/plain; charset="utf-8"
@@ -1214,12 +1214,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 10 Nov 2026 09:06:00 +0000
-Message-ID: <sample-064@sample.inbox-predator>
+Message-ID: <sample-064@sample.fossil-filter>
 
 Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
 ARN40. Unsubscribe anytime.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Notion <team@notion.example>
 Subject: Introducing new AI features - try them free
 Content-Type: text/plain; charset="utf-8"
@@ -1227,12 +1227,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 10 Nov 2026 11:04:00 +0000
-Message-ID: <sample-065@sample.inbox-predator>
+Message-ID: <sample-065@sample.fossil-filter>
 
 We've launched new AI features in Notion. Try them free for 30 days. Exclusiv=
 e offer for students.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Northwind Systems Recruiting <recruiting@northwindsystems.example>
 Subject: Unfortunately - your application to Northwind Systems
 Content-Type: text/plain; charset="utf-8"
@@ -1240,13 +1240,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 10 Nov 2026 14:50:00 +0000
-Message-ID: <sample-066@sample.inbox-predator>
+Message-ID: <sample-066@sample.fossil-filter>
 
 Hi Alex, thank you for your interest in the Software Engineering Intern role.=
  After careful review we have decided to move forward with other candidates. =
 We encourage you to apply again.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Notion <team@notion.example>
 Subject: Introducing new AI features - try them free
 Content-Type: text/plain; charset="utf-8"
@@ -1254,12 +1254,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 10 Nov 2026 19:41:00 +0000
-Message-ID: <sample-067@sample.inbox-predator>
+Message-ID: <sample-067@sample.fossil-filter>
 
 We've launched new AI features in Notion. Try them free for 30 days. Exclusiv=
 e offer for students.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Campus Events <events@example.edu>
 Subject: Reminder: career fair this Thursday
 Content-Type: text/plain; charset="iso-8859-1"
@@ -1267,23 +1267,23 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Tue, 10 Nov 2026 21:45:00 +0000
-Message-ID: <sample-068@sample.inbox-predator>
+Message-ID: <sample-068@sample.fossil-filter>
 
 FYI the fall engineering career fair is Thursday in the Student Union. Over 8=
 0 employers attending. No registration needed.
 
 Merci, =E0 bient=F4t.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: Jobs you may be interested in: Principal Data Scientist
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============8571443051576137034=="
+Content-Type: multipart/alternative; boundary="===============7578881277765185487=="
 To: alex.student@example.edu
 Date: Tue, 10 Nov 2026 23:17:00 +0000
-Message-ID: <sample-069@sample.inbox-predator>
+Message-ID: <sample-069@sample.fossil-filter>
 
---===============8571443051576137034==
+--===============7578881277765185487==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -1323,7 +1323,7 @@ View job: https://www.linkedin.com/jobs/view/3914520040
 
 Manage job alerts · Unsubscribe
 
---===============8571443051576137034==
+--===============7578881277765185487==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -1351,9 +1351,9 @@ lls">SQL, Tableau, Excel</p><p class=3D"notes"></p></div><!--/job--><p class=
 =3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corporation<=
 /p></body></html>
 
---===============8571443051576137034==--
+--===============7578881277765185487==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Maria Okafor <daniel@example.edu>
 Subject: Advisor meeting next Tuesday 3pm
 Content-Type: text/plain; charset="utf-8"
@@ -1361,12 +1361,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 11 Nov 2026 02:31:00 +0000
-Message-ID: <sample-070@sample.inbox-predator>
+Message-ID: <sample-070@sample.fossil-filter>
 
 Hi Alex, confirming our 1:1 advisor meeting next Tuesday at 3pm in my office.=
  Bring your updated results. Calendar invite attached.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Arcwise Recruiting <recruiting@arcwise.example>
 Subject: Action required: online assessment expires in 24 hours
 Content-Type: text/plain; charset="utf-8"
@@ -1374,13 +1374,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 11 Nov 2026 07:44:00 +0000
-Message-ID: <sample-071@sample.inbox-predator>
+Message-ID: <sample-071@sample.fossil-filter>
 
 Your HackerRank assessment for the Software Engineer, New Grad position at Ar=
 cwise expires within 24 hours. Complete it before Friday 11:59pm PT. This is =
 your final reminder.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Venmo <venmo@venmo.com>
 Subject: You paid Jordan $24.00
 Content-Type: text/plain; charset="utf-8"
@@ -1388,11 +1388,11 @@ Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 11 Nov 2026 09:35:00 +0000
-Message-ID: <sample-072@sample.inbox-predator>
+Message-ID: <sample-072@sample.fossil-filter>
 
 You paid Jordan Lee $24.00 for dinner. Balance: $310.50.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: The Batch <newsletter@deeplearning.example>
 Subject: The Batch: new open-weight models, weekly recap
 Content-Type: text/plain; charset="utf-8"
@@ -1400,21 +1400,21 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 11 Nov 2026 13:48:00 +0000
-Message-ID: <sample-073@sample.inbox-predator>
+Message-ID: <sample-073@sample.fossil-filter>
 
 This week in AI: new open-weight models, a recap of the latest benchmarks, an=
 d an article on agent evaluation. Read the full newsletter on our site.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: Your job alert for Embedded Software Intern
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============4695572340964015118=="
+Content-Type: multipart/alternative; boundary="===============9088637377165410053=="
 To: alex.student@example.edu
 Date: Wed, 11 Nov 2026 16:33:00 +0000
-Message-ID: <sample-074@sample.inbox-predator>
+Message-ID: <sample-074@sample.fossil-filter>
 
---===============4695572340964015118==
+--===============9088637377165410053==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -1454,7 +1454,7 @@ View job: https://www.linkedin.com/jobs/view/3396232693
 
 Manage job alerts · Unsubscribe
 
---===============4695572340964015118==
+--===============9088637377165410053==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -1482,9 +1482,9 @@ p</p><p class=3D"skills">Selenium, Python</p><p class=3D"notes"></p></div><!-=
 -/job--><p class=3D"footer">Manage job alerts =C2=B7 Unsubscribe =C2=B7 Linke=
 dIn Corporation</p></body></html>
 
---===============4695572340964015118==--
+--===============9088637377165410053==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Campus Events <events@example.edu>
 Subject: Reminder: career fair this Thursday
 Content-Type: text/plain; charset="utf-8"
@@ -1492,21 +1492,21 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Wed, 11 Nov 2026 18:16:00 +0000
-Message-ID: <sample-075@sample.inbox-predator>
+Message-ID: <sample-075@sample.fossil-filter>
 
 FYI the fall engineering career fair is Thursday in the Student Union. Over 8=
 0 employers attending. No registration needed.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: Tessellate is hiring: Data Science Intern
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============7651774952337312604=="
+Content-Type: multipart/alternative; boundary="===============5982723707906250827=="
 To: alex.student@example.edu
 Date: Wed, 11 Nov 2026 20:53:00 +0000
-Message-ID: <sample-076@sample.inbox-predator>
+Message-ID: <sample-076@sample.fossil-filter>
 
---===============7651774952337312604==
+--===============5982723707906250827==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -1546,7 +1546,7 @@ View job: https://www.linkedin.com/jobs/view/3633064117
 
 Manage job alerts · Unsubscribe
 
---===============7651774952337312604==
+--===============5982723707906250827==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -1573,9 +1573,9 @@ p class=3D"location">New York, NY</p><p class=3D"seniority">Entry level</p><p=
 s=3D"notes"></p></div><!--/job--><p class=3D"footer">Manage job alerts =C2=B7=
  Unsubscribe =C2=B7 LinkedIn Corporation</p></body></html>
 
---===============7651774952337312604==--
+--===============5982723707906250827==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Brightpath Talent <talent@brightpath.example>
 Subject: Update on your application - moving to next steps
 Content-Type: text/plain; charset="utf-8"
@@ -1583,13 +1583,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 01:08:00 +0000
-Message-ID: <sample-077@sample.inbox-predator>
+Message-ID: <sample-077@sample.fossil-filter>
 
 Good news! Your application for Backend Software Engineer, New Grad has moved=
  to the next stage. A recruiter will contact you within the next week to sche=
 dule a phone screen.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Coursera <promo@coursera.example>
 Subject: Exclusive offer: 40% off Coursera Plus
 Content-Type: text/plain; charset="utf-8"
@@ -1597,12 +1597,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 03:06:00 +0000
-Message-ID: <sample-078@sample.inbox-predator>
+Message-ID: <sample-078@sample.fossil-filter>
 
 Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
 ARN40. Unsubscribe anytime.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: TechGear <deals@techgear.example>
 Subject: URGENT: 60% off ends TONIGHT
 Content-Type: text/plain; charset="utf-8"
@@ -1610,12 +1610,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 05:16:00 +0000
-Message-ID: <sample-079@sample.inbox-predator>
+Message-ID: <sample-079@sample.fossil-filter>
 
 Last chance! Our biggest sale of the year ends tonight. 60% off headphones an=
 d laptops. Shop now. Unsubscribe here.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Pizza Palace <promo@pizza.example>
 Subject: Free shipping weekend + BOGO deal
 Content-Type: text/plain; charset="utf-8"
@@ -1623,12 +1623,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 10:03:00 +0000
-Message-ID: <sample-080@sample.inbox-predator>
+Message-ID: <sample-080@sample.fossil-filter>
 
 This weekend only: buy one get one free on large pizzas and free delivery. Pr=
 omo code BOGO. Unsubscribe.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Handshake <jobs@handshake.example>
 Subject: 5 new jobs for you this week
 Content-Type: text/plain; charset="utf-8"
@@ -1636,13 +1636,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 12:38:00 +0000
-Message-ID: <sample-081@sample.inbox-predator>
+Message-ID: <sample-081@sample.fossil-filter>
 
 Recommended jobs based on your profile: Data Engineering Intern at Tessellate=
 , ML Research Intern at Quantia, Software Engineer I at Tessellate. Apply now=
  on Handshake.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Fernway Recruiting <recruiting@fernway.example>
 Subject: Unfortunately - your application to Fernway
 Content-Type: text/plain; charset="utf-8"
@@ -1650,13 +1650,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 16:27:00 +0000
-Message-ID: <sample-082@sample.inbox-predator>
+Message-ID: <sample-082@sample.fossil-filter>
 
 Hi Alex, thank you for your interest in the Software Engineering Intern role.=
  After careful review we have decided to move forward with other candidates. =
 We encourage you to apply again.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prof. Shah <maria@example.edu>
 Subject: Comments on your research proposal
 Content-Type: text/plain; charset="utf-8"
@@ -1664,21 +1664,21 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 19:13:00 +0000
-Message-ID: <sample-083@sample.inbox-predator>
+Message-ID: <sample-083@sample.fossil-filter>
 
 Hi Alex, I left comments on your proposal in the shared doc. Overall the dire=
 ction on retrieval models is good. Let's discuss at our next meeting; no rush.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: Your job alert for New Grad Software Engineer, ML Platform
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============0020945154956201329=="
+Content-Type: multipart/alternative; boundary="===============2672457537066686071=="
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 20:43:00 +0000
-Message-ID: <sample-084@sample.inbox-predator>
+Message-ID: <sample-084@sample.fossil-filter>
 
---===============0020945154956201329==
+--===============2672457537066686071==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -1726,7 +1726,7 @@ View job: https://www.linkedin.com/jobs/view/3754827139
 
 Manage job alerts · Unsubscribe
 
---===============0020945154956201329==
+--===============2672457537066686071==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -1758,24 +1758,24 @@ ass=3D"type">Full-time</p><p class=3D"skills">SQL, Tableau, Excel</p><p class=
 =3D"notes"></p></div><!--/job--><p class=3D"footer">Manage job alerts =C2=B7 =
 Unsubscribe =C2=B7 LinkedIn Corporation</p></body></html>
 
---===============0020945154956201329==--
+--===============2672457537066686071==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Payroll <payroll@example.edu>
 Subject: Your W-2 is available
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============3476443821031744370=="
+Content-Type: multipart/mixed; boundary="===============6830140403719904082=="
 To: alex.student@example.edu
 Date: Thu, 12 Nov 2026 23:59:00 +0000
-Message-ID: <sample-085@sample.inbox-predator>
+Message-ID: <sample-085@sample.fossil-filter>
 
---===============3476443821031744370==
+--===============6830140403719904082==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 
 Your 2025 Form W-2 is attached. SSN on file: 123-45-6789.
 
---===============3476443821031744370==
+--===============6830140403719904082==
 Content-Type: application/pdf
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="W-2_2025.pdf"
@@ -1793,9 +1793,9 @@ MDAgbiAKMDAwMDAwMDA1OCAwMDAwMCBuIAowMDAwMDAwMTE1IDAwMDAwIG4gCjAwMDAwMDAyNDEg
 MDAwMDAgbiAKMDAwMDAwMDM0MyAwMDAwMCBuIAp0cmFpbGVyIDw8IC9TaXplIDYgL1Jvb3QgMSAw
 IFIgPj4Kc3RhcnR4cmVmCjQxMwolJUVPRg==
 
---===============3476443821031744370==--
+--===============6830140403719904082==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Fernway Recruiting <recruiting@fernway.example>
 Subject: Action required: online assessment expires in 24 hours
 Content-Type: text/plain; charset="utf-8"
@@ -1803,13 +1803,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 13 Nov 2026 04:09:00 +0000
-Message-ID: <sample-086@sample.inbox-predator>
+Message-ID: <sample-086@sample.fossil-filter>
 
 Your HackerRank assessment for the Software Engineer, New Grad position at Fe=
 rnway expires within 24 hours. Complete it before Friday 11:59pm PT. This is =
 your final reminder.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Medium Daily Digest <noreply@medium.example>
 Subject: Daily digest: 5 stories on system design
 Content-Type: text/plain; charset="utf-8"
@@ -1817,12 +1817,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 13 Nov 2026 07:58:00 +0000
-Message-ID: <sample-087@sample.inbox-predator>
+Message-ID: <sample-087@sample.fossil-filter>
 
 Stories for you: Designing rate limiters, Kafka in practice, and more. Read l=
 ater from your digest.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Coursera <promo@coursera.example>
 Subject: Exclusive offer: 40% off Coursera Plus
 Content-Type: text/plain; charset="utf-8"
@@ -1830,12 +1830,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 13 Nov 2026 09:32:00 +0000
-Message-ID: <sample-088@sample.inbox-predator>
+Message-ID: <sample-088@sample.fossil-filter>
 
 Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
 ARN40. Unsubscribe anytime.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Graduate Admissions <gradoffice@example.edu>
 Subject: Immediate action: OPT/CPT form missing signature
 Content-Type: text/plain; charset="utf-8"
@@ -1843,13 +1843,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 13 Nov 2026 12:38:00 +0000
-Message-ID: <sample-089@sample.inbox-predator>
+Message-ID: <sample-089@sample.fossil-filter>
 
 Your CPT authorization form is missing your advisor signature. Your internshi=
 p start date is at risk. Please upload the signed form immediately; the proce=
 ssing deadline is tomorrow.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Coursera <promo@coursera.example>
 Subject: Exclusive offer: 40% off Coursera Plus
 Content-Type: text/plain; charset="utf-8"
@@ -1857,21 +1857,21 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 13 Nov 2026 16:52:00 +0000
-Message-ID: <sample-090@sample.inbox-predator>
+Message-ID: <sample-090@sample.fossil-filter>
 
 Upskill for less. Get 40% off Coursera Plus for a limited time. Use coupon LE=
 ARN40. Unsubscribe anytime.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>
 Subject: Datacrest is hiring: Software Engineer Intern - Backend
 MIME-Version: 1.0
-Content-Type: multipart/alternative; boundary="===============4215454788311473440=="
+Content-Type: multipart/alternative; boundary="===============0264817037591219789=="
 To: alex.student@example.edu
 Date: Fri, 13 Nov 2026 19:06:00 +0000
-Message-ID: <sample-091@sample.inbox-predator>
+Message-ID: <sample-091@sample.fossil-filter>
 
---===============4215454788311473440==
+--===============0264817037591219789==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
@@ -1919,7 +1919,7 @@ View job: https://www.linkedin.com/jobs/view/3357887167
 
 Manage job alerts · Unsubscribe
 
---===============4215454788311473440==
+--===============0264817037591219789==
 Content-Type: text/html; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
@@ -1952,9 +1952,9 @@ nium, Python</p><p class=3D"notes"></p></div><!--/job--><p class=3D"footer">M=
 anage job alerts =C2=B7 Unsubscribe =C2=B7 LinkedIn Corporation</p></body></h=
 tml>
 
---===============4215454788311473440==--
+--===============0264817037591219789==--
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prof. Okafor <elena@example.edu>
 Subject: Thesis draft feedback - need your response before tomorrow
 Content-Type: text/plain; charset="utf-8"
@@ -1962,7 +1962,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Fri, 13 Nov 2026 20:29:00 +0000
-Message-ID: <sample-092@sample.inbox-predator>
+Message-ID: <sample-092@sample.fossil-filter>
 
 Alex,
 
@@ -1972,7 +1972,7 @@ t must be fixed before the committee deadline tomorrow at noon. Can you reply=
 
 - Prof. Okafor
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Tessellate Careers <no-reply@tessellate.example>
 Subject: Your application for Machine Learning Engineer Intern
 Content-Type: text/plain; charset="utf-8"
@@ -1980,7 +1980,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 14 Nov 2026 01:55:00 +0000
-Message-ID: <sample-093@sample.inbox-predator>
+Message-ID: <sample-093@sample.fossil-filter>
 
 Hi Alex,
 
@@ -1988,7 +1988,7 @@ Thank you for applying to Tessellate. We have received your application for M=
 achine Learning Engineer Intern (Summer 2027). Our team is reviewing candidat=
 es and will reach out with next steps.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Quantia Recruiting <recruiting@quantia.example>
 Subject: Unfortunately - your application to Quantia
 Content-Type: text/plain; charset="utf-8"
@@ -1996,13 +1996,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 14 Nov 2026 03:40:00 +0000
-Message-ID: <sample-094@sample.inbox-predator>
+Message-ID: <sample-094@sample.fossil-filter>
 
 Hi Alex, thank you for your interest in the Software Engineering Intern role.=
  After careful review we have decided to move forward with other candidates. =
 We encourage you to apply again.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Priya Garcia <kenji@example.edu>
 Subject: Advisor meeting next Tuesday 3pm
 Content-Type: text/plain; charset="utf-8"
@@ -2010,12 +2010,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 14 Nov 2026 07:31:00 +0000
-Message-ID: <sample-095@sample.inbox-predator>
+Message-ID: <sample-095@sample.fossil-filter>
 
 Hi Alex, confirming our 1:1 advisor meeting next Tuesday at 3pm in my office.=
  Bring your updated results. Calendar invite attached.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Northwind Systems Careers <no-reply@northwindsystems.example>
 Subject: Your application for Machine Learning Engineer Intern
 Content-Type: text/plain; charset="utf-8"
@@ -2023,7 +2023,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 14 Nov 2026 08:35:00 +0000
-Message-ID: <sample-096@sample.inbox-predator>
+Message-ID: <sample-096@sample.fossil-filter>
 
 Hi Alex,
 
@@ -2031,7 +2031,7 @@ Thank you for applying to Northwind Systems. We have received your applicatio=
 n for Machine Learning Engineer Intern (Summer 2027). Our team is reviewing c=
 andidates and will reach out with next steps.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Health Portal <portal@clinic.example>
 Subject: New lab results in your patient portal
 Content-Type: text/plain; charset="utf-8"
@@ -2039,12 +2039,12 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 14 Nov 2026 12:05:00 +0000
-Message-ID: <sample-097@sample.inbox-predator>
+Message-ID: <sample-097@sample.fossil-filter>
 
 Your recent lab results are available in the patient portal. Log in to view y=
 our test results.
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prof. Lee <nina@example.edu>
 Subject: Thesis draft feedback - need your response before tomorrow
 Content-Type: text/plain; charset="utf-8"
@@ -2052,7 +2052,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 14 Nov 2026 15:32:00 +0000
-Message-ID: <sample-098@sample.inbox-predator>
+Message-ID: <sample-098@sample.fossil-filter>
 
 Alex,
 
@@ -2062,7 +2062,7 @@ t must be fixed before the committee deadline tomorrow at noon. Can you reply=
 
 - Prof. Lee
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Sam Nguyen <elena@gmail.com>
 Subject: Referral for the Orbitly new grad role?
 Content-Type: text/plain; charset="utf-8"
@@ -2070,13 +2070,13 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 14 Nov 2026 17:24:00 +0000
-Message-ID: <sample-099@sample.inbox-predator>
+Message-ID: <sample-099@sample.fossil-filter>
 
 Hey Alex! I saw you're looking at Orbitly. I work on their ML platform team a=
 nd can refer you for the new grad role. Can you send me your resume and the j=
 ob link?
 
-From MAILER-DAEMON Sat Nov 14 18:08:06 2026
+From MAILER-DAEMON Sat Nov 14 21:15:22 2026
 From: Prize Center <winner@prizes.example>
 Subject: Congratulations you have been selected!
 Content-Type: text/plain; charset="utf-8"
@@ -2084,7 +2084,7 @@ Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 To: alex.student@example.edu
 Date: Sat, 14 Nov 2026 22:17:00 +0000
-Message-ID: <sample-100@sample.inbox-predator>
+Message-ID: <sample-100@sample.fossil-filter>
 
 Congratulations you are our lucky winner of a $1000 gift card. Claim your pri=
 ze now with this exclusive offer. Limited time.
