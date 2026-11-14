@@ -103,7 +103,7 @@ class MockDrexClient:
                     probs = me.relevance(state, n, s, self.NOISE)
                     # dealbreakers / non-target roles drag fit down in the mock
                     pen = me.noul(state, "has_dealbreaker", s, 0.0) - me.noul(state, "is_target_role", s, 0.0)
-                    shift = {str(i): p * (1.0 - 0.5 * pen * (i / (n - 1))) for i, p in probs.items()}
+                    shift = {str(i): p * (1.0 - 0.5 * pen * (int(i) / (n - 1))) for i, p in probs.items()}
                     z = sum(shift.values())
                     probs = {k: v / z for k, v in shift.items()}
                 else:

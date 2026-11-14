@@ -40,6 +40,18 @@ Mode: **MOCK CLIENTS (numbers are placeholders, not evidence)** · Drex model: `
 
 ![threshold sweep](threshold_sweep.png)
 
+## Job ranking (LinkedIn alerts -> NDI extract -> score)
+
+NDI: 9 alerts -> 41 jobs, p50 0.90s per alert, est. cost $0.1080.
+
+| System | P@5 | P@10 | NDCG@10 | p50 s / job | gold-matched jobs |
+|---|---|---|---|---|---|
+| Claude-only | 0.60 | 0.60 | 0.748 | 2.49 | 39/39 |
+| Drex | 0.40 | 0.50 | 0.622 | 0.18 | 39/39 |
+| Hybrid | 0.60 | 0.70 | 0.748 | - | 39/39 |
+
+Cost per 1k jobs scored: Drex $0.0875, Claude $2.7342. Hybrid escalated 66%.
+
 ## Notes
 
 - Latency is per-call wall clock including network; throughput is single-stream (1 / mean latency).
