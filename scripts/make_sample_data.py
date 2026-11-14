@@ -17,7 +17,7 @@ import random
 import sys
 from datetime import datetime, timedelta, timezone
 from email.message import EmailMessage
-from email.utils import format_datetime, make_msgid
+from email.utils import format_datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -236,7 +236,7 @@ def main() -> None:
     s_idx, jd_done = 0, False
     for kind in plan:
         i += 1
-        mid = make_msgid(idstring=f"s{i:03d}", domain="sample.inbox-predator")
+        mid = f"<sample-{i:03d}@sample.inbox-predator>"
         if kind == "linkedin":
             msg, meta = linkedin_alert(i, job_gold)
         elif kind == "sensitive":
