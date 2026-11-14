@@ -23,6 +23,9 @@ It runs through Nace's Intern harness."
 - Urgent items are at the top, each with a category chip, Drex's confidence bar and the suggested action.
   Claude summaries appear on the top items only.
 - Switch the profile to `parent` and run again: job emails drop out of the top list. "Same inbox, different person, different priorities."
+- The measured version: "Swapping the generic persona for my own 74-word profile raised accuracy for every model,
+  +7 points for Drex, +8 for Claude and +14 for Qwen, on the same emails and labels. Drex found 13 of my 25
+  important emails instead of 3."
 
 **1:05 to 1:40 — Jobs tab (NDI plus Drex).**
 - NDI splits each LinkedIn alert into jobs and extracts the fields. Open the NDI grounding expander to show where a

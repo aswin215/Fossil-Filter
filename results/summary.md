@@ -2,7 +2,7 @@
 
 Built with Claude Code; **Intern runs inside the product**: every Drex call goes through Intern's `intern.decisions` client (Level A), and the Intern agent row is an Intern session with System 2 = DeepInfra Qwen and System 1 = Drex (Level B).
 
-Mode: **REAL APIs** · data: `private` · Drex model: `drex-latest` · Claude model: `claude-haiku-5-5` · DeepInfra model: `Qwen/Qwen3.8-27B` · profile: `student_jobhunter` · labeled emails: 124 · escalation threshold: 0.7
+Mode: **REAL APIs** · data: `private` · Drex model: `drex-latest` · Claude model: `claude-haiku-5-5` · DeepInfra model: `Qwen/Qwen3.8-27B` · profile: `me` · labeled emails: 124 · escalation threshold: 0.7
 
 > Drex price is a PLACEHOLDER ($0.2/M input tokens). Set `DREX_PRICE_PER_MTOK_INPUT` in .env from the Nace pricing page before quoting cost multiples.
 
@@ -10,24 +10,24 @@ Mode: **REAL APIs** · data: `private` · Drex model: `drex-latest` · Claude mo
 
 | System | Category acc | Category macro-F1 | Urgent recall | Action acc | p50 s | p95 s | emails/s | $ / 1k emails | Escalated |
 |---|---|---|---|---|---|---|---|---|---|
-| Claude-only | 0.589 | 0.557 | 0.400 | 0.315 | 0.98 | 1.73 | 0.92 | 0.3055 | - |
-| DeepInfra Qwen | 0.537 | 0.467 | 0.333 | 0.252 | 10.76 | 40.21 | 0.06 | 1.2502 | - |
-| Drex (Level A) | 0.565 | 0.497 | 0.200 | 0.242 | 0.30 | 0.38 | 3.30 | 0.3729 | - |
-| Hybrid | 0.581 | 0.554 | 0.400 | 0.298 | 1.13 | 1.85 | 1.06 | 0.5193 | 0.60 |
+| Claude-only | 0.669 | 0.665 | 0.500 | 0.355 | 1.39 | 2.05 | 0.73 | 0.2956 | - |
+| DeepInfra Qwen | 0.675 | 0.641 | 0.333 | 0.350 | 6.97 | 25.73 | 0.10 | 1.2398 | - |
+| Drex (Level A) | 0.637 | 0.566 | 0.100 | 0.339 | 0.31 | 0.50 | 3.08 | 0.3565 | - |
+| Hybrid | 0.653 | 0.655 | 0.500 | 0.331 | 1.36 | 2.45 | 0.78 | 0.5270 | 0.70 |
 | Intern agent (Level B) | 0.533 | 0.421 | 0.000 | 0.483 | 5.82 | 5.82 | 0.17 | 0.5207 | - |
 
 | Comparison vs Claude-only | Speedup (p50, x) | Cost multiple (Claude / X) | Category acc delta |
 |---|---|---|---|
-| DeepInfra Qwen | 0.1x | 0.2x | -0.052 |
-| Drex (Level A) | 3.3x | 0.8x | -0.024 |
-| Hybrid | 0.9x | 0.6x | -0.008 |
-| Intern agent (Level B) | 0.2x | 0.6x | -0.055 |
+| DeepInfra Qwen | 0.2x | 0.2x | +0.005 |
+| Drex (Level A) | 4.5x | 0.8x | -0.032 |
+| Hybrid | 1.0x | 0.6x | -0.016 |
+| Intern agent (Level B) | 0.2x | 0.6x | -0.136 |
 
 Intern agent latency and cost are the whole session (wall clock, System 2 + System 1) divided by emails handled, so p50 = p95.
 
 ## Intern inside the product
 
-**Level A: Drex through `intern.decisions.DecisionClient`.** 0 asks answered (0 from Intern's cache, 0 failed attempts), backend `decisions-api:drex-latest`.
+**Level A: Drex through `intern.decisions.DecisionClient`.** 126 asks answered (0 from Intern's cache, 0 failed attempts), backend `decisions-api:drex-latest`.
 
 **Level B: Intern agent session** (real run): System 2 `deepinfra/Qwen/Qwen3.8-27B`, System 1 `drex-latest`. 60/60 emails labeled (100% coverage), 8 turns, 10 tool calls, stop reason `completed`.
 
@@ -42,20 +42,20 @@ Intern agent latency and cost are the whole session (wall clock, System 2 + Syst
 
 | threshold | category acc | action acc | urgent recall | $ / 1k | escalated | p50 s |
 |---|---|---|---|---|---|---|
-| 0.30 | 0.565 | 0.234 | 0.200 | 0.3757 | 0.01 | 0.30 |
-| 0.35 | 0.565 | 0.242 | 0.200 | 0.3847 | 0.05 | 0.30 |
-| 0.40 | 0.556 | 0.250 | 0.200 | 0.4038 | 0.15 | 0.31 |
-| 0.45 | 0.565 | 0.266 | 0.200 | 0.4305 | 0.27 | 0.32 |
-| 0.50 | 0.573 | 0.258 | 0.300 | 0.4426 | 0.32 | 0.33 |
-| 0.55 | 0.573 | 0.258 | 0.300 | 0.4578 | 0.39 | 0.34 |
-| 0.60 | 0.565 | 0.282 | 0.300 | 0.4787 | 0.46 | 0.37 |
-| 0.65 | 0.581 | 0.290 | 0.400 | 0.4965 | 0.52 | 1.03 |
-| 0.70 | 0.581 | 0.298 | 0.400 | 0.5193 | 0.60 | 1.13 |
-| 0.75 | 0.581 | 0.298 | 0.400 | 0.5339 | 0.65 | 1.15 |
-| 0.80 | 0.581 | 0.298 | 0.400 | 0.5379 | 0.68 | 1.15 |
-| 0.85 | 0.589 | 0.306 | 0.400 | 0.5458 | 0.70 | 1.16 |
-| 0.90 | 0.597 | 0.315 | 0.400 | 0.5566 | 0.74 | 1.18 |
-| 0.95 | 0.589 | 0.315 | 0.400 | 0.5800 | 0.81 | 1.20 |
+| 0.30 | 0.637 | 0.331 | 0.100 | 0.3598 | 0.02 | 0.31 |
+| 0.35 | 0.637 | 0.331 | 0.100 | 0.3650 | 0.04 | 0.31 |
+| 0.40 | 0.653 | 0.323 | 0.300 | 0.3917 | 0.14 | 0.31 |
+| 0.45 | 0.653 | 0.323 | 0.300 | 0.4121 | 0.23 | 0.33 |
+| 0.50 | 0.629 | 0.323 | 0.300 | 0.4451 | 0.37 | 0.36 |
+| 0.55 | 0.637 | 0.331 | 0.300 | 0.4661 | 0.47 | 0.50 |
+| 0.60 | 0.645 | 0.331 | 0.400 | 0.4896 | 0.56 | 1.19 |
+| 0.65 | 0.645 | 0.331 | 0.400 | 0.5161 | 0.65 | 1.30 |
+| 0.70 | 0.653 | 0.331 | 0.500 | 0.5270 | 0.70 | 1.36 |
+| 0.75 | 0.653 | 0.355 | 0.500 | 0.5432 | 0.77 | 1.42 |
+| 0.80 | 0.669 | 0.355 | 0.500 | 0.5542 | 0.81 | 1.47 |
+| 0.85 | 0.669 | 0.355 | 0.500 | 0.5542 | 0.81 | 1.47 |
+| 0.90 | 0.669 | 0.355 | 0.500 | 0.5594 | 0.81 | 1.50 |
+| 0.95 | 0.669 | 0.355 | 0.500 | 0.5647 | 0.82 | 1.55 |
 
 ![threshold sweep](threshold_sweep.png)
 
@@ -65,11 +65,11 @@ NDI: 2 alerts -> 2 jobs, p50 5.60s per alert, est. cost $0.0480.
 
 | System | P@5 | P@10 | NDCG@10 | p50 s / job | gold-matched jobs |
 |---|---|---|---|---|---|
-| Claude-only | 0.00 | 0.00 | 1.000 | 2.42 | 2/2 |
-| Drex (Level A) | 0.00 | 0.00 | 1.000 | 0.41 | 2/2 |
-| Hybrid | 0.00 | 0.00 | 1.000 | - | 2/2 |
+| Claude-only | 0.00 | 0.00 | 1.000 | 1.79 | 2/2 |
+| Drex (Level A) | 0.00 | 0.00 | 1.000 | 0.37 | 2/2 |
+| Hybrid | 0.00 | 0.00 | 0.631 | - | 2/2 |
 
-Cost per 1k jobs scored: Drex $0.0932, Claude $0.1414. Hybrid escalated 50%.
+Cost per 1k jobs scored: Drex $0.0768, Claude $0.0872. Hybrid escalated 50%.
 
 ## Sensitive-data guardrail benchmark
 
@@ -77,7 +77,7 @@ Cost per 1k jobs scored: Drex $0.0932, Claude $0.1414. Hybrid escalated 50%.
 
 | Configuration | Recall (sensitive) | False-block rate | Missed by class |
 |---|---|---|---|
-| layer1_only | 0.700 | 0.100 | {'tax_or_government_id': 6, 'medical': 12} |
+| layer1_only | 0.700 | 0.100 | {'medical': 12, 'tax_or_government_id': 6} |
 | drex_only | 1.000 | 0.100 | - |
 | claude_only | 1.000 | 0.000 | - |
 | layer1+drex | 1.000 | 0.200 | - |
